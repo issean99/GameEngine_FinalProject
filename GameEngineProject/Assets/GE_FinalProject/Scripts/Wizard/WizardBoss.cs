@@ -1,0 +1,526 @@
+using System.Collections;
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
+public class WizardBoss : MonoBehaviour
+{
+    [Header("Boss Stats")]
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private float phaseThreshold = 50; // Health threshold for Phase 2
+
+    [Header("Movement Settings")]
+    [SerializeField] private float moveSpeed = 1.5f;
+    [SerializeField] private float detectionRange = 10f;
+    [SerializeField] private float keepDistance = 5f; // Maintain distance from player
+
+    [Header("Attack Settings - Phase 1")]
+    [SerializeField] private float magicMissileInterval = 3f;
+    [SerializeField] private float arcaneBurstInterval = 5f;
+
+    [Header("Attack Settings - Phase 2")]
+    [SerializeField] private float arcaneFanInterval = 4f;
+    [SerializeField] private float arcaneBurstUpgradedInterval = 6f;
+
+    [Header("Projectile Prefabs")]
+    [SerializeField] private GameObject magicMissilePrefab;
+    [SerializeField] private GameObject arcaneBurstPrefab;
+
+    [Header("Visual Settings")]
+    [SerializeField] private float blinkSpeed = 10f;
+
+    [Header("Stagger Settings")]
+    [SerializeField] private float staggerDuration = 0.5f;
+
+    private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    private Transform player;
+
+    private bool isDead = false;
+    private bool isInPhase2 = false;
+    private bool facingRight = true;
+    private bool isPerformingAttack = false;
+    private bool isStaggered = false;
+    private float staggerTimer = 0f;
+
+    // Attack timers
+    private float nextMagicMissileTime;
+    private float nextArcaneBurstTime;
+    private float nextArcaneFanTime;
+    private float nextArcaneBurstUpgradedTime;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        currentHealth = maxHealth;
+
+        // Find player
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+
+        // Initialize attack timers
+        nextMagicMissileTime = Time.time + magicMissileInterval;
+        nextArcaneBurstTime = Time.time + arcaneBurstInterval;
+    }
+
+    private void Update()
+    {
+        if (isDead || player == null) return;
+
+        // Handle stagger state
+        if (isStaggered)
+        {
+            staggerTimer -= Time.deltaTime;
+
+            // Blink effect during stagger
+            float alpha = Mathf.Abs(Mathf.Sin(Time.time * blinkSpeed));
+
+            // Keep Phase 2 red tint during blink
+            if (isInPhase2)
+            {
+                spriteRenderer.color = new Color(1f, 0.6f, 0.6f, alpha);
+            }
+            else
+            {
+                spriteRenderer.color = new Color(1f, 1f, 1f, alpha);
+            }
+
+            if (staggerTimer <= 0)
+            {
+                // End stagger - restore appropriate color
+                isStaggered = false;
+
+                if (isInPhase2)
+                {
+                    spriteRenderer.color = new Color(1f, 0.6f, 0.6f, 1f); // Phase 2 red tint
+                }
+                else
+                {
+                    spriteRenderer.color = new Color(1f, 1f, 1f, 1f); // Normal white
+                }
+            }
+
+            // Stop all actions during stagger
+            StopMoving();
+            return;
+        }
+
+        if (isPerformingAttack) return;
+
+        FacePlayer();
+        HandleMovement();
+        HandleAttackPattern();
+    }
+
+    private void HandleMovement()
+    {
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= detectionRange)
+        {
+            // Maintain distance from player (kiting behavior)
+            if (distanceToPlayer < keepDistance)
+            {
+                // Move away from player
+                Vector2 direction = (transform.position - player.position).normalized;
+                rb.linearVelocity = direction * moveSpeed;
+
+                if (animator != null)
+                {
+                    animator.SetFloat("MoveSpeed", moveSpeed);
+                }
+            }
+            else if (distanceToPlayer > keepDistance + 1f)
+            {
+                // Move towards player
+                Vector2 direction = (player.position - transform.position).normalized;
+                rb.linearVelocity = direction * moveSpeed;
+
+                if (animator != null)
+                {
+                    animator.SetFloat("MoveSpeed", moveSpeed);
+                }
+            }
+            else
+            {
+                // Stay in position
+                StopMoving();
+            }
+        }
+        else
+        {
+            StopMoving();
+        }
+    }
+
+    private void HandleAttackPattern()
+    {
+        if (isInPhase2)
+        {
+            // Phase 2 Attacks
+            if (Time.time >= nextMagicMissileTime)
+            {
+                StartCoroutine(PerformMagicMissile());
+                nextMagicMissileTime = Time.time + magicMissileInterval;
+            }
+            else if (Time.time >= nextArcaneBurstUpgradedTime)
+            {
+                StartCoroutine(PerformArcaneBurstUpgraded());
+                nextArcaneBurstUpgradedTime = Time.time + arcaneBurstUpgradedInterval;
+            }
+        }
+        else
+        {
+            // Phase 1 Attacks
+            if (Time.time >= nextMagicMissileTime)
+            {
+                StartCoroutine(PerformMagicMissile());
+                nextMagicMissileTime = Time.time + magicMissileInterval;
+            }
+            else if (Time.time >= nextArcaneBurstTime)
+            {
+                StartCoroutine(PerformArcaneBurst());
+                nextArcaneBurstTime = Time.time + arcaneBurstInterval;
+            }
+        }
+    }
+
+    private IEnumerator PerformMagicMissile()
+    {
+        isPerformingAttack = true;
+        StopMoving();
+
+        // Trigger attack animation
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+
+        // Wait for animation to start
+        yield return new WaitForSeconds(0.3f);
+
+        if (isInPhase2)
+        {
+            // Phase 2: Shoot 5 missiles in fan pattern (3 times)
+            for (int volley = 0; volley < 3; volley++)
+            {
+                // Shoot 5 projectiles in a fan pattern
+                int projectileCount = 5;
+                float angleStep = 40f / (projectileCount - 1); // 40 degree spread
+                float startAngle = -20f; // Start from -20 degrees
+
+                for (int i = 0; i < projectileCount; i++)
+                {
+                    float angle = startAngle + (angleStep * i);
+                    ShootProjectileAtAngle(magicMissilePrefab, 10f, angle);
+                }
+
+                yield return new WaitForSeconds(0.4f);
+            }
+        }
+        else
+        {
+            // Phase 1: Shoot 2-3 missiles straight
+            int missileCount = Random.Range(2, 4);
+            for (int i = 0; i < missileCount; i++)
+            {
+                ShootProjectile(magicMissilePrefab, 10f);
+                yield return new WaitForSeconds(0.3f);
+            }
+        }
+
+        yield return new WaitForSeconds(0.3f);
+        isPerformingAttack = false;
+    }
+
+    private IEnumerator PerformArcaneBurst()
+    {
+        isPerformingAttack = true;
+        StopMoving();
+
+        // Trigger cast animation
+        if (animator != null)
+        {
+            animator.SetTrigger("Cast");
+        }
+
+        // Wait for casting animation
+        yield return new WaitForSeconds(0.5f);
+
+        // Spawn burst at player's position (not boss position)
+        if (player != null)
+        {
+            GameObject marker = Instantiate(arcaneBurstPrefab, player.position, Quaternion.identity);
+            ArcaneBurstEffect burstEffect = marker.GetComponent<ArcaneBurstEffect>();
+            if (burstEffect != null)
+            {
+                burstEffect.Initialize(1f, 3f, 20); // 1 second delay, 3 units radius, 20 damage
+            }
+        }
+
+        yield return new WaitForSeconds(1.0f);
+        isPerformingAttack = false;
+    }
+
+    private IEnumerator PerformArcaneFan()
+    {
+        isPerformingAttack = true;
+        StopMoving();
+
+        // Trigger attack animation
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+
+        // Wait for animation to start
+        yield return new WaitForSeconds(0.3f);
+
+        // Shoot 2-3 volleys
+        int volleyCount = Random.Range(2, 4);
+        for (int v = 0; v < volleyCount; v++)
+        {
+            // Shoot 5-7 projectiles in a fan pattern
+            int projectileCount = Random.Range(5, 8);
+            float angleStep = 60f / (projectileCount - 1); // 60 degree spread
+            float startAngle = -30f;
+
+            for (int i = 0; i < projectileCount; i++)
+            {
+                float angle = startAngle + (angleStep * i);
+                ShootProjectileAtAngle(magicMissilePrefab, 10f, angle);
+            }
+
+            yield return new WaitForSeconds(0.4f);
+        }
+
+        yield return new WaitForSeconds(0.3f);
+        isPerformingAttack = false;
+    }
+
+    private IEnumerator PerformArcaneBurstUpgraded()
+    {
+        isPerformingAttack = true;
+        StopMoving();
+
+        // Trigger cast animation
+        if (animator != null)
+        {
+            animator.SetTrigger("Cast");
+        }
+
+        // Wait for casting animation
+        yield return new WaitForSeconds(0.5f);
+
+        // Create 4 consecutive bursts near player
+        for (int i = 0; i < 4; i++)
+        {
+            // Spawn burst at player's current position (with slight randomization)
+            Vector2 burstPosition = player.position + (Vector3)Random.insideUnitCircle * 1f;
+            GameObject marker = Instantiate(arcaneBurstPrefab, burstPosition, Quaternion.identity);
+
+            ArcaneBurstEffect burstEffect = marker.GetComponent<ArcaneBurstEffect>();
+            if (burstEffect != null)
+            {
+                burstEffect.Initialize(1f, 2.5f, 25); // 1 second delay, 2.5 units radius, 25 damage
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        yield return new WaitForSeconds(0.3f);
+        isPerformingAttack = false;
+    }
+
+    private void ShootProjectile(GameObject projectilePrefab, float speed)
+    {
+        if (projectilePrefab == null || player == null) return;
+
+        Vector2 direction = (player.position - transform.position).normalized;
+
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        MagicProjectile projScript = projectile.GetComponent<MagicProjectile>();
+
+        if (projScript != null)
+        {
+            projScript.Initialize(direction, speed, 15); // 15 damage
+        }
+    }
+
+    private void ShootProjectileAtAngle(GameObject projectilePrefab, float speed, float angleOffset)
+    {
+        if (projectilePrefab == null || player == null) return;
+
+        // Get base direction to player
+        Vector2 baseDirection = (player.position - transform.position).normalized;
+
+        // Rotate by angle offset
+        float angle = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg + angleOffset;
+        Vector2 direction = new Vector2(
+            Mathf.Cos(angle * Mathf.Deg2Rad),
+            Mathf.Sin(angle * Mathf.Deg2Rad)
+        );
+
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        MagicProjectile projScript = projectile.GetComponent<MagicProjectile>();
+
+        if (projScript != null)
+        {
+            projScript.Initialize(direction, speed, 15); // 15 damage
+        }
+    }
+
+    private void StopMoving()
+    {
+        rb.linearVelocity = Vector2.zero;
+
+        if (animator != null)
+        {
+            animator.SetFloat("MoveSpeed", 0f);
+        }
+    }
+
+    private void FacePlayer()
+    {
+        if (player == null) return;
+
+        if (player.position.x > transform.position.x && !facingRight)
+        {
+            Flip();
+        }
+        else if (player.position.x < transform.position.x && facingRight)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.flipX = !facingRight;
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (isDead) return;
+
+        currentHealth -= damage;
+        Debug.Log($"Wizard Boss took {damage} damage! Current health: {currentHealth}");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            // Enter stagger state
+            isStaggered = true;
+            staggerTimer = staggerDuration;
+
+            // Stop current attack
+            isPerformingAttack = false;
+            StopAllCoroutines();
+
+            // Trigger hurt animation
+            if (animator != null)
+            {
+                animator.SetFloat("MoveSpeed", 0f);
+                animator.ResetTrigger("Attack");
+                animator.ResetTrigger("Cast");
+                animator.SetTrigger("Hurt");
+            }
+
+            // Check for phase transition
+            if (!isInPhase2 && currentHealth <= phaseThreshold)
+            {
+                StartCoroutine(EnterPhase2Delayed());
+            }
+        }
+    }
+
+    private IEnumerator EnterPhase2Delayed()
+    {
+        // Wait for stagger to end before phase transition
+        yield return new WaitForSeconds(staggerDuration);
+        EnterPhase2();
+    }
+
+    // Public method to check if boss is staggered or dead (for contact damage prevention)
+    public bool IsStaggeredOrDead()
+    {
+        return isStaggered || isDead;
+    }
+
+    private void EnterPhase2()
+    {
+        isInPhase2 = true;
+        Debug.Log("Wizard Boss entered Phase 2!");
+
+        // Initialize Phase 2 timers
+        nextArcaneFanTime = Time.time + arcaneFanInterval;
+        nextArcaneBurstUpgradedTime = Time.time + arcaneBurstUpgradedInterval;
+
+        // Increase movement speed in Phase 2
+        moveSpeed *= 1.3f;
+
+        // Change sprite color to red tint (Phase 2 indicator)
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(1f, 0.6f, 0.6f, 1f); // Slightly reddish tint
+        }
+
+        // Optional: Play phase transition animation/effect
+        if (animator != null)
+        {
+            animator.SetTrigger("PhaseTransition");
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Wizard Boss defeated!");
+        isDead = true;
+        currentHealth = 0;
+
+        StopMoving();
+
+        // Disable colliders
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (Collider2D col in colliders)
+        {
+            col.enabled = false;
+        }
+
+        // Trigger death animation
+        if (animator != null)
+        {
+            animator.SetTrigger("Die");
+        }
+
+        // Destroy after animation
+        Destroy(gameObject, 2f);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Detection range (yellow)
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        // Keep distance (cyan)
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, keepDistance);
+    }
+}

@@ -1,0 +1,2927 @@
+fileFormatVersion: 2
+guid: 26286ddcf66fbbd4dbb645e65485f22e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9195535321470470777
+    second: Wizard_fire_0
+  - first:
+      213: 8570779691581508464
+    second: Wizard_fire_1
+  - first:
+      213: -9021496064038829363
+    second: Wizard_fire_2
+  - first:
+      213: -3118538935612187798
+    second: Wizard_fire_3
+  - first:
+      213: 2275117057280990418
+    second: Wizard_fire_4
+  - first:
+      213: 9095757154334412498
+    second: Wizard_fire_5
+  - first:
+      213: -8378716075714192942
+    second: Wizard_fire_6
+  - first:
+      213: 2034317810209724018
+    second: Wizard_fire_7
+  - first:
+      213: -1140134699132147404
+    second: Wizard_fire_8
+  - first:
+      213: -8414858940109421887
+    second: Wizard_fire_9
+  - first:
+      213: -6018589513731804458
+    second: Wizard_fire_10
+  - first:
+      213: -681993202007207938
+    second: Wizard_fire_11
+  - first:
+      213: -2840984389889651517
+    second: Wizard_fire_12
+  - first:
+      213: -305381187897515858
+    second: Wizard_fire_13
+  - first:
+      213: -5403226562036712500
+    second: Wizard_fire_14
+  - first:
+      213: -3986894656451133313
+    second: Wizard_fire_15
+  - first:
+      213: -8914021258519801199
+    second: Wizard_fire_16
+  - first:
+      213: 888266384714151892
+    second: Wizard_fire_17
+  - first:
+      213: -7386854375982260623
+    second: Wizard_fire_18
+  - first:
+      213: 6317481978106274545
+    second: Wizard_fire_19
+  - first:
+      213: -1689934487617829569
+    second: Wizard_fire_20
+  - first:
+      213: -5683338350832362768
+    second: Wizard_fire_21
+  - first:
+      213: 7573450937969280058
+    second: Wizard_fire_22
+  - first:
+      213: 1606183823852481039
+    second: Wizard_fire_23
+  - first:
+      213: -1686189953548209618
+    second: Wizard_fire_24
+  - first:
+      213: -1022783489723978628
+    second: Wizard_fire_25
+  - first:
+      213: 7044380108081625595
+    second: Wizard_fire_26
+  - first:
+      213: 2540814837448566252
+    second: Wizard_fire_27
+  - first:
+      213: -1071751387521851040
+    second: Wizard_fire_28
+  - first:
+      213: 3885901394155057788
+    second: Wizard_fire_29
+  - first:
+      213: -5577166819343821606
+    second: Wizard_fire_30
+  - first:
+      213: -4771643187645899660
+    second: Wizard_fire_31
+  - first:
+      213: 1845842151762992826
+    second: Wizard_fire_32
+  - first:
+      213: -718925726067856895
+    second: Wizard_fire_33
+  - first:
+      213: -4715574937910714300
+    second: Wizard_fire_34
+  - first:
+      213: 6707679642870504547
+    second: Wizard_fire_35
+  - first:
+      213: 7145641806250156808
+    second: Wizard_fire_36
+  - first:
+      213: 1728623751106975363
+    second: Wizard_fire_37
+  - first:
+      213: -4654416190658873853
+    second: Wizard_fire_38
+  - first:
+      213: 7332270870619548220
+    second: Wizard_fire_39
+  - first:
+      213: 8463400770105471392
+    second: Wizard_fire_40
+  - first:
+      213: 7673384889520239708
+    second: Wizard_fire_41
+  - first:
+      213: -4058985772594220536
+    second: Wizard_fire_42
+  - first:
+      213: -2336753326164160163
+    second: Wizard_fire_43
+  - first:
+      213: -560880563338843414
+    second: Wizard_fire_44
+  - first:
+      213: -2029555132746495747
+    second: Wizard_fire_45
+  - first:
+      213: -3791480807149420215
+    second: Wizard_fire_46
+  - first:
+      213: -3116314374596028784
+    second: Wizard_fire_47
+  - first:
+      213: -3631365855876466296
+    second: Wizard_fire_48
+  - first:
+      213: 7798495369953187104
+    second: Wizard_fire_49
+  - first:
+      213: -7737812548017528462
+    second: Wizard_fire_50
+  - first:
+      213: 152679695601930110
+    second: Wizard_fire_51
+  - first:
+      213: 86236806966562130
+    second: Wizard_fire_52
+  - first:
+      213: -3826043894231346209
+    second: Wizard_fire_53
+  - first:
+      213: -1357033849406914253
+    second: Wizard_fire_54
+  - first:
+      213: -5806990802865903000
+    second: Wizard_fire_55
+  - first:
+      213: -2908411415926089556
+    second: Wizard_fire_56
+  - first:
+      213: -3884342475622988146
+    second: Wizard_fire_57
+  - first:
+      213: 8395714300500945111
+    second: Wizard_fire_58
+  - first:
+      213: 8562427781456727517
+    second: Wizard_fire_59
+  - first:
+      213: -1651081845863816013
+    second: Wizard_fire_60
+  - first:
+      213: 2735445773825298074
+    second: Wizard_fire_61
+  - first:
+      213: 6401205850127805688
+    second: Wizard_fire_62
+  - first:
+      213: 7095817565327054706
+    second: Wizard_fire_63
+  - first:
+      213: -5849605031102067737
+    second: Wizard_fire_64
+  - first:
+      213: 4081036754035176309
+    second: Wizard_fire_65
+  - first:
+      213: -157324536941505798
+    second: Wizard_fire_66
+  - first:
+      213: -6254814306060278197
+    second: Wizard_fire_67
+  - first:
+      213: 2711905890542777786
+    second: Wizard_fire_68
+  - first:
+      213: 2081605625483529276
+    second: Wizard_fire_69
+  - first:
+      213: -306024215855818805
+    second: Wizard_fire_70
+  - first:
+      213: -2375241807038301447
+    second: Wizard_fire_71
+  - first:
+      213: 4955744088412497290
+    second: Wizard_fire_72
+  - first:
+      213: 4601369159077197654
+    second: Wizard_fire_73
+  - first:
+      213: 1065188155263073652
+    second: Wizard_fire_74
+  - first:
+      213: -6002204699828268649
+    second: Wizard_fire_75
+  - first:
+      213: -7628382984287785136
+    second: Wizard_fire_76
+  - first:
+      213: 6060797456205597137
+    second: Wizard_fire_77
+  - first:
+      213: -7105637772421437076
+    second: Wizard_fire_78
+  - first:
+      213: 4781327623382953278
+    second: Wizard_fire_79
+  - first:
+      213: -246120272178594079
+    second: Wizard_fire_80
+  - first:
+      213: 264412174283700966
+    second: Wizard_fire_81
+  - first:
+      213: -2714929484543477728
+    second: Wizard_fire_82
+  - first:
+      213: 7720871425803595980
+    second: Wizard_fire_83
+  - first:
+      213: -1093453953019526147
+    second: Wizard_fire_84
+  - first:
+      213: -6844690571286056088
+    second: Wizard_fire_85
+  - first:
+      213: 1729640966793120132
+    second: Wizard_fire_86
+  - first:
+      213: 2016108769472288233
+    second: Wizard_fire_87
+  - first:
+      213: -3110324081584130954
+    second: Wizard_fire_88
+  - first:
+      213: -8577882052269499218
+    second: Wizard_fire_89
+  - first:
+      213: -7022162543419252556
+    second: Wizard_fire_90
+  - first:
+      213: -3976053286676065152
+    second: Wizard_fire_91
+  - first:
+      213: -566215927823776990
+    second: Wizard_fire_92
+  - first:
+      213: -5381115614331764892
+    second: Wizard_fire_93
+  - first:
+      213: 8561552173241486123
+    second: Wizard_fire_94
+  - first:
+      213: -1720383806288310561
+    second: Wizard_fire_95
+  - first:
+      213: 776860182775737453
+    second: Wizard_fire_96
+  - first:
+      213: 7189251477667780534
+    second: Wizard_fire_97
+  - first:
+      213: 9004129955274531290
+    second: Wizard_fire_98
+  - first:
+      213: -6484715899015290940
+    second: Wizard_fire_99
+  - first:
+      213: 4260710505563830800
+    second: Wizard_fire_100
+  - first:
+      213: -333194949626110570
+    second: Wizard_fire_101
+  - first:
+      213: -751294228524459952
+    second: Wizard_fire_102
+  - first:
+      213: 1021278798969444751
+    second: Wizard_fire_103
+  - first:
+      213: 6756096160059552006
+    second: Wizard_fire_104
+  - first:
+      213: 619768784673928611
+    second: Wizard_fire_105
+  - first:
+      213: -1951125600604782208
+    second: Wizard_fire_106
+  - first:
+      213: 1972658458597083523
+    second: Wizard_fire_107
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wizard_fire_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 940
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785f13c5855e26080800000000000000
+      internalID: -9195535321470470777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 940
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b09d438b681f670800000000000000
+      internalID: 8570779691581508464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_2
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 940
+        width: 18
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc28160b0253dc280800000000000000
+      internalID: -9021496064038829363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_3
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 940
+        width: 18
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6b5c9c5c59b8b4d0800000000000000
+      internalID: -3118538935612187798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_4
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 940
+        width: 18
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc5aa5d8e6d29f10800000000000000
+      internalID: 2275117057280990418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_5
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 940
+        width: 18
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de0253c0fe9a3e70800000000000000
+      internalID: 9095757154334412498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_6
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 840
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d953391f12d8bb80800000000000000
+      internalID: -8378716075714192942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_7
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 840
+        width: 17
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2761dc525495b3c10800000000000000
+      internalID: 2034317810209724018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_8
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 840
+        width: 18
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 439a126288d6d20f0800000000000000
+      internalID: -1140134699132147404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_9
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 840
+        width: 18
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c202c7b06a683b80800000000000000
+      internalID: -8414858940109421887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_10
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 840
+        width: 18
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d2ff11a9bca97ca0800000000000000
+      internalID: -6018589513731804458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_11
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 840
+        width: 18
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eff012fcbc21986f0800000000000000
+      internalID: -681993202007207938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_12
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 840
+        width: 18
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc8234efbbc298d0800000000000000
+      internalID: -2840984389889651517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_13
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 840
+        width: 18
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea028467d6113cbf0800000000000000
+      internalID: -305381187897515858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_14
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 740
+        width: 23
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccbb8d0c112e305b0800000000000000
+      internalID: -5403226562036712500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_15
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 766
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70c355fe64bba8c0800000000000000
+      internalID: -3986894656451133313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_16
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 762
+        width: 17
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19295a5d4e80b4480800000000000000
+      internalID: -8914021258519801199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_17
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 752
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d7bec61291c35c00800000000000000
+      internalID: 888266384714151892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_18
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 752
+        width: 17
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e9900151f9c7990800000000000000
+      internalID: -7386854375982260623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_19
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 734
+        width: 46
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f2e4fb33643ca750800000000000000
+      internalID: 6317481978106274545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_20
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 734
+        width: 46
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f358bd389852c88e0800000000000000
+      internalID: -1689934487617829569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_21
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 734
+        width: 47
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fa584ca1e9b021b0800000000000000
+      internalID: -5683338350832362768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_22
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 735
+        width: 27
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a340281908d4a1960800000000000000
+      internalID: 7573450937969280058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_23
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 735
+        width: 27
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0aa4b88daf4a4610800000000000000
+      internalID: 1606183823852481039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_24
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 751
+        width: 19
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e223deacb237998e0800000000000000
+      internalID: -1686189953548209618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_25
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 740
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7c2ed4c5d75ec1f0800000000000000
+      internalID: -1022783489723978628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_26
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 740
+        width: 18
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf97805b26aa2c160800000000000000
+      internalID: 7044380108081625595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_27
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 740
+        width: 19
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce5e92202a9c24320800000000000000
+      internalID: 2540814837448566252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_28
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 740
+        width: 20
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0616a3b9acf5021f0800000000000000
+      internalID: -1071751387521851040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_29
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 740
+        width: 22
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c72bec6cabe7de530800000000000000
+      internalID: 3885901394155057788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_30
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 731
+        width: 13
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad49aefa35ce992b0800000000000000
+      internalID: -5577166819343821606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_31
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 740
+        width: 28
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c14755dc7b7cdb0800000000000000
+      internalID: -4771643187645899660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_32
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 737
+        width: 14
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe964748afbd9910800000000000000
+      internalID: 1845842151762992826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_33
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 726
+        width: 6
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10ae5d57cdcd506f0800000000000000
+      internalID: -718925726067856895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_34
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 736
+        width: 14
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440e8120499ee8eb0800000000000000
+      internalID: -4715574937910714300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_35
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 733
+        width: 46
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c5a6ca817761d50800000000000000
+      internalID: 6707679642870504547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_36
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 733
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803a8b11d5b6a2360800000000000000
+      internalID: 7145641806250156808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_37
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 740
+        width: 20
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386d80b942e4df710800000000000000
+      internalID: 1728623751106975363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_38
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 740
+        width: 20
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30673fe7221386fb0800000000000000
+      internalID: -4654416190658873853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_39
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 740
+        width: 20
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ae830428571c560800000000000000
+      internalID: 7332270870619548220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_40
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 733
+        width: 14
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a177edc82a047570800000000000000
+      internalID: 8463400770105471392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_41
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 713
+        width: 6
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5434b4d6e65d7a60800000000000000
+      internalID: 7673384889520239708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_42
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 726
+        width: 14
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 802382cf1f59ba7c0800000000000000
+      internalID: -4058985772594220536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_43
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 640
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51d5420b3f229fd0800000000000000
+      internalID: -2336753326164160163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_44
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 640
+        width: 18
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea64cc691a5738f0800000000000000
+      internalID: -560880563338843414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_45
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 640
+        width: 19
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8039c1c5295d3e0800000000000000
+      internalID: -2029555132746495747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_46
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 640
+        width: 20
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 941c5254b44f16bc0800000000000000
+      internalID: -3791480807149420215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_47
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 640
+        width: 22
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09692c55690a0c4d0800000000000000
+      internalID: -3116314374596028784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_48
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 640
+        width: 20
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 889300f6efbca9dc0800000000000000
+      internalID: -3631365855876466296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_49
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 562
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02596948832d93c60800000000000000
+      internalID: 7798495369953187104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_50
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 566
+        width: 8
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 271ead8fb74cd9490800000000000000
+      internalID: -7737812548017528462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_51
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 562
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f84cccf5d6e1200800000000000000
+      internalID: 152679695601930110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_52
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 552
+        width: 8
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d4ec54bef523100800000000000000
+      internalID: 86236806966562130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_53
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 552
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3d945795927eac0800000000000000
+      internalID: -3826043894231346209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_54
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 534
+        width: 26
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3318be167e8da2de0800000000000000
+      internalID: -1357033849406914253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_55
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 534
+        width: 28
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86aa73da1ac696fa0800000000000000
+      internalID: -5806990802865903000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_56
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 534
+        width: 27
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca8d8050a3f33a7d0800000000000000
+      internalID: -2908411415926089556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_57
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 535
+        width: 26
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e86c78a391b081ac0800000000000000
+      internalID: -3884342475622988146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_58
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 535
+        width: 26
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d8a6058ca1938470800000000000000
+      internalID: 8395714300500945111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_59
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 551
+        width: 18
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd0aa893bad3d670800000000000000
+      internalID: 8562427781456727517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_60
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 551
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4e03a1fcd2619e0800000000000000
+      internalID: -1651081845863816013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_61
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 533
+        width: 26
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e4333307146f520800000000000000
+      internalID: 2735445773825298074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_62
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 533
+        width: 28
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc250f3ec6a5d850800000000000000
+      internalID: 6401205850127805688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_63
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 533
+        width: 14
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277db4cfa78697260800000000000000
+      internalID: 7095817565327054706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_64
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 528
+        width: 13
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ebc2dc773702dea0800000000000000
+      internalID: -5849605031102067737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_65
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 537
+        width: 13
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57374973e41c2a830800000000000000
+      internalID: 4081036754035176309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_66
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 526
+        width: 5
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af2162dca2211ddf0800000000000000
+      internalID: -157324536941505798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_67
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 536
+        width: 13
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b46ee3f278f6239a0800000000000000
+      internalID: -6254814306060278197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_68
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 513
+        width: 5
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab577160a00a2a520800000000000000
+      internalID: 2711905890542777786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_69
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 526
+        width: 13
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3c866d994953ec10800000000000000
+      internalID: 2081605625483529276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_70
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 440
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc71f39d898c0cbf0800000000000000
+      internalID: -306024215855818805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_71
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 440
+        width: 18
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fa33db3922790fd0800000000000000
+      internalID: -2375241807038301447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_72
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 440
+        width: 18
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85a193edf656c440800000000000000
+      internalID: 4955744088412497290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_73
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 440
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 657fb3ffed85bdf30800000000000000
+      internalID: 4601369159077197654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_74
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 440
+        width: 30
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47db86dcbfe48ce00800000000000000
+      internalID: 1065188155263073652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_75
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 440
+        width: 42
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7915e8560a2e3bca0800000000000000
+      internalID: -6002204699828268649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_76
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 440
+        width: 47
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05f64eab71a822690800000000000000
+      internalID: -7628382984287785136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_77
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 440
+        width: 19
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9c9b8cc274c1450800000000000000
+      internalID: 6060797456205597137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_78
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 441
+        width: 25
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c69e830e714b36d90800000000000000
+      internalID: -7105637772421437076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_79
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 440
+        width: 18
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3de0821420ba5240800000000000000
+      internalID: 4781327623382953278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_80
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 441
+        width: 22
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eeb5cc9aea959cf0800000000000000
+      internalID: -246120272178594079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_81
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 440
+        width: 18
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eaf77ab8716ba300800000000000000
+      internalID: 264412174283700966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_82
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 442
+        width: 16
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0283d83a402a25ad0800000000000000
+      internalID: -2714929484543477728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_83
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 440
+        width: 19
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0bc73a7ab062b60800000000000000
+      internalID: 7720871425803595980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_84
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 439
+        width: 20
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df346005c6543d0f0800000000000000
+      internalID: -1093453953019526147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_85
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 440
+        width: 19
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863770da036c201a0800000000000000
+      internalID: -6844690571286056088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_86
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 437
+        width: 24
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 489caa69b4be00810800000000000000
+      internalID: 1729640966793120132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_87
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 341
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e512f87e38aafb10800000000000000
+      internalID: 2016108769472288233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_88
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 340
+        width: 18
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 674b5dc1ab8e5d4d0800000000000000
+      internalID: -3110324081584130954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_89
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 340
+        width: 18
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac174598bd35f880800000000000000
+      internalID: -8577882052269499218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_90
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 340
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0217c2f544c8e90800000000000000
+      internalID: -7022162543419252556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_91
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 340
+        width: 30
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08416af0a9832d8c0800000000000000
+      internalID: -3976053286676065152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_92
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 340
+        width: 30
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22345e31d956428f0800000000000000
+      internalID: -566215927823776990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_93
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 242
+        width: 22
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46f7270fbdf6255b0800000000000000
+      internalID: -5381115614331764892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_94
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 242
+        width: 20
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b480c275eb0d670800000000000000
+      internalID: 8561552173241486123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_95
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 241
+        width: 24
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdec9dc0b08ff18e0800000000000000
+      internalID: -1720383806288310561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_96
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 241
+        width: 21
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6c2e726836f7ca00800000000000000
+      internalID: 776860182775737453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_97
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 242
+        width: 14
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b7175fe02a55c360800000000000000
+      internalID: 7189251477667780534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_98
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 239
+        width: 20
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad1a7970d7815fc70800000000000000
+      internalID: 9004129955274531290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_99
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 237
+        width: 23
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf9dd15f39a106a0800000000000000
+      internalID: -6484715899015290940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_100
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 140
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a38ee61a5112b30800000000000000
+      internalID: 4260710505563830800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_101
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 140
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69dd49a65f0406bf0800000000000000
+      internalID: -333194949626110570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_102
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 140
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0589ff231edd295f0800000000000000
+      internalID: -751294228524459952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_103
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 140
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f89163d18af4c2e00800000000000000
+      internalID: 1021278798969444751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_104
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 40
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 601fab889a972cd50800000000000000
+      internalID: 6756096160059552006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_105
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 40
+        width: 17
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a57d5d0d6cd99800800000000000000
+      internalID: 619768784673928611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_106
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 40
+        width: 22
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08108cf8a953ce4e0800000000000000
+      internalID: -1951125600604782208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wizard_fire_107
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 40
+        width: 32
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38949df9a6a406b10800000000000000
+      internalID: 1972658458597083523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2fd53c9d823ccc14aa765c9ebd6781a7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Wizard_fire_0: -9195535321470470777
+      Wizard_fire_1: 8570779691581508464
+      Wizard_fire_10: -6018589513731804458
+      Wizard_fire_100: 4260710505563830800
+      Wizard_fire_101: -333194949626110570
+      Wizard_fire_102: -751294228524459952
+      Wizard_fire_103: 1021278798969444751
+      Wizard_fire_104: 6756096160059552006
+      Wizard_fire_105: 619768784673928611
+      Wizard_fire_106: -1951125600604782208
+      Wizard_fire_107: 1972658458597083523
+      Wizard_fire_11: -681993202007207938
+      Wizard_fire_12: -2840984389889651517
+      Wizard_fire_13: -305381187897515858
+      Wizard_fire_14: -5403226562036712500
+      Wizard_fire_15: -3986894656451133313
+      Wizard_fire_16: -8914021258519801199
+      Wizard_fire_17: 888266384714151892
+      Wizard_fire_18: -7386854375982260623
+      Wizard_fire_19: 6317481978106274545
+      Wizard_fire_2: -9021496064038829363
+      Wizard_fire_20: -1689934487617829569
+      Wizard_fire_21: -5683338350832362768
+      Wizard_fire_22: 7573450937969280058
+      Wizard_fire_23: 1606183823852481039
+      Wizard_fire_24: -1686189953548209618
+      Wizard_fire_25: -1022783489723978628
+      Wizard_fire_26: 7044380108081625595
+      Wizard_fire_27: 2540814837448566252
+      Wizard_fire_28: -1071751387521851040
+      Wizard_fire_29: 3885901394155057788
+      Wizard_fire_3: -3118538935612187798
+      Wizard_fire_30: -5577166819343821606
+      Wizard_fire_31: -4771643187645899660
+      Wizard_fire_32: 1845842151762992826
+      Wizard_fire_33: -718925726067856895
+      Wizard_fire_34: -4715574937910714300
+      Wizard_fire_35: 6707679642870504547
+      Wizard_fire_36: 7145641806250156808
+      Wizard_fire_37: 1728623751106975363
+      Wizard_fire_38: -4654416190658873853
+      Wizard_fire_39: 7332270870619548220
+      Wizard_fire_4: 2275117057280990418
+      Wizard_fire_40: 8463400770105471392
+      Wizard_fire_41: 7673384889520239708
+      Wizard_fire_42: -4058985772594220536
+      Wizard_fire_43: -2336753326164160163
+      Wizard_fire_44: -560880563338843414
+      Wizard_fire_45: -2029555132746495747
+      Wizard_fire_46: -3791480807149420215
+      Wizard_fire_47: -3116314374596028784
+      Wizard_fire_48: -3631365855876466296
+      Wizard_fire_49: 7798495369953187104
+      Wizard_fire_5: 9095757154334412498
+      Wizard_fire_50: -7737812548017528462
+      Wizard_fire_51: 152679695601930110
+      Wizard_fire_52: 86236806966562130
+      Wizard_fire_53: -3826043894231346209
+      Wizard_fire_54: -1357033849406914253
+      Wizard_fire_55: -5806990802865903000
+      Wizard_fire_56: -2908411415926089556
+      Wizard_fire_57: -3884342475622988146
+      Wizard_fire_58: 8395714300500945111
+      Wizard_fire_59: 8562427781456727517
+      Wizard_fire_6: -8378716075714192942
+      Wizard_fire_60: -1651081845863816013
+      Wizard_fire_61: 2735445773825298074
+      Wizard_fire_62: 6401205850127805688
+      Wizard_fire_63: 7095817565327054706
+      Wizard_fire_64: -5849605031102067737
+      Wizard_fire_65: 4081036754035176309
+      Wizard_fire_66: -157324536941505798
+      Wizard_fire_67: -6254814306060278197
+      Wizard_fire_68: 2711905890542777786
+      Wizard_fire_69: 2081605625483529276
+      Wizard_fire_7: 2034317810209724018
+      Wizard_fire_70: -306024215855818805
+      Wizard_fire_71: -2375241807038301447
+      Wizard_fire_72: 4955744088412497290
+      Wizard_fire_73: 4601369159077197654
+      Wizard_fire_74: 1065188155263073652
+      Wizard_fire_75: -6002204699828268649
+      Wizard_fire_76: -7628382984287785136
+      Wizard_fire_77: 6060797456205597137
+      Wizard_fire_78: -7105637772421437076
+      Wizard_fire_79: 4781327623382953278
+      Wizard_fire_8: -1140134699132147404
+      Wizard_fire_80: -246120272178594079
+      Wizard_fire_81: 264412174283700966
+      Wizard_fire_82: -2714929484543477728
+      Wizard_fire_83: 7720871425803595980
+      Wizard_fire_84: -1093453953019526147
+      Wizard_fire_85: -6844690571286056088
+      Wizard_fire_86: 1729640966793120132
+      Wizard_fire_87: 2016108769472288233
+      Wizard_fire_88: -3110324081584130954
+      Wizard_fire_89: -8577882052269499218
+      Wizard_fire_9: -8414858940109421887
+      Wizard_fire_90: -7022162543419252556
+      Wizard_fire_91: -3976053286676065152
+      Wizard_fire_92: -566215927823776990
+      Wizard_fire_93: -5381115614331764892
+      Wizard_fire_94: 8561552173241486123
+      Wizard_fire_95: -1720383806288310561
+      Wizard_fire_96: 776860182775737453
+      Wizard_fire_97: 7189251477667780534
+      Wizard_fire_98: 9004129955274531290
+      Wizard_fire_99: -6484715899015290940
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

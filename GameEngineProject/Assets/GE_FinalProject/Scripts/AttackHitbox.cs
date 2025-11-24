@@ -61,11 +61,20 @@ public class AttackHitbox : MonoBehaviour
 
         Debug.Log("Hit Enemy: " + other.name);
 
-        // 적에게 데미지 전달
+        // 일반 적에게 데미지 전달
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
             enemy.TakeDamage(attackDamage);
+            return;
+        }
+
+        // 보스에게 데미지 전달
+        WizardBoss boss = other.GetComponent<WizardBoss>();
+        if (boss != null)
+        {
+            boss.TakeDamage(attackDamage);
+            return;
         }
     }
 }
