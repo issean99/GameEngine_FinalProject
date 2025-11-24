@@ -168,12 +168,14 @@ public class PlayerController : MonoBehaviour
 
     private void HandleSpriteFlip()
     {
-        // Only flip based on horizontal movement
-        if (moveInput.x > 0 && !facingRight)
+        // Flip based on mouse position relative to player
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouse.position.ReadValue());
+
+        if (mouseWorldPos.x > transform.position.x && !facingRight)
         {
             Flip();
         }
-        else if (moveInput.x < 0 && facingRight)
+        else if (mouseWorldPos.x < transform.position.x && facingRight)
         {
             Flip();
         }
