@@ -31,7 +31,7 @@ public class BossAttackHitbox : MonoBehaviour
         filter.SetLayerMask(Physics2D.AllLayers);
 
         List<Collider2D> results = new List<Collider2D>();
-        myCollider.OverlapCollider(filter, results);
+        myCollider.Overlap(filter, results);
 
         foreach (Collider2D other in results)
         {
