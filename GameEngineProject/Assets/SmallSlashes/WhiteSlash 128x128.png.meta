@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: c37e655cddfd8ef4b94dfa00898661f4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4393530744062152992
+    second: WhiteSlash 128x128_0
+  - first:
+      213: 3941858045207538716
+    second: WhiteSlash 128x128_1
+  - first:
+      213: -4694897449066010259
+    second: WhiteSlash 128x128_2
+  - first:
+      213: 137983521618216686
+    second: WhiteSlash 128x128_3
+  - first:
+      213: -7580057140411635934
+    second: WhiteSlash 128x128_4
+  - first:
+      213: -3556900277327093483
+    second: WhiteSlash 128x128_5
+  - first:
+      213: -8729837940805752584
+    second: WhiteSlash 128x128_6
+  - first:
+      213: -1522191398138595851
+    second: WhiteSlash 128x128_7
+  - first:
+      213: -8940103217344503681
+    second: WhiteSlash 128x128_8
+  - first:
+      213: 2978531480957490758
+    second: WhiteSlash 128x128_9
+  - first:
+      213: -774609406681205038
+    second: WhiteSlash 128x128_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 232
+        width: 59
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 021159d0fe4f8fc30800000000000000
+      internalID: 4393530744062152992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_1
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 197
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c6c9bd10b44b630800000000000000
+      internalID: 3941858045207538716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_2
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 0
+        width: 197
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69688b05af58deb0800000000000000
+      internalID: -4694897449066010259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_3
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1
+        width: 124
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee649e628473ae100800000000000000
+      internalID: 137983521618216686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_4
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 240
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 227e990113a3ec690800000000000000
+      internalID: -7580057140411635934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_5
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 234
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5112e640b0a53aec0800000000000000
+      internalID: -3556900277327093483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_6
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 223
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f8ab8f35a269d680800000000000000
+      internalID: -8729837940805752584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_7
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 191
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f53bc10df610eae0800000000000000
+      internalID: -1522191398138595851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_8
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 182
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70aad29d7f5ee380800000000000000
+      internalID: -8940103217344503681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_9
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 0
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6461acad99ed55920800000000000000
+      internalID: 2978531480957490758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteSlash 128x128_10
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 57
+        width: 24
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6371349d80045f0800000000000000
+      internalID: -774609406681205038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      WhiteSlash 128x128_0: 4393530744062152992
+      WhiteSlash 128x128_1: 3941858045207538716
+      WhiteSlash 128x128_10: -774609406681205038
+      WhiteSlash 128x128_2: -4694897449066010259
+      WhiteSlash 128x128_3: 137983521618216686
+      WhiteSlash 128x128_4: -7580057140411635934
+      WhiteSlash 128x128_5: -3556900277327093483
+      WhiteSlash 128x128_6: -8729837940805752584
+      WhiteSlash 128x128_7: -1522191398138595851
+      WhiteSlash 128x128_8: -8940103217344503681
+      WhiteSlash 128x128_9: 2978531480957490758
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

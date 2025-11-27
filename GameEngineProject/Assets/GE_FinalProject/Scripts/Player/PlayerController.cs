@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Attack Settings")]
     [SerializeField] private float attackCooldown = 0.5f;
-    [SerializeField] private GameObject attackHitbox;
+    [SerializeField] private GameObject slashEffectPrefab; // WhiteSlash 프리팹
 
     [Header("Player Stats")]
     [SerializeField] private int maxHealth = 100;
@@ -191,14 +191,6 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = !facingRight;
         }
-
-        // Flip the attack hitbox position
-        if (attackHitbox != null)
-        {
-            Vector3 hitboxPos = attackHitbox.transform.localPosition;
-            hitboxPos.x = -hitboxPos.x; // Flip X position
-            attackHitbox.transform.localPosition = hitboxPos;
-        }
     }
 
     private void TryAttack()
@@ -220,19 +212,44 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("Attack");
         }
+
+        // Spawn slash effect at mouse direction
+        SpawnSlashEffect();
     }
 
-    // Animation Event functions - called from PlayerAttack animation
+    private void SpawnSlashEffect()
+    {
+        if (slashEffectPrefab == null)
+        {
+            Debug.LogWarning("Slash Effect Prefab is not assigned!");
+            return;
+        }
+
+        // Get mouse world position
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouse.position.ReadValue());
+        mouseWorldPos.z = 0; // 2D 게임이므로 z를 0으로 설정
+
+        // Instantiate slash effect
+        GameObject slashObj = Instantiate(slashEffectPrefab);
+
+        // Initialize slash with player position and mouse position
+        SlashEffect slashEffect = slashObj.GetComponent<SlashEffect>();
+        if (slashEffect != null)
+        {
+            slashEffect.Initialize(transform.position, mouseWorldPos);
+        }
+    }
+
+    // Animation Event functions - 더 이상 사용하지 않음 (SlashEffect로 대체)
+    // 애니메이션에 이벤트가 남아있으면 에러 방지를 위해 빈 함수 유지
     public void ActivateHitbox()
     {
-        if (attackHitbox != null)
-            attackHitbox.SetActive(true);
+        // SlashEffect로 대체됨
     }
 
     public void DeactivateHitbox()
     {
-        if (attackHitbox != null)
-            attackHitbox.SetActive(false);
+        // SlashEffect로 대체됨
     }
 
     // Track when enemies enter/exit collision with player's hurtbox only
