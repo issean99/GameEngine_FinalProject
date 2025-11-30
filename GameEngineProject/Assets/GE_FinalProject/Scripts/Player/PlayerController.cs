@@ -21,10 +21,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float invincibilityDuration = 1f;
     [SerializeField] private float blinkSpeed = 10f;
 
+    [Header("Stun Settings")]
+    [SerializeField] private Color stunColor = new Color(0.5f, 0.5f, 1f, 1f); // Bluish tint when stunned
+
     private Vector2 moveInput;
     private float invincibilityTimer = 0f;
     private bool isSprinting;
     private float lastAttackTime;
+    private bool isStunned = false;
+    private float stunTimer = 0f;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -62,6 +67,26 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        // Update stun timer
+        if (isStunned)
+        {
+            stunTimer -= Time.deltaTime;
+
+            if (stunTimer <= 0f)
+            {
+                // End stun
+                isStunned = false;
+                spriteRenderer.color = Color.white; // Reset color
+                Debug.Log("Player stun ended");
+            }
+            else
+            {
+                // Visual effect during stun (apply stun color)
+                spriteRenderer.color = stunColor;
+                return; // Don't process input while stunned
+            }
+        }
+
         // Update invincibility timer and blink effect
         if (invincibilityTimer > 0)
         {
@@ -86,8 +111,25 @@ public class PlayerController : MonoBehaviour
         {
             if (enemyCollider != null)
             {
+                // 일반 적 체크
                 Enemy enemy = enemyCollider.GetComponent<Enemy>();
                 if (enemy != null && !enemy.IsStaggeredOrDead())
+                {
+                    TakeDamage(10);
+                    break; // 한 번만 대미지 받음
+                }
+
+                // Wizard 보스 체크
+                WizardBoss wizardBoss = enemyCollider.GetComponent<WizardBoss>();
+                if (wizardBoss != null && !wizardBoss.IsStaggeredOrDead())
+                {
+                    TakeDamage(10);
+                    break; // 한 번만 대미지 받음
+                }
+
+                // Final 보스 체크
+                FinalBoss finalBoss = enemyCollider.GetComponent<FinalBoss>();
+                if (finalBoss != null && !finalBoss.IsStaggeredOrDead())
                 {
                     TakeDamage(10);
                     break; // 한 번만 대미지 받음
@@ -100,6 +142,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Don't move while stunned
+        if (isStunned)
+        {
+            rb.linearVelocity = Vector2.zero;
+            animator.SetFloat("MoveSpeed", 0f);
+            return;
+        }
+
         HandleMovement();
     }
 
@@ -328,6 +378,20 @@ public class PlayerController : MonoBehaviour
     //         UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
     //     );
     // }
+
+    // Public method to apply stun effect
+    public void ApplyStun(float duration)
+    {
+        if (duration <= 0f) return;
+
+        isStunned = true;
+        stunTimer = duration;
+
+        // Stop movement immediately
+        rb.linearVelocity = Vector2.zero;
+
+        Debug.Log($"Player stunned for {duration} seconds!");
+    }
 
     // Optional: Visualize movement in editor
     private void OnDrawGizmos()

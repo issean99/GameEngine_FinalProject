@@ -1,0 +1,1497 @@
+fileFormatVersion: 2
+guid: de1e2168d7a920541b9b43999fa73d1e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4570333650435736826
+    second: PurpleKnight_ZombieHorse_0
+  - first:
+      213: 7300726882205074649
+    second: PurpleKnight_ZombieHorse_1
+  - first:
+      213: -521355509288797292
+    second: PurpleKnight_ZombieHorse_2
+  - first:
+      213: -2306745263998493638
+    second: PurpleKnight_ZombieHorse_3
+  - first:
+      213: 945248452819736449
+    second: PurpleKnight_ZombieHorse_4
+  - first:
+      213: -6954577535291064448
+    second: PurpleKnight_ZombieHorse_5
+  - first:
+      213: 1709402120505899561
+    second: PurpleKnight_ZombieHorse_6
+  - first:
+      213: 8005098724640797067
+    second: PurpleKnight_ZombieHorse_7
+  - first:
+      213: 3602085473354968585
+    second: PurpleKnight_ZombieHorse_8
+  - first:
+      213: -2112338168314443378
+    second: PurpleKnight_ZombieHorse_9
+  - first:
+      213: -1893279161034013922
+    second: PurpleKnight_ZombieHorse_10
+  - first:
+      213: 7462474234853820662
+    second: PurpleKnight_ZombieHorse_11
+  - first:
+      213: 6843190889833995263
+    second: PurpleKnight_ZombieHorse_12
+  - first:
+      213: 1525017737229051026
+    second: PurpleKnight_ZombieHorse_13
+  - first:
+      213: -51281660383378347
+    second: PurpleKnight_ZombieHorse_14
+  - first:
+      213: 424159746963626500
+    second: PurpleKnight_ZombieHorse_15
+  - first:
+      213: 2629440734440680263
+    second: PurpleKnight_ZombieHorse_16
+  - first:
+      213: 1763919674360768855
+    second: PurpleKnight_ZombieHorse_17
+  - first:
+      213: -8804323940516224643
+    second: PurpleKnight_ZombieHorse_18
+  - first:
+      213: -2816277477786202345
+    second: PurpleKnight_ZombieHorse_19
+  - first:
+      213: -5015184851230987995
+    second: PurpleKnight_ZombieHorse_20
+  - first:
+      213: 6762465978880008285
+    second: PurpleKnight_ZombieHorse_21
+  - first:
+      213: 8420331496461451579
+    second: PurpleKnight_ZombieHorse_22
+  - first:
+      213: 5285355851062481163
+    second: PurpleKnight_ZombieHorse_23
+  - first:
+      213: 4765221222105442457
+    second: PurpleKnight_ZombieHorse_24
+  - first:
+      213: 1650349839274047875
+    second: PurpleKnight_ZombieHorse_25
+  - first:
+      213: -4336671821671888816
+    second: PurpleKnight_ZombieHorse_26
+  - first:
+      213: -4747704765039696674
+    second: PurpleKnight_ZombieHorse_27
+  - first:
+      213: 1818038033478736521
+    second: PurpleKnight_ZombieHorse_28
+  - first:
+      213: -8588551982277013501
+    second: PurpleKnight_ZombieHorse_29
+  - first:
+      213: -1813860331024386477
+    second: PurpleKnight_ZombieHorse_30
+  - first:
+      213: -8773658156112249302
+    second: PurpleKnight_ZombieHorse_31
+  - first:
+      213: 5269692689921243814
+    second: PurpleKnight_ZombieHorse_32
+  - first:
+      213: 8895034247492120026
+    second: PurpleKnight_ZombieHorse_33
+  - first:
+      213: 2528970282165234438
+    second: PurpleKnight_ZombieHorse_34
+  - first:
+      213: -7636757614107012553
+    second: PurpleKnight_ZombieHorse_35
+  - first:
+      213: -6778765688020664487
+    second: PurpleKnight_ZombieHorse_36
+  - first:
+      213: 8855255558189544747
+    second: PurpleKnight_ZombieHorse_37
+  - first:
+      213: 390615519641870714
+    second: PurpleKnight_ZombieHorse_38
+  - first:
+      213: -3216738689828800652
+    second: PurpleKnight_ZombieHorse_39
+  - first:
+      213: 727328641229473556
+    second: PurpleKnight_ZombieHorse_40
+  - first:
+      213: 8888995353711215688
+    second: PurpleKnight_ZombieHorse_41
+  - first:
+      213: -3804123609172874668
+    second: PurpleKnight_ZombieHorse_42
+  - first:
+      213: -5326013637596612024
+    second: PurpleKnight_ZombieHorse_43
+  - first:
+      213: 5437758046953204703
+    second: PurpleKnight_ZombieHorse_44
+  - first:
+      213: 3349315302742180061
+    second: PurpleKnight_ZombieHorse_45
+  - first:
+      213: 9012665147443382120
+    second: PurpleKnight_ZombieHorse_46
+  - first:
+      213: 4921192168343006811
+    second: PurpleKnight_ZombieHorse_47
+  - first:
+      213: -2869036865118803865
+    second: PurpleKnight_ZombieHorse_48
+  - first:
+      213: -4386989360625477237
+    second: PurpleKnight_ZombieHorse_49
+  - first:
+      213: 4502477266069708547
+    second: PurpleKnight_ZombieHorse_50
+  - first:
+      213: -2957791990568399398
+    second: PurpleKnight_ZombieHorse_51
+  - first:
+      213: 3594120975222187165
+    second: PurpleKnight_ZombieHorse_52
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 740
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af48c3b8d361d6f30800000000000000
+      internalID: 4570333650435736826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 740
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d48aff1b64615560800000000000000
+      internalID: 7300726882205074649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 740
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49bf5233de5c3c8f0800000000000000
+      internalID: -521355509288797292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_3
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 740
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c1e00776bccffd0800000000000000
+      internalID: -2306745263998493638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_4
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 740
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 187decea5723e1d00800000000000000
+      internalID: 945248452819736449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_5
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 740
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f701e14906c7f90800000000000000
+      internalID: -6954577535291064448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_6
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 640
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92abd0bfb2409b710800000000000000
+      internalID: 1709402120505899561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_7
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 640
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81b52290e2d71f60800000000000000
+      internalID: 8005098724640797067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_8
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 640
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90eeae147ad2df130800000000000000
+      internalID: 3602085473354968585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_9
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 640
+        width: 35
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e894e18a0a77fa2e0800000000000000
+      internalID: -2112338168314443378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_10
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 640
+        width: 35
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e130be152a8b9b5e0800000000000000
+      internalID: -1893279161034013922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_11
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 640
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f887f957c8009760800000000000000
+      internalID: 7462474234853820662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_12
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 640
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb9eb68bd5e7fe50800000000000000
+      internalID: 6843190889833995263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_13
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 640
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29425b75d83f92510800000000000000
+      internalID: 1525017737229051026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_14
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 540
+        width: 49
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5544b510a9fc94ff0800000000000000
+      internalID: -51281660383378347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_15
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 540
+        width: 49
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40a59c5ea0be2e500800000000000000
+      internalID: 424159746963626500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_16
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 540
+        width: 49
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b6746aa66ad7420800000000000000
+      internalID: 2629440734440680263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_17
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 540
+        width: 49
+        height: 31
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 759a8922993ba7810800000000000000
+      internalID: 1763919674360768855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_18
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 540
+        width: 49
+        height: 31
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d71201ef502c0d580800000000000000
+      internalID: -8804323940516224643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_19
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 540
+        width: 49
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71fce932e829ae8d0800000000000000
+      internalID: -2816277477786202345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_20
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 540
+        width: 49
+        height: 33
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 529e47b03fb766ab0800000000000000
+      internalID: -5015184851230987995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_21
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 540
+        width: 49
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50aecc8afa19dd50800000000000000
+      internalID: 6762465978880008285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_22
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 440
+        width: 49
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b314e9912e60bd470800000000000000
+      internalID: 8420331496461451579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_23
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 440
+        width: 47
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b019c1eb42b595940800000000000000
+      internalID: 5285355851062481163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_24
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 440
+        width: 46
+        height: 31
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9986fbb4477712240800000000000000
+      internalID: 4765221222105442457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_25
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 440
+        width: 53
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3897d055f6837e610800000000000000
+      internalID: 1650349839274047875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_26
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 440
+        width: 53
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0580dc174fb01d3c0800000000000000
+      internalID: -4336671821671888816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_27
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 440
+        width: 53
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.62}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4216daba3cc1eb0800000000000000
+      internalID: -4747704765039696674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_28
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 340
+        width: 47
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a56a585f7fa3910800000000000000
+      internalID: 1818038033478736521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_29
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 340
+        width: 46
+        height: 31
+      alignment: 9
+      pivot: {x: 0.36, y: 0.49999902}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300d669e9755fc880800000000000000
+      internalID: -8588551982277013501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_30
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 340
+        width: 53
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.42748833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3567e11a3afd3d6e0800000000000000
+      internalID: -1813860331024386477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_31
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 340
+        width: 53
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.45649242}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e78305464bd3680800000000000000
+      internalID: -8773658156112249302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_32
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 340
+        width: 53
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.45649242}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa7a3ad495b12940800000000000000
+      internalID: 5269692689921243814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_33
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 340
+        width: 53
+        height: 31
+      alignment: 9
+      pivot: {x: 0.36, y: 0.47005832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adda3ba2582817b70800000000000000
+      internalID: 8895034247492120026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_34
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 340
+        width: 53
+        height: 31
+      alignment: 9
+      pivot: {x: 0.36, y: 0.4401186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b6af39215b81320800000000000000
+      internalID: 2528970282165234438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_35
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 340
+        width: 53
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73254674969c40690800000000000000
+      internalID: -7636757614107012553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_36
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 340
+        width: 49
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36, y: 0.3839817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95ffbeda58cfce1a0800000000000000
+      internalID: -6778765688020664487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_37
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 240
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b25f035530034ea70800000000000000
+      internalID: 8855255558189544747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_38
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 240
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a71220cdebebb6500800000000000000
+      internalID: 390615519641870714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_39
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 240
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477bf716439db53d0800000000000000
+      internalID: -3216738689828800652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_40
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 240
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417437fab8df71a00800000000000000
+      internalID: 727328641229473556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_41
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 240
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8440e04ad2e0c5b70800000000000000
+      internalID: 8888995353711215688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_42
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 240
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45ae2998bb9053bc0800000000000000
+      internalID: -3804123609172874668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_43
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 240
+        width: 53
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84afa26a0d23616b0800000000000000
+      internalID: -5326013637596612024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_44
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 240
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbea2b122cc67b40800000000000000
+      internalID: 5437758046953204703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_45
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 140
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd04abcb5882b7e20800000000000000
+      internalID: 3349315302742180061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_46
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 140
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86708e0533b631d70800000000000000
+      internalID: 9012665147443382120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_47
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 140
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ee48914369b4440800000000000000
+      internalID: 4921192168343006811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_48
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 140
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768e7170c222f28d0800000000000000
+      internalID: -2869036865118803865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_49
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 40
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8910867b684e13c0800000000000000
+      internalID: -4386989360625477237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_50
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 40
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f5b55e7330c7e30800000000000000
+      internalID: 4502477266069708547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_51
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 40
+        width: 37
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: addccaa0bdfc3f6d0800000000000000
+      internalID: -2957791990568399398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurpleKnight_ZombieHorse_52
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 40
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9426e70cf1e0e130800000000000000
+      internalID: 3594120975222187165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 84157ab83d1dade48a070f1bdc4ee7a1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      PurpleKnight_ZombieHorse_0: 4570333650435736826
+      PurpleKnight_ZombieHorse_1: 7300726882205074649
+      PurpleKnight_ZombieHorse_10: -1893279161034013922
+      PurpleKnight_ZombieHorse_11: 7462474234853820662
+      PurpleKnight_ZombieHorse_12: 6843190889833995263
+      PurpleKnight_ZombieHorse_13: 1525017737229051026
+      PurpleKnight_ZombieHorse_14: -51281660383378347
+      PurpleKnight_ZombieHorse_15: 424159746963626500
+      PurpleKnight_ZombieHorse_16: 2629440734440680263
+      PurpleKnight_ZombieHorse_17: 1763919674360768855
+      PurpleKnight_ZombieHorse_18: -8804323940516224643
+      PurpleKnight_ZombieHorse_19: -2816277477786202345
+      PurpleKnight_ZombieHorse_2: -521355509288797292
+      PurpleKnight_ZombieHorse_20: -5015184851230987995
+      PurpleKnight_ZombieHorse_21: 6762465978880008285
+      PurpleKnight_ZombieHorse_22: 8420331496461451579
+      PurpleKnight_ZombieHorse_23: 5285355851062481163
+      PurpleKnight_ZombieHorse_24: 4765221222105442457
+      PurpleKnight_ZombieHorse_25: 1650349839274047875
+      PurpleKnight_ZombieHorse_26: -4336671821671888816
+      PurpleKnight_ZombieHorse_27: -4747704765039696674
+      PurpleKnight_ZombieHorse_28: 1818038033478736521
+      PurpleKnight_ZombieHorse_29: -8588551982277013501
+      PurpleKnight_ZombieHorse_3: -2306745263998493638
+      PurpleKnight_ZombieHorse_30: -1813860331024386477
+      PurpleKnight_ZombieHorse_31: -8773658156112249302
+      PurpleKnight_ZombieHorse_32: 5269692689921243814
+      PurpleKnight_ZombieHorse_33: 8895034247492120026
+      PurpleKnight_ZombieHorse_34: 2528970282165234438
+      PurpleKnight_ZombieHorse_35: -7636757614107012553
+      PurpleKnight_ZombieHorse_36: -6778765688020664487
+      PurpleKnight_ZombieHorse_37: 8855255558189544747
+      PurpleKnight_ZombieHorse_38: 390615519641870714
+      PurpleKnight_ZombieHorse_39: -3216738689828800652
+      PurpleKnight_ZombieHorse_4: 945248452819736449
+      PurpleKnight_ZombieHorse_40: 727328641229473556
+      PurpleKnight_ZombieHorse_41: 8888995353711215688
+      PurpleKnight_ZombieHorse_42: -3804123609172874668
+      PurpleKnight_ZombieHorse_43: -5326013637596612024
+      PurpleKnight_ZombieHorse_44: 5437758046953204703
+      PurpleKnight_ZombieHorse_45: 3349315302742180061
+      PurpleKnight_ZombieHorse_46: 9012665147443382120
+      PurpleKnight_ZombieHorse_47: 4921192168343006811
+      PurpleKnight_ZombieHorse_48: -2869036865118803865
+      PurpleKnight_ZombieHorse_49: -4386989360625477237
+      PurpleKnight_ZombieHorse_5: -6954577535291064448
+      PurpleKnight_ZombieHorse_50: 4502477266069708547
+      PurpleKnight_ZombieHorse_51: -2957791990568399398
+      PurpleKnight_ZombieHorse_52: 3594120975222187165
+      PurpleKnight_ZombieHorse_6: 1709402120505899561
+      PurpleKnight_ZombieHorse_7: 8005098724640797067
+      PurpleKnight_ZombieHorse_8: 3602085473354968585
+      PurpleKnight_ZombieHorse_9: -2112338168314443378
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

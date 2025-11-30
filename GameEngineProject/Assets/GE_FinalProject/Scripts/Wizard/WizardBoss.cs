@@ -30,6 +30,7 @@ public class WizardBoss : MonoBehaviour
 
     [Header("Visual Settings")]
     [SerializeField] private float blinkSpeed = 10f;
+    [SerializeField] private GameObject auraEffect; // Boss aura sprite object
 
     [Header("Stagger Settings")]
     [SerializeField] private float staggerDuration = 0.5f;
@@ -66,6 +67,27 @@ public class WizardBoss : MonoBehaviour
             player = playerObj.transform;
         }
 
+        // Find aura effect if not assigned (look for child with "Aura" in name)
+        if (auraEffect == null)
+        {
+            try
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child != null && child.name != null &&
+                        (child.name.Contains("Aura") || child.name.Contains("aura")))
+                    {
+                        auraEffect = child.gameObject;
+                        break;
+                    }
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning($"Could not find Aura effect: {e.Message}");
+            }
+        }
+
         // Initialize attack timers
         nextMagicMissileTime = Time.time + magicMissileInterval;
         nextArcaneBurstTime = Time.time + arcaneBurstInterval;
@@ -75,7 +97,7 @@ public class WizardBoss : MonoBehaviour
     {
         if (isDead || player == null) return;
 
-        // Handle stagger state
+        // Handle stagger state (visual effect only, doesn't stop actions)
         if (isStaggered)
         {
             staggerTimer -= Time.deltaTime;
@@ -107,10 +129,7 @@ public class WizardBoss : MonoBehaviour
                     spriteRenderer.color = new Color(1f, 1f, 1f, 1f); // Normal white
                 }
             }
-
-            // Stop all actions during stagger
-            StopMoving();
-            return;
+            // Continue with actions even during stagger
         }
 
         if (isPerformingAttack) return;
@@ -425,42 +444,29 @@ public class WizardBoss : MonoBehaviour
         }
         else
         {
-            // Enter stagger state
+            // Enter stagger state (visual effect only)
             isStaggered = true;
             staggerTimer = staggerDuration;
 
-            // Stop current attack
-            isPerformingAttack = false;
-            StopAllCoroutines();
-
-            // Trigger hurt animation
-            if (animator != null)
-            {
-                animator.SetFloat("MoveSpeed", 0f);
-                animator.ResetTrigger("Attack");
-                animator.ResetTrigger("Cast");
-                animator.SetTrigger("Hurt");
-            }
+            // Don't stop attacks or movement - boss continues fighting
 
             // Check for phase transition
             if (!isInPhase2 && currentHealth <= phaseThreshold)
             {
-                StartCoroutine(EnterPhase2Delayed());
+                EnterPhase2();
             }
         }
-    }
-
-    private IEnumerator EnterPhase2Delayed()
-    {
-        // Wait for stagger to end before phase transition
-        yield return new WaitForSeconds(staggerDuration);
-        EnterPhase2();
     }
 
     // Public method to check if boss is staggered or dead (for contact damage prevention)
     public bool IsStaggeredOrDead()
     {
         return isStaggered || isDead;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 
     private void EnterPhase2()
@@ -494,6 +500,10 @@ public class WizardBoss : MonoBehaviour
         isDead = true;
         currentHealth = 0;
 
+        // Stop all ongoing attacks and coroutines
+        StopAllCoroutines();
+        isPerformingAttack = false;
+
         StopMoving();
 
         // Disable colliders
@@ -503,14 +513,47 @@ public class WizardBoss : MonoBehaviour
             col.enabled = false;
         }
 
+        // Disable aura effect
+        if (auraEffect != null)
+        {
+            auraEffect.SetActive(false);
+        }
+
+        // Reset color to original (remove red tint)
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f); // Normal white
+        }
+
         // Trigger death animation
         if (animator != null)
         {
             animator.SetTrigger("Die");
         }
 
-        // Destroy after animation
-        Destroy(gameObject, 2f);
+        // Start coroutine to disable script after death animation
+        StartCoroutine(DisableAfterDeath());
+    }
+
+    private IEnumerator DisableAfterDeath()
+    {
+        // Wait for death animation to complete (adjust time if needed)
+        yield return new WaitForSeconds(2f);
+
+        // Freeze animator at the last frame of death animation
+        if (animator != null)
+        {
+            animator.speed = 0f;
+        }
+
+        // Disable Rigidbody2D to stop physics
+        if (rb != null)
+        {
+            rb.simulated = false;
+        }
+
+        // Disable this script but keep the GameObject and Animator (corpse remains with final frame)
+        this.enabled = false;
     }
 
     private void OnDrawGizmosSelected()

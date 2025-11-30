@@ -103,12 +103,22 @@ public class SlashEffect : MonoBehaviour
                     continue;
                 }
 
-                // 보스에게 데미지
-                WizardBoss boss = hit.GetComponent<WizardBoss>();
-                if (boss != null)
+                // Wizard 보스에게 데미지
+                WizardBoss wizardBoss = hit.GetComponent<WizardBoss>();
+                if (wizardBoss != null)
                 {
-                    boss.TakeDamage(damage);
-                    Debug.Log($"Slash hit boss for {damage} damage!");
+                    wizardBoss.TakeDamage(damage);
+                    Debug.Log($"Slash hit Wizard boss for {damage} damage!");
+                    hasDealtDamage = true;
+                    continue;
+                }
+
+                // Final 보스에게 데미지
+                FinalBoss finalBoss = hit.GetComponent<FinalBoss>();
+                if (finalBoss != null)
+                {
+                    finalBoss.TakeDamage(damage);
+                    Debug.Log($"Slash hit Final boss for {damage} damage!");
                     hasDealtDamage = true;
                 }
             }
