@@ -915,9 +915,9 @@ GameObject:
   - component: {fileID: 213615195}
   - component: {fileID: 213615194}
   - component: {fileID: 213615196}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton_A1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1676,9 +1676,9 @@ GameObject:
   - component: {fileID: 540718302}
   - component: {fileID: 540718301}
   - component: {fileID: 540718305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton_A2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2372,7 +2372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1189234378
 Transform:
   m_ObjectHideFlags: 0
@@ -2679,7 +2679,7 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   contactDamage: 5
-  moveSpeed: 2
+  moveSpeed: 5
   detectionRange: 12
   optimalRangeMin: 5
   optimalRangeMax: 8
@@ -3133,9 +3133,9 @@ GameObject:
   - component: {fileID: 1714644172}
   - component: {fileID: 1714644171}
   - component: {fileID: 1714644175}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton_A3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3549,7 +3549,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.26942062, y: 0.084524214}
+  m_Offset: {x: 0.03, y: 0.04}
   m_Size: {x: 1.2736588, y: 1.305355}
   m_Direction: 0
 --- !u!50 &1786486891

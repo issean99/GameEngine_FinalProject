@@ -556,7 +556,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 343938075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.3, y: -1.08, z: -10}
+  m_LocalPosition: {x: -8.3, y: 0.22000027, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -829,7 +829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0853c174bb931654bbf634f78734bc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
-  attackDamage: 20
 --- !u!61 &458195109
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1014,7 +1013,7 @@ MonoBehaviour:
   CameraDistance: 10
   DeadZoneDepth: 0
   Composition:
-    ScreenPosition: {x: 0, y: 0}
+    ScreenPosition: {x: 0, y: 0.1}
     DeadZone:
       Enabled: 0
       Size: {x: 0.2, y: 0.2}
@@ -1055,7 +1054,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 5
+    OrthographicSize: 6.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1082,7 +1081,7 @@ Transform:
   m_GameObject: {fileID: 520168478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.3, y: -1.08, z: -10}
+  m_LocalPosition: {x: -8.3, y: 0.22000027, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6495,11 +6494,12 @@ MonoBehaviour:
   moveSpeed: 5
   sprintSpeed: 8
   attackCooldown: 0.5
-  slashEffectPrefab: {fileID: 0}
+  slashEffectPrefab: {fileID: 1983339744813035806, guid: 83fe381a643e3054f9b7146b18156289, type: 3}
   maxHealth: 50
   currentHealth: 0
   invincibilityDuration: 1
   blinkSpeed: 10
+  stunColor: {r: 0.5, g: 0.5, b: 1, a: 1}
 --- !u!95 &1238523503
 Animator:
   serializedVersion: 7
