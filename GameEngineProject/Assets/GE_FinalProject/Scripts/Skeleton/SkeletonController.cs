@@ -3,16 +3,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class Enemy : MonoBehaviour
+public class SkeletonController : MonoBehaviour
 {
     [Header("Enemy Stats")]
-    [SerializeField] private int maxHealth = 50;
+    [SerializeField] private int maxHealth = 60;
     [SerializeField] private int currentHealth;
-    [SerializeField] private int attackDamage = 10;
+    [SerializeField] private int attackDamage = 15;
 
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float detectionRange = 5f;
+    [SerializeField] private float moveSpeed = 2.5f;
+    [SerializeField] private float detectionRange = 6f;
     [SerializeField] private float attackRange = 1.5f;
 
     [Header("Attack Settings")]
@@ -20,8 +20,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject attackHitbox;
 
     [Header("Stagger Settings")]
-    [SerializeField] private float staggerDuration = 1f;
+    [SerializeField] private float staggerDuration = 0.8f;
     [SerializeField] private float blinkSpeed = 10f;
+
+    [Header("Group Settings")]
+    [SerializeField] private SkeletonGroup group; // 그룹 스크립트 참조
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -32,7 +35,9 @@ public class Enemy : MonoBehaviour
     private bool isDead = false;
     private bool isStaggered = false;
     private float staggerTimer = 0f;
-    [SerializeField] private bool facingRight = true; // Inspector에서 초기 방향 설정 가능
+    [SerializeField] private bool facingRight = true;
+
+    private bool isPlayerDetected = false; // 개별 감지 상태
 
     private void Awake()
     {
@@ -48,24 +53,23 @@ public class Enemy : MonoBehaviour
             player = playerObj.transform;
         }
 
-        // Set initial sprite flip based on facingRight
+        // Set initial sprite flip
         if (spriteRenderer != null)
         {
             spriteRenderer.flipX = !facingRight;
         }
-
     }
 
     private void Update()
     {
         if (isDead || player == null) return;
 
-        // 경직 상태 처리
+        // Handle stagger state
         if (isStaggered)
         {
             staggerTimer -= Time.deltaTime;
 
-            // 깜빡임 효과
+            // Blink effect
             float alpha = Mathf.Abs(Mathf.Sin(Time.time * blinkSpeed));
             Color color = spriteRenderer.color;
             color.a = alpha;
@@ -73,23 +77,41 @@ public class Enemy : MonoBehaviour
 
             if (staggerTimer <= 0)
             {
-                // 경직 해제
+                // End stagger
                 isStaggered = false;
                 Color resetColor = spriteRenderer.color;
                 resetColor.a = 1f;
                 spriteRenderer.color = resetColor;
             }
 
-            // 경직 중에는 행동하지 않음
+            // Don't act while staggered
             StopMoving();
             return;
         }
 
+        // Check if group has detected player
+        if (group != null && group.IsGroupAlerted() && !isPlayerDetected)
+        {
+            isPlayerDetected = true; // Activate this skeleton
+        }
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // Check if player is in detection range
-        if (distanceToPlayer <= detectionRange)
+        // Individual detection (if not part of group)
+        if (group == null && distanceToPlayer <= detectionRange && !isPlayerDetected)
         {
+            isPlayerDetected = true;
+        }
+
+        // Check if player is in detection range or already detected
+        if (isPlayerDetected)
+        {
+            // Notify group that player is detected (only once)
+            if (group != null && !group.IsGroupAlerted() && distanceToPlayer <= detectionRange)
+            {
+                group.AlertGroup();
+            }
+
             // Face the player
             FacePlayer();
 
@@ -107,7 +129,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // Player out of range - idle
+            // Player not detected yet - idle
             StopMoving();
         }
     }
@@ -133,20 +155,13 @@ public class Enemy : MonoBehaviour
             spriteRenderer.flipX = !facingRight;
         }
 
-        // Flip the attack hitbox position (same method as player)
+        // Flip the attack hitbox position
         if (attackHitbox != null)
         {
             Vector3 hitboxPos = attackHitbox.transform.localPosition;
-            hitboxPos.x = -hitboxPos.x; // Simply negate X position
+            hitboxPos.x = -hitboxPos.x;
             attackHitbox.transform.localPosition = hitboxPos;
-            Debug.Log($"Slime Hitbox flipped: X={hitboxPos.x}");
         }
-        else
-        {
-            Debug.LogWarning("Slime attackHitbox is not assigned!");
-        }
-
-        Debug.Log($"Slime Flip: facingRight={facingRight}, flipX={spriteRenderer.flipX}");
     }
 
     private void MoveTowardsPlayer()
@@ -184,7 +199,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Animation Event functions - called from SlimeAttack animation
+    // Animation Event functions - called from SkeletonAttack animation
     public void ActivateHitbox()
     {
         if (attackHitbox != null)
@@ -210,22 +225,29 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // 경직 상태 시작
+            // Start stagger
             isStaggered = true;
             staggerTimer = staggerDuration;
 
-            // 공격 히트박스 비활성화 (공격 중이었다면)
+            // Deactivate attack hitbox (if attacking)
             if (attackHitbox != null)
             {
                 attackHitbox.SetActive(false);
             }
 
-            // Idle 상태로 즉시 전환 (공격 모션 중단)
+            // Reset to idle (interrupt attack)
             if (animator != null)
             {
                 animator.SetFloat("MoveSpeed", 0f);
-                animator.ResetTrigger("Attack"); // 대기 중인 공격 트리거 제거
-                animator.Play("SlimeIdle", 0, 0f); // 즉시 Idle 상태로 전환
+                animator.ResetTrigger("Attack");
+                animator.SetTrigger("Hurt"); // Play hurt animation
+            }
+
+            // Alert group when damaged
+            if (group != null && !group.IsGroupAlerted())
+            {
+                group.AlertGroup();
+                isPlayerDetected = true;
             }
         }
     }
@@ -252,6 +274,12 @@ public class Enemy : MonoBehaviour
             attackHitbox.SetActive(false);
         }
 
+        // Reset color
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        }
+
         // Trigger death animation
         if (animator != null)
         {
@@ -262,7 +290,6 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject, 1f);
     }
 
-    // 경직 또는 죽은 상태인지 확인 (접촉 대미지 무효화용)
     public bool IsStaggeredOrDead()
     {
         return isStaggered || isDead;
