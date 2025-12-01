@@ -119,6 +119,14 @@ public class PlayerController : MonoBehaviour
                     break; // 한 번만 대미지 받음
                 }
 
+                // 스켈레톤 체크
+                SkeletonController skeleton = enemyCollider.GetComponent<SkeletonController>();
+                if (skeleton != null && !skeleton.IsStaggeredOrDead())
+                {
+                    TakeDamage(10);
+                    break; // 한 번만 대미지 받음
+                }
+
                 // 웨어울프 체크
                 WereWolfController werewolf = enemyCollider.GetComponent<WereWolfController>();
                 if (werewolf != null && !werewolf.IsStaggeredOrDead())
