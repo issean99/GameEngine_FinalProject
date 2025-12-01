@@ -93,11 +93,41 @@ public class SlashEffect : MonoBehaviour
             {
                 hitEnemies.Add(hit);
 
-                // 일반 적에게 데미지
-                Enemy enemy = hit.GetComponent<Enemy>();
-                if (enemy != null)
+                // 슬라임에게 데미지
+                SlimeController slime = hit.GetComponent<SlimeController>();
+                if (slime != null)
                 {
-                    enemy.TakeDamage(damage);
+                    slime.TakeDamage(damage);
+                    Debug.Log($"Slash hit {hit.name} for {damage} damage!");
+                    hasDealtDamage = true;
+                    continue;
+                }
+
+                // 웨어울프에게 데미지
+                WereWolfController werewolf = hit.GetComponent<WereWolfController>();
+                if (werewolf != null)
+                {
+                    werewolf.TakeDamage(damage);
+                    Debug.Log($"Slash hit {hit.name} for {damage} damage!");
+                    hasDealtDamage = true;
+                    continue;
+                }
+
+                // 스켈레톤에게 데미지
+                SkeletonController skeleton = hit.GetComponent<SkeletonController>();
+                if (skeleton != null)
+                {
+                    skeleton.TakeDamage(damage);
+                    Debug.Log($"Slash hit {hit.name} for {damage} damage!");
+                    hasDealtDamage = true;
+                    continue;
+                }
+
+                // 스켈레톤 아처에게 데미지
+                SkeletonArcherController skeletonArcher = hit.GetComponent<SkeletonArcherController>();
+                if (skeletonArcher != null)
+                {
+                    skeletonArcher.TakeDamage(damage);
                     Debug.Log($"Slash hit {hit.name} for {damage} damage!");
                     hasDealtDamage = true;
                     continue;

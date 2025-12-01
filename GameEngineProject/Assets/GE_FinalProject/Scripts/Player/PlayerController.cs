@@ -111,11 +111,19 @@ public class PlayerController : MonoBehaviour
         {
             if (enemyCollider != null)
             {
-                // 일반 적 체크
-                Enemy enemy = enemyCollider.GetComponent<Enemy>();
-                if (enemy != null && !enemy.IsStaggeredOrDead())
+                // 슬라임 체크
+                SlimeController slime = enemyCollider.GetComponent<SlimeController>();
+                if (slime != null && !slime.IsStaggeredOrDead())
                 {
                     TakeDamage(10);
+                    break; // 한 번만 대미지 받음
+                }
+
+                // 웨어울프 체크
+                WereWolfController werewolf = enemyCollider.GetComponent<WereWolfController>();
+                if (werewolf != null && !werewolf.IsStaggeredOrDead())
+                {
+                    TakeDamage(15);
                     break; // 한 번만 대미지 받음
                 }
 
