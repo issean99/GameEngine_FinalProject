@@ -8,7 +8,6 @@ public class WereWolfController : MonoBehaviour
     [Header("Enemy Stats")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
-    [SerializeField] private int attackDamage = 15;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 3f;
@@ -22,6 +21,10 @@ public class WereWolfController : MonoBehaviour
     [Header("Stagger Settings")]
     [SerializeField] private float staggerDuration = 0.5f;
     [SerializeField] private float blinkSpeed = 10f;
+
+    [Header("Item Drop")]
+    [SerializeField] private GameObject werewolfDashItemPrefab; // Werewolf Dash skill item
+    [SerializeField] private float dropChance = 0.3f; // 30% chance to drop
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -259,6 +262,9 @@ public class WereWolfController : MonoBehaviour
             attackHitbox.SetActive(false);
         }
 
+        // Drop item with chance
+        DropItem();
+
         // Trigger death animation
         if (animator != null)
         {
@@ -267,6 +273,28 @@ public class WereWolfController : MonoBehaviour
 
         // Destroy after animation
         Destroy(gameObject, 1f);
+    }
+
+    private void DropItem()
+    {
+        // Check drop chance
+        float randomValue = Random.Range(0f, 1f);
+        if (randomValue > dropChance)
+        {
+            Debug.Log($"WereWolf did not drop item (chance: {randomValue:F2} > {dropChance:F2})");
+            return;
+        }
+
+        if (werewolfDashItemPrefab != null)
+        {
+            Vector3 dropPosition = transform.position + Vector3.up * 0.5f;
+            GameObject droppedItem = Instantiate(werewolfDashItemPrefab, dropPosition, Quaternion.identity);
+            Debug.Log($"WereWolf dropped Dash Skill item at {dropPosition}!");
+        }
+        else
+        {
+            Debug.LogWarning("Werewolf Dash Item prefab is not assigned!");
+        }
     }
 
     // 경직 또는 죽은 상태인지 확인 (접촉 대미지 무효화용)

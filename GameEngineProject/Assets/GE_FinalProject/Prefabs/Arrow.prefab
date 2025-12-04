@@ -32,7 +32,8 @@ Transform:
   m_LocalPosition: {x: -38.531933, y: -18.458534, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8665850736026706971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7261959673834640523
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 453864535
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -6861129416186810378, guid: 524b22055a41cd24e978355d3bb4bb16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,3 +179,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f4b2e92db12b24c82281ef66c6f428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowProjectile
+--- !u!1001 &5531993559465357038
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8514816178639937624}
+    m_Modifications:
+    - target: {fileID: 467327504770644165, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_Name
+      value: Water Effect and Bullet 16x16_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.232
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000038146973
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7666401523277710216, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_Color.a
+      value: 0.14117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 7666401523277710216, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+--- !u!4 &8665850736026706971 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3784958284390435573, guid: e5481a66bcbda794ca48e50ecf6422f0, type: 3}
+  m_PrefabInstance: {fileID: 5531993559465357038}
+  m_PrefabAsset: {fileID: 0}

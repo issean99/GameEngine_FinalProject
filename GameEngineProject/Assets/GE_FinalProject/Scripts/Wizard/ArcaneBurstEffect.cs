@@ -8,6 +8,7 @@ public class ArcaneBurstEffect : MonoBehaviour
     [SerializeField] private float delayTime = 1f;
     [SerializeField] private float explosionRadius = 3f;
     [SerializeField] private int damage = 20;
+    [SerializeField] private bool isPlayerCast = false; // true = damages enemies, false = damages player
 
     private bool hasExploded = false;
     private bool isInitialized = false;
@@ -52,14 +53,15 @@ public class ArcaneBurstEffect : MonoBehaviour
         }
     }
 
-    public void Initialize(float delay, float radius, int damageAmount)
+    public void Initialize(float delay, float radius, int damageAmount, bool playerCast = false)
     {
         isInitialized = true;
         delayTime = delay;
         explosionRadius = radius;
         damage = damageAmount;
+        isPlayerCast = playerCast;
 
-        Debug.Log($"ArcaneBurst initialized: delay={delay}s, radius={radius}, damage={damageAmount}");
+        Debug.Log($"ArcaneBurst initialized: delay={delay}s, radius={radius}, damage={damageAmount}, playerCast={playerCast}");
 
         // Start warning phase
         StartCoroutine(WarningPhase());
@@ -106,32 +108,100 @@ public class ArcaneBurstEffect : MonoBehaviour
             warningMarker.enabled = false;
         }
 
-        // Show explosion effect
+        // Show explosion effect (slightly smaller than warning marker)
         if (explosionEffect != null)
         {
             explosionEffect.enabled = true;
-            explosionEffect.transform.localScale = Vector3.one * explosionRadius;
+            // Make explosion effect smaller to match warning marker visually
+            explosionEffect.transform.localScale = Vector3.one * explosionRadius * 0.85f;
         }
 
-        // Detect and damage all players in radius
+        // Detect and damage targets in radius
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
 
         foreach (Collider2D hit in hits)
         {
-            if (hit.CompareTag("Player") && !damagedTargets.Contains(hit))
+            if (damagedTargets.Contains(hit)) continue;
+
+            if (isPlayerCast)
             {
-                PlayerController player = hit.GetComponent<PlayerController>();
-                if (player != null)
+                // Player cast: damage enemies
+                if (hit.CompareTag("Enemy"))
                 {
-                    player.TakeDamage(damage);
-                    damagedTargets.Add(hit);
-                    Debug.Log($"Arcane Burst hit player for {damage} damage!");
+                    // Try different enemy types
+                    var slime = hit.GetComponent<SlimeController>();
+                    if (slime != null)
+                    {
+                        slime.TakeDamage(damage);
+                        damagedTargets.Add(hit);
+                        Debug.Log($"Arcane Burst hit Slime for {damage} damage!");
+                        continue;
+                    }
+
+                    var skeleton = hit.GetComponent<SkeletonController>();
+                    if (skeleton != null)
+                    {
+                        skeleton.TakeDamage(damage);
+                        damagedTargets.Add(hit);
+                        Debug.Log($"Arcane Burst hit Skeleton for {damage} damage!");
+                        continue;
+                    }
+
+                    var archer = hit.GetComponent<SkeletonArcherController>();
+                    if (archer != null)
+                    {
+                        archer.TakeDamage(damage);
+                        damagedTargets.Add(hit);
+                        Debug.Log($"Arcane Burst hit Archer for {damage} damage!");
+                        continue;
+                    }
+
+                    var werewolf = hit.GetComponent<WereWolfController>();
+                    if (werewolf != null)
+                    {
+                        werewolf.TakeDamage(damage);
+                        damagedTargets.Add(hit);
+                        Debug.Log($"Arcane Burst hit WereWolf for {damage} damage!");
+                        continue;
+                    }
+
+                    var wizardBoss = hit.GetComponent<WizardBoss>();
+                    if (wizardBoss != null)
+                    {
+                        wizardBoss.TakeDamage(damage);
+                        damagedTargets.Add(hit);
+                        Debug.Log($"Arcane Burst hit Wizard Boss for {damage} damage!");
+                        continue;
+                    }
+
+                    var finalBoss = hit.GetComponent<FinalBoss>();
+                    if (finalBoss != null)
+                    {
+                        finalBoss.TakeDamage(damage);
+                        damagedTargets.Add(hit);
+                        Debug.Log($"Arcane Burst hit Final Boss for {damage} damage!");
+                        continue;
+                    }
+                }
+            }
+            else
+            {
+                // Boss cast: damage player
+                if (hit.CompareTag("Player"))
+                {
+                    PlayerController player = hit.GetComponent<PlayerController>();
+                    if (player != null)
+                    {
+                        player.TakeDamage(damage);
+                        damagedTargets.Add(hit);
+                        Debug.Log($"Arcane Burst hit player for {damage} damage!");
+                    }
                 }
             }
         }
 
         // Destroy after explosion animation
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 1f);
     }
 
     // Visualize explosion radius in editor

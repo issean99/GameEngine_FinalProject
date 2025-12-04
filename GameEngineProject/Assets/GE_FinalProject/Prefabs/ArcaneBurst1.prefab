@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1374278289
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.6509804, g: 0, b: 0, a: 0.23529412}
@@ -139,6 +139,7 @@ MonoBehaviour:
   delayTime: 1
   explosionRadius: 1.5
   damage: 20
+  isPlayerCast: 0
   warningMarker: {fileID: 4221190208073029414}
   explosionEffect: {fileID: 5906269767101353409}
   warningPulseSpeed: 3
@@ -219,8 +220,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 453864535
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 8793915729297761979, guid: 5b69db6abe65bd14d8023b3d380f7c5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

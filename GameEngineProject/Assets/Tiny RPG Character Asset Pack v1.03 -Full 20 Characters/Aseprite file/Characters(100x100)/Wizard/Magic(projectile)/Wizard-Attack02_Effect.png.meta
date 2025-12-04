@@ -121,12 +121,12 @@ TextureImporter:
       name: Wizard-Attack02_Effect_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 41
-        width: 24
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 40
+        y: 42
+        width: 22
+        height: 13
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -143,12 +143,12 @@ TextureImporter:
       name: Wizard-Attack02_Effect_1
       rect:
         serializedVersion: 2
-        x: 141
-        y: 41
-        width: 22
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 142
+        y: 42
+        width: 20
+        height: 13
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: Wizard-Attack02_Effect_2
       rect:
         serializedVersion: 2
-        x: 237
-        y: 40
-        width: 26
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 238
+        y: 41
+        width: 24
+        height: 15
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,12 +187,12 @@ TextureImporter:
       name: Wizard-Attack02_Effect_3
       rect:
         serializedVersion: 2
-        x: 340
-        y: 40
-        width: 23
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 341
+        y: 41
+        width: 21
+        height: 15
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: Wizard-Attack02_Effect_4
       rect:
         serializedVersion: 2
-        x: 447
-        y: 41
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 448
+        y: 42
+        width: 14
+        height: 14
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: Wizard-Attack02_Effect_5
       rect:
         serializedVersion: 2
-        x: 544
-        y: 38
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 545
+        y: 39
+        width: 19
+        height: 19
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: Wizard-Attack02_Effect_6
       rect:
         serializedVersion: 2
-        x: 642
-        y: 36
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 643
+        y: 37
+        width: 22
+        height: 22
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 10f6c2d19bea05542ad5ec87196b6083
     internalID: 0
     vertices: []
     indices: 
@@ -283,7 +283,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":1.0,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":5,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Wizard-Attack02_Effect_0: -8704788006095434069
       Wizard-Attack02_Effect_1: -9021240426557340010

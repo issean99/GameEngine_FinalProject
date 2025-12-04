@@ -19,10 +19,16 @@ public class WizardBoss : MonoBehaviour
     [Header("Attack Settings - Phase 1")]
     [SerializeField] private float magicMissileInterval = 3f;
     [SerializeField] private float arcaneBurstInterval = 5f;
+    [SerializeField] private int phase1MissileCount = 3; // Number of missiles per volley in Phase 1
+    [SerializeField] private float phase1MissileDelay = 0.3f; // Delay between missiles
 
     [Header("Attack Settings - Phase 2")]
     [SerializeField] private float arcaneFanInterval = 4f;
     [SerializeField] private float arcaneBurstUpgradedInterval = 6f;
+    [SerializeField] private int phase2VolleyCount = 3; // Number of volleys in Phase 2
+    [SerializeField] private int phase2MissilesPerVolley = 5; // Missiles per volley
+    [SerializeField] private float phase2SpreadAngle = 40f; // Spread angle for fan pattern (degrees)
+    [SerializeField] private float phase2VolleyDelay = 0.4f; // Delay between volleys
 
     [Header("Projectile Prefabs")]
     [SerializeField] private GameObject magicMissilePrefab;
@@ -34,6 +40,9 @@ public class WizardBoss : MonoBehaviour
 
     [Header("Stagger Settings")]
     [SerializeField] private float staggerDuration = 0.5f;
+
+    [Header("Item Drop")]
+    [SerializeField] private GameObject wizardSpellbookItemPrefab; // Wizard's Spellbook item (grants both skills)
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -228,31 +237,32 @@ public class WizardBoss : MonoBehaviour
 
         if (isInPhase2)
         {
-            // Phase 2: Shoot 5 missiles in fan pattern (3 times)
-            for (int volley = 0; volley < 3; volley++)
+            // Phase 2: Shoot multiple volleys of missiles in fan pattern
+            for (int volley = 0; volley < phase2VolleyCount; volley++)
             {
-                // Shoot 5 projectiles in a fan pattern
-                int projectileCount = 5;
-                float angleStep = 40f / (projectileCount - 1); // 40 degree spread
-                float startAngle = -20f; // Start from -20 degrees
+                // Calculate angle spread
+                float halfSpread = phase2SpreadAngle / 2f;
+                float angleStep = phase2MissilesPerVolley > 1 ?
+                    phase2SpreadAngle / (phase2MissilesPerVolley - 1) : 0f;
+                float startAngle = -halfSpread;
 
-                for (int i = 0; i < projectileCount; i++)
+                // Shoot missiles in fan pattern
+                for (int i = 0; i < phase2MissilesPerVolley; i++)
                 {
                     float angle = startAngle + (angleStep * i);
                     ShootProjectileAtAngle(magicMissilePrefab, 10f, angle);
                 }
 
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(phase2VolleyDelay);
             }
         }
         else
         {
-            // Phase 1: Shoot 2-3 missiles straight
-            int missileCount = Random.Range(2, 4);
-            for (int i = 0; i < missileCount; i++)
+            // Phase 1: Shoot missiles straight at player
+            for (int i = 0; i < phase1MissileCount; i++)
             {
                 ShootProjectile(magicMissilePrefab, 10f);
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(phase1MissileDelay);
             }
         }
 
@@ -537,6 +547,9 @@ public class WizardBoss : MonoBehaviour
 
     private IEnumerator DisableAfterDeath()
     {
+        // Drop fireball skill item immediately on death
+        DropFireballItem();
+
         // Wait for death animation to complete (adjust time if needed)
         yield return new WaitForSeconds(2f);
 
@@ -554,6 +567,21 @@ public class WizardBoss : MonoBehaviour
 
         // Disable this script but keep the GameObject and Animator (corpse remains with final frame)
         this.enabled = false;
+    }
+
+    private void DropFireballItem()
+    {
+        // Drop Wizard's Spellbook (grants both Fireball and Explosion skills)
+        if (wizardSpellbookItemPrefab != null)
+        {
+            Vector3 dropPosition = transform.position + Vector3.up * 0.5f;
+            GameObject droppedItem = Instantiate(wizardSpellbookItemPrefab, dropPosition, Quaternion.identity);
+            Debug.Log("Wizard Boss dropped Wizard's Spellbook! (Fireball + Arcane Explosion)");
+        }
+        else
+        {
+            Debug.LogWarning("Wizard's Spellbook item prefab not assigned to WizardBoss!");
+        }
     }
 
     private void OnDrawGizmosSelected()

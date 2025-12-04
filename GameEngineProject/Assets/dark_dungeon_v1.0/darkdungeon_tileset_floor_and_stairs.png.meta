@@ -298,28 +298,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: darkdungeon_tileset_floor_and_stairs_9
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 396b41f5efc9d1f4cac77b5ceed07b6b
-      internalID: -1832709653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: darkdungeon_tileset_floor_and_stairs_10
       rect:
         serializedVersion: 2
@@ -650,28 +628,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: darkdungeon_tileset_floor_and_stairs_25
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ea7c9fc77693b04ea4fc5563b1fd71d
-      internalID: 1009688296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: darkdungeon_tileset_floor_and_stairs_26
       rect:
         serializedVersion: 2
@@ -986,7 +942,7 @@ TextureImporter:
         x: 208
         y: 80
         width: 16
-        height: 16
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

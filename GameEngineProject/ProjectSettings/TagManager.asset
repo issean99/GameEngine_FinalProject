@@ -17,13 +17,13 @@ TagManager:
   - Water
   - UI
   - 
-  - Wall
+  - 
   - Player
   - Enemy
   - PlayerAttack
   - EnemyAttack
-  - 
-  - 
+  - Wall
+  - Ground
   - 
   - 
   - 

@@ -28,7 +28,8 @@ public class FinalBoss : MonoBehaviour
 
     [Header("Phase 2 Attack Settings")]
     [SerializeField] private int phase2DashCount = 3; // Number of dashes in Phase 2
-    [SerializeField] private int phase2SpearCount = 3; // Number of spears in Phase 2
+    [SerializeField] private int phase1SpearCount = 6; // Number of spears in Phase 1 (circle pattern)
+    [SerializeField] private int phase2SpearCount = 12; // Number of spears in Phase 2 (circle pattern)
 
     [Header("Dash Attack Settings")]
     [SerializeField] private float dashChargeTime = 0.8f; // Wind-up time before dash
@@ -73,7 +74,6 @@ public class FinalBoss : MonoBehaviour
     private bool isStaggered = false;
     private float staggerTimer = 0f;
     private bool hasDetectedPlayer = false; // Track if player has been detected
-    private bool isDashing = false; // Track if currently dashing
 
     // Attack timers
     private float nextDashAttackTime;
@@ -426,39 +426,21 @@ public class FinalBoss : MonoBehaviour
         // Wait for a shorter time to sync with animation (reduced delay)
         yield return new WaitForSeconds(lungeChargeTime * 0.6f);
 
-        // Fire spear projectiles
-        int spearCount = isInPhase2 ? phase2SpearCount : 1;
+        // Fire spear projectiles in a circle around boss
+        int spearCount = isInPhase2 ? phase2SpearCount : phase1SpearCount;
 
-        if (spearCount == 1)
+        // Fire spears in 360-degree circle pattern
+        float angleStep = 360f / spearCount;
+
+        for (int i = 0; i < spearCount; i++)
         {
-            // Single spear aimed at player
-            Vector2 direction = (player.position - transform.position).normalized;
+            float angle = i * angleStep;
+            Vector2 direction = new Vector2(
+                Mathf.Cos(angle * Mathf.Deg2Rad),
+                Mathf.Sin(angle * Mathf.Deg2Rad)
+            );
+
             FireSpear(direction);
-        }
-        else
-        {
-            // Multiple spears in a spread
-            Vector2 baseDirection = (player.position - transform.position).normalized;
-            float baseAngle = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg;
-
-            for (int i = 0; i < spearCount; i++)
-            {
-                float angleOffset = 0f;
-                if (spearCount > 1)
-                {
-                    // Calculate spread
-                    float step = spearSpread / (spearCount - 1);
-                    angleOffset = -spearSpread / 2 + step * i;
-                }
-
-                float finalAngle = baseAngle + angleOffset;
-                Vector2 direction = new Vector2(
-                    Mathf.Cos(finalAngle * Mathf.Deg2Rad),
-                    Mathf.Sin(finalAngle * Mathf.Deg2Rad)
-                );
-
-                FireSpear(direction);
-            }
         }
 
         yield return new WaitForSeconds(0.5f);
