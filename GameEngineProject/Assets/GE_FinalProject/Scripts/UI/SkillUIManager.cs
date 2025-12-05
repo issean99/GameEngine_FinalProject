@@ -39,10 +39,23 @@ public class SkillUIManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern
+        // Singleton pattern with DontDestroyOnLoad
         if (Instance == null)
         {
             Instance = this;
+
+            // Find Canvas (should be parent or ancestor)
+            Canvas canvas = GetComponentInParent<Canvas>();
+            if (canvas != null)
+            {
+                DontDestroyOnLoad(canvas.gameObject);
+                canvas.sortingOrder = 100;
+                Debug.Log($"[SkillUIManager] Canvas '{canvas.gameObject.name}' will persist across scenes with sorting order 100");
+            }
+            else
+            {
+                Debug.LogError("[SkillUIManager] Canvas not found! SkillUIManager must be a child of a Canvas.");
+            }
         }
         else
         {

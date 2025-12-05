@@ -388,6 +388,13 @@ public class PlayerController : MonoBehaviour
 
     private void HandleSpriteFlip()
     {
+        // Check if main camera exists
+        if (Camera.main == null)
+        {
+            Debug.LogWarning("[PlayerController] Main Camera not found! Cannot flip sprite based on mouse position.");
+            return;
+        }
+
         // Flip based on mouse position relative to player
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouse.position.ReadValue());
 
