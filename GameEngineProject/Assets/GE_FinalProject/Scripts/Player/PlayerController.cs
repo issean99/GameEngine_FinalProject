@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
     [SerializeField] private float invincibilityDuration = 0.5f;
+
+    // Public properties for UI access
+    public int MaxHealth => maxHealth;
+    public int CurrentHealth => currentHealth;
     [SerializeField] private float blinkSpeed = 10f;
 
     [Header("Stun Settings")]
