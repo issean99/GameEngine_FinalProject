@@ -448,6 +448,13 @@ public class WizardBoss : MonoBehaviour
         currentHealth -= damage;
         Debug.Log($"Wizard Boss took {damage} damage! Current health: {currentHealth}");
 
+        // Play hit sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayHitSound();
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -509,6 +516,13 @@ public class WizardBoss : MonoBehaviour
         Debug.Log("Wizard Boss defeated!");
         isDead = true;
         currentHealth = 0;
+
+        // Play death sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayDeathSound();
+        }
 
         // Stop all ongoing attacks and coroutines
         StopAllCoroutines();

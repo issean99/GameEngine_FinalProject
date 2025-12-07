@@ -527,6 +527,13 @@ public class FinalBoss : MonoBehaviour
         currentHealth -= damage;
         Debug.Log($"Final Boss took {damage} damage! Current health: {currentHealth}");
 
+        // Play hit sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayHitSound();
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -589,6 +596,13 @@ public class FinalBoss : MonoBehaviour
         Debug.Log("Final Boss defeated!");
         isDead = true;
         currentHealth = 0;
+
+        // Play death sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayDeathSound();
+        }
 
         // Stop all ongoing attacks and coroutines
         StopAllCoroutines();

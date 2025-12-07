@@ -189,6 +189,13 @@ public class SkeletonArcherController : MonoBehaviour
         isPerformingAttack = true;
         StopMoving();
 
+        // Play attack sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayAttackSound();
+        }
+
         // Trigger attack animation
         if (animator != null)
         {
@@ -278,6 +285,13 @@ public class SkeletonArcherController : MonoBehaviour
         currentHealth -= damage;
         Debug.Log($"Skeleton Archer took {damage} damage! Current health: {currentHealth}");
 
+        // Play hit sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayHitSound();
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -312,6 +326,13 @@ public class SkeletonArcherController : MonoBehaviour
         Debug.Log("Skeleton Archer defeated!");
         isDead = true;
         currentHealth = 0;
+
+        // Play death sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayDeathSound();
+        }
 
         // Stop all ongoing attacks and coroutines
         StopAllCoroutines();

@@ -18,7 +18,12 @@ public class ArcaneBurstEffect : MonoBehaviour
     [SerializeField] private SpriteRenderer explosionEffect;
     [SerializeField] private float warningPulseSpeed = 3f;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip explosionSound;
+    [SerializeField] [Range(0f, 1f)] private float volume = 0.7f;
+
     private HashSet<Collider2D> damagedTargets = new HashSet<Collider2D>();
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -39,6 +44,12 @@ public class ArcaneBurstEffect : MonoBehaviour
         {
             explosionEffect.enabled = false;
         }
+
+        // Add AudioSource for sound effects
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
+        audioSource.volume = volume;
 
         Debug.Log($"ArcaneBurst Awake: warningMarker={warningMarker != null}, explosionEffect={explosionEffect != null}");
     }
@@ -99,6 +110,12 @@ public class ArcaneBurstEffect : MonoBehaviour
     {
         if (hasExploded) return;
         hasExploded = true;
+
+        // Play explosion sound
+        if (explosionSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(explosionSound, volume);
+        }
 
         Debug.Log($"Arcane Burst exploded at {transform.position} with radius {explosionRadius}");
 

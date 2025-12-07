@@ -1571,6 +1571,7 @@ GameObject:
   - component: {fileID: 315515934}
   - component: {fileID: 315515933}
   - component: {fileID: 315515932}
+  - component: {fileID: 315515937}
   m_Layer: 9
   m_Name: Skeleton_A1
   m_TagString: Enemy
@@ -1761,6 +1762,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &315515937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315515930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6351c7a4c311e34458f879ff1f6af2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundEffects
+  hitSounds: []
+  deathSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  volume: 0.7
 --- !u!1 &323185772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,6 +1905,7 @@ GameObject:
   - component: {fileID: 346578540}
   - component: {fileID: 346578539}
   - component: {fileID: 346578538}
+  - component: {fileID: 346578544}
   m_Layer: 9
   m_Name: Slime
   m_TagString: Enemy
@@ -2088,6 +2106,23 @@ Transform:
   - {fileID: 2004542507}
   m_Father: {fileID: 1060148745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346578544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346578537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6351c7a4c311e34458f879ff1f6af2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundEffects
+  hitSounds:
+  - {fileID: 0}
+  deathSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  volume: 0.7
 --- !u!1 &426666190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,6 +2761,7 @@ GameObject:
   - component: {fileID: 564728496}
   - component: {fileID: 564728495}
   - component: {fileID: 564728494}
+  - component: {fileID: 564728500}
   m_Layer: 9
   m_Name: Slime (2)
   m_TagString: Enemy
@@ -2926,6 +2962,22 @@ Transform:
   - {fileID: 596801510}
   m_Father: {fileID: 1060148745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564728500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564728493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6351c7a4c311e34458f879ff1f6af2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundEffects
+  hitSounds: []
+  deathSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  volume: 0.7
 --- !u!1 &583854821
 GameObject:
   m_ObjectHideFlags: 0
@@ -4566,6 +4618,7 @@ GameObject:
   - component: {fileID: 1079556800}
   - component: {fileID: 1079556799}
   - component: {fileID: 1079556798}
+  - component: {fileID: 1079556803}
   m_Layer: 9
   m_Name: Skeleton_A2
   m_TagString: Enemy
@@ -4756,6 +4809,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1079556803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079556796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6351c7a4c311e34458f879ff1f6af2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundEffects
+  hitSounds: []
+  deathSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  volume: 0.7
 --- !u!1 &1091063005
 GameObject:
   m_ObjectHideFlags: 0
@@ -4860,6 +4929,7 @@ GameObject:
   - component: {fileID: 1115115045}
   - component: {fileID: 1115115044}
   - component: {fileID: 1115115043}
+  - component: {fileID: 1115115048}
   m_Layer: 9
   m_Name: Skeleton_A3
   m_TagString: Enemy
@@ -5050,6 +5120,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1115115048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115115041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6351c7a4c311e34458f879ff1f6af2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundEffects
+  hitSounds: []
+  deathSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  volume: 0.7
 --- !u!1 &1152962611
 GameObject:
   m_ObjectHideFlags: 0

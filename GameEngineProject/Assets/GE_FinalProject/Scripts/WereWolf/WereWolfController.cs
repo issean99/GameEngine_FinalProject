@@ -189,6 +189,13 @@ public class WereWolfController : MonoBehaviour
 
         lastAttackTime = Time.time;
 
+        // Play attack sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayAttackSound();
+        }
+
         // Trigger attack animation
         if (animator != null)
         {
@@ -215,6 +222,13 @@ public class WereWolfController : MonoBehaviour
 
         currentHealth -= damage;
         Debug.Log($"{gameObject.name} took {damage} damage! Current health: {currentHealth}");
+
+        // Play hit sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayHitSound();
+        }
 
         if (currentHealth <= 0)
         {
@@ -245,6 +259,13 @@ public class WereWolfController : MonoBehaviour
         Debug.Log($"{gameObject.name} died!");
         isDead = true;
         currentHealth = 0;
+
+        // Play death sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayDeathSound();
+        }
 
         // Stop movement
         rb.linearVelocity = Vector2.zero;

@@ -194,3 +194,6 @@ MonoBehaviour:
   lifetime: 5
   hitEffectPrefab: {fileID: 0}
   knockbackForce: 15
+  launchSound: {fileID: 8300000, guid: 82df684fe6b720f40925a7d8776c9a0b, type: 3}
+  hitSound: {fileID: 0}
+  volume: 0.7

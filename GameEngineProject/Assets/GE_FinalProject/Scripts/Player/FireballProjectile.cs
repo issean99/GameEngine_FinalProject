@@ -18,13 +18,25 @@ public class FireballProjectile : MonoBehaviour
     [SerializeField] private bool rotateWhileFlying = false; // 날아가는 동안 회전 여부
     [SerializeField] private float rotationSpeed = 360f;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip launchSound; // 발사 소리
+    [SerializeField] private AudioClip hitSound; // 충돌 소리
+    [SerializeField] [Range(0f, 1f)] private float volume = 0.7f;
+
     private Rigidbody2D rb;
     private Vector2 direction;
     private bool hasHit = false;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        // Add AudioSource for sound effects
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
+        audioSource.volume = volume;
     }
 
     public void Initialize(Vector2 shootDirection, float projectileSpeed = -1, int projectileDamage = -1)
@@ -36,6 +48,12 @@ public class FireballProjectile : MonoBehaviour
             speed = projectileSpeed;
         if (projectileDamage > 0)
             damage = projectileDamage;
+
+        // Play launch sound
+        if (launchSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(launchSound, volume);
+        }
 
         // Set velocity
         if (rb != null)
@@ -136,6 +154,12 @@ public class FireballProjectile : MonoBehaviour
         if (hasHit) return;
         hasHit = true;
 
+        // Play hit sound
+        if (hitSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hitSound, volume);
+        }
+
         // Stop movement
         if (rb != null)
         {
@@ -148,8 +172,8 @@ public class FireballProjectile : MonoBehaviour
             Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
         }
 
-        // Destroy projectile
-        Destroy(gameObject);
+        // Destroy projectile (delayed if sound is playing)
+        Destroy(gameObject, hitSound != null ? 0.5f : 0f);
     }
 
     private void OnDrawGizmos()

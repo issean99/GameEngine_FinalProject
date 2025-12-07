@@ -14,12 +14,24 @@ public class SpearProjectile : MonoBehaviour
     [SerializeField] private GameObject hitEffectPrefab; // Optional hit effect
     [SerializeField] private float knockbackForce = 15f; // Knockback strength
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip launchSound; // 발사 소리
+    [SerializeField] private AudioClip hitSound; // 충돌 소리
+    [SerializeField] [Range(0f, 1f)] private float volume = 0.7f;
+
     // Track hit targets to prevent multiple damage to same player
     private HashSet<Collider2D> hitTargets = new HashSet<Collider2D>();
+    private AudioSource audioSource;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        // Add AudioSource for sound effects
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
+        audioSource.volume = volume;
     }
 
     public void Initialize(Vector2 moveDirection, float moveSpeed, int projectileDamage)
@@ -27,6 +39,12 @@ public class SpearProjectile : MonoBehaviour
         direction = moveDirection.normalized;
         speed = moveSpeed;
         damage = projectileDamage;
+
+        // Play launch sound
+        if (launchSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(launchSound, volume);
+        }
 
         // Set velocity
         if (rb != null)
@@ -81,13 +99,20 @@ public class SpearProjectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
+        // Play hit sound
+        if (hitSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hitSound, volume);
+        }
+
         // Spawn hit effect if available
         if (hitEffectPrefab != null)
         {
             Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
         }
 
-        Destroy(gameObject);
+        // Destroy projectile (delayed if sound is playing)
+        Destroy(gameObject, hitSound != null ? 0.5f : 0f);
     }
 
     // Visualize direction in editor

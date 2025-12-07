@@ -221,6 +221,13 @@ public class SkeletonController : MonoBehaviour
         lastAttackTime = Time.time;
         StopMoving(); // 공격 시작 시 즉시 멈춤
 
+        // Play attack sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayAttackSound();
+        }
+
         // Trigger attack animation
         if (animator != null)
         {
@@ -247,6 +254,13 @@ public class SkeletonController : MonoBehaviour
 
         currentHealth -= damage;
         Debug.Log($"{gameObject.name} took {damage} damage! Current health: {currentHealth}");
+
+        // Play hit sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayHitSound();
+        }
 
         if (currentHealth <= 0)
         {
@@ -286,6 +300,13 @@ public class SkeletonController : MonoBehaviour
         Debug.Log($"{gameObject.name} died!");
         isDead = true;
         currentHealth = 0;
+
+        // Play death sound
+        EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
+        if (soundFX != null)
+        {
+            soundFX.PlayDeathSound();
+        }
 
         // Stop movement
         rb.linearVelocity = Vector2.zero;

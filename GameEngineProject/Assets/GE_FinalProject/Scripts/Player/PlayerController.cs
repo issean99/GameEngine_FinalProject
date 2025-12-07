@@ -61,6 +61,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject auraEffect; // 스킬 사용 시 발밑 오오라
     [SerializeField] private SpriteRenderer playerSpriteRenderer; // 플레이어 캐릭터 스프라이트 (색상 변경용)
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip attackSound; // 기본 공격 소리
+    [SerializeField] private AudioClip fireballSound; // 화염구 소리
+    [SerializeField] private AudioClip explosionSound; // 폭발 소리
+    [SerializeField] private AudioClip defenseSound; // 방어 소리
+    [SerializeField] private AudioClip dashSound; // 대쉬 소리
+    [SerializeField] private AudioClip hitSound; // 피격 소리
+    [SerializeField] [Range(0f, 1f)] private float sfxVolume = 0.7f; // 효과음 볼륨
+
+    private AudioSource audioSource;
+
     private Vector2 moveInput;
     private float invincibilityTimer = 0f;
     private bool isSprinting;
@@ -121,6 +132,15 @@ public class PlayerController : MonoBehaviour
         // Get input devices
         keyboard = Keyboard.current;
         mouse = Mouse.current;
+
+        // Get or add AudioSource for sound effects
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false;
+        audioSource.volume = sfxVolume;
 
         // Initialize health
         currentHealth = maxHealth;
@@ -438,6 +458,9 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Attack performed!");
         lastAttackTime = Time.time;
 
+        // Play attack sound
+        PlaySound(attackSound);
+
         // Trigger attack animation
         if (animator != null)
         {
@@ -514,6 +537,9 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
+        // Play hit sound
+        PlaySound(hitSound);
 
         currentHealth -= damage;
 
@@ -616,6 +642,7 @@ public class PlayerController : MonoBehaviour
 
         // TODO: Consume mana if mana system is implemented
         // currentMana -= fireballManaCost;
+        // Note: Fireball sound is played by FireballProjectile itself
 
         // Trigger cooldown in UI
         if (SkillUIManager.Instance != null)
@@ -710,6 +737,7 @@ public class PlayerController : MonoBehaviour
 
         // TODO: Consume mana if mana system is implemented
         // currentMana -= explosionManaCost;
+        // Note: Explosion sound is played by ArcaneBurstEffect itself
 
         // Trigger cooldown in UI
         if (SkillUIManager.Instance != null)
@@ -815,6 +843,12 @@ public class PlayerController : MonoBehaviour
         isDefending = true;
         defenseTimer = defenseDuration;
 
+        // Play defense sound (louder volume)
+        if (defenseSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(defenseSound, 1.0f); // Maximum volume for defense
+        }
+
         // Trigger cooldown in UI
         if (SkillUIManager.Instance != null)
         {
@@ -883,6 +917,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Cannot dash while defending!");
             return;
         }
+
+        // Play dash sound (before dash starts for better timing)
+        PlaySound(dashSound);
 
         // Start dash
         lastDashTime = Time.time;
@@ -1031,6 +1068,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             spriteRenderer.color = Color.white;
+        }
+    }
+
+    // Play sound effect
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip, sfxVolume);
         }
     }
 

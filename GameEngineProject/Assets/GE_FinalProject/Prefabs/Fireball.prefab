@@ -175,3 +175,6 @@ MonoBehaviour:
   trailEffectPrefab: {fileID: 0}
   rotateWhileFlying: 0
   rotationSpeed: 360
+  launchSound: {fileID: 8300000, guid: 5ba2d74195bf18f44967c64232497207, type: 3}
+  hitSound: {fileID: 0}
+  volume: 1
