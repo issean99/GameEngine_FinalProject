@@ -197,54 +197,7 @@ public class StartSceneManager : MonoBehaviour
         // 잠시 대기 후 씬 전환
         yield return new WaitForSeconds(delayBeforeSceneLoad);
 
-        // 다음 씬 로드 전 최종 확인
-        Debug.Log($"[StartSceneManager] About to load scene: {nextSceneName}");
-        Debug.Log($"[StartSceneManager] Player still exists: {(player != null)}");
-        Debug.Log($"[StartSceneManager] Player active: {(player != null && player.activeSelf)}");
-        string playerPos = player != null ? player.transform.position.ToString() : "NULL";
-        Debug.Log($"[StartSceneManager] Player position: {playerPos}");
-
-        if (keepPlayerAcrossScenes)
-        {
-            // Additive 모드로 새 씬 로드 (기존 오브젝트 유지)
-            Debug.Log($"[StartSceneManager] Loading scene '{nextSceneName}' in ADDITIVE mode...");
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
-
-            // 씬 로드 완료 대기
-            yield return asyncLoad;
-
-            Debug.Log($"[StartSceneManager] Scene '{nextSceneName}' loaded!");
-
-            // 새 씬을 활성 씬으로 설정
-            Scene newScene = SceneManager.GetSceneByName(nextSceneName);
-            if (newScene.IsValid())
-            {
-                SceneManager.SetActiveScene(newScene);
-                Debug.Log($"[StartSceneManager] Active scene set to: {newScene.name}");
-            }
-
-            // Start Scene 언로드
-            Scene currentScene = SceneManager.GetSceneByName("Start");
-            if (currentScene.IsValid())
-            {
-                Debug.Log($"[StartSceneManager] Unloading Start scene...");
-                SceneManager.UnloadSceneAsync(currentScene);
-            }
-
-            // 플레이어 확인
-            if (player != null)
-            {
-                Debug.Log($"[StartSceneManager] SUCCESS! Player still alive! Position: {player.transform.position}");
-            }
-            else
-            {
-                Debug.LogError("[StartSceneManager] FAILED! Player is NULL after scene load!");
-            }
-        }
-        else
-        {
-            // 기존 방식 (Single 모드) - 플레이어 파괴됨
-            SceneManager.LoadScene(nextSceneName);
-        }
+        // Use zoom transition effect for Start -> Tutorial
+        SceneTransitionManager.LoadSceneAfterZoom(nextSceneName, player.transform, 1.5f);
     }
 }

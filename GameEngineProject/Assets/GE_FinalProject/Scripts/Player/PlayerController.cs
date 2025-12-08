@@ -577,8 +577,13 @@ public class PlayerController : MonoBehaviour
         // Disable player controls
         enabled = false;
 
-        // Optional: Restart level after delay
-        // Invoke(nameof(RestartLevel), 2f);
+        // Return to Start scene after delay with slow fade
+        Invoke(nameof(ReturnToStart), 2f);
+    }
+
+    private void ReturnToStart()
+    {
+        SceneTransitionManager.LoadSceneWithSlowFade("Start");
     }
 
     // Optional: Add this if you want to restart the level

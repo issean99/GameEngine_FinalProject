@@ -12,6 +12,7 @@ public class ScenePortal : MonoBehaviour
     [SerializeField] private string nextSceneName; // Name of the scene to load
     [Tooltip("Or use scene build index instead of name")]
     [SerializeField] private int nextSceneBuildIndex = -1; // -1 means use scene name instead
+    [SerializeField] private bool isBossScene = false; // Boss 씬으로 가는 포탈인지 여부
 
     [Header("Player Spawn Settings")]
     [SerializeField] private Vector2 spawnPosition = Vector2.zero; // Where player spawns in next scene
@@ -132,21 +133,18 @@ public class ScenePortal : MonoBehaviour
 
         // Determine which scene to load
         string sceneToLoad = "";
-        int sceneIndex = -1;
 
         if (nextSceneBuildIndex >= 0)
         {
-            // Use build index
-            sceneIndex = nextSceneBuildIndex;
-            if (sceneIndex < SceneManager.sceneCountInBuildSettings)
+            // Use build index - convert to scene name
+            if (nextSceneBuildIndex < SceneManager.sceneCountInBuildSettings)
             {
-                Debug.Log($"[ScenePortal] Loading scene by index: {sceneIndex}");
-                SceneManager.LoadScene(sceneIndex);
-                return;
+                string scenePath = SceneUtility.GetScenePathByBuildIndex(nextSceneBuildIndex);
+                sceneToLoad = System.IO.Path.GetFileNameWithoutExtension(scenePath);
             }
             else
             {
-                Debug.LogError($"[ScenePortal] Scene build index {sceneIndex} is out of range! Total scenes: {SceneManager.sceneCountInBuildSettings}");
+                Debug.LogError($"[ScenePortal] Scene build index {nextSceneBuildIndex} is out of range! Total scenes: {SceneManager.sceneCountInBuildSettings}");
                 return;
             }
         }
@@ -154,13 +152,25 @@ public class ScenePortal : MonoBehaviour
         {
             // Use scene name
             sceneToLoad = nextSceneName;
-            Debug.Log($"[ScenePortal] Loading scene by name: {sceneToLoad}");
-            SceneManager.LoadScene(sceneToLoad);
-            return;
         }
         else
         {
             Debug.LogError("[ScenePortal] No valid scene specified!");
+            return;
+        }
+
+        // Load scene with appropriate transition effect
+        Debug.Log($"[ScenePortal] Loading scene: {sceneToLoad}, isBossScene: {isBossScene}");
+
+        if (isBossScene)
+        {
+            // Boss scene - use Flash transition
+            SceneTransitionManager.LoadSceneWithFlash(sceneToLoad);
+        }
+        else
+        {
+            // Normal stage - use Fade transition
+            SceneTransitionManager.LoadSceneWithFade(sceneToLoad);
         }
     }
 

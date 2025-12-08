@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScenePortal
   nextSceneName: 
   nextSceneBuildIndex: 6
+  isBossScene: 1
   spawnPosition: {x: -3, y: -39.5}
   useSpawnPosition: 1
   requirePlayerInRange: 1

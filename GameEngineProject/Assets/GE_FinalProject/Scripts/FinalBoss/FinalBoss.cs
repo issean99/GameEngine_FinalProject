@@ -590,7 +590,12 @@ public class FinalBoss : MonoBehaviour
         BGMManager bgmManager = FindObjectOfType<BGMManager>();
         if (bgmManager != null)
         {
+            Debug.Log("[FinalBoss] BGMManager found, calling PlayBoss2Phase2BGM");
             bgmManager.PlayBoss2Phase2BGM();
+        }
+        else
+        {
+            Debug.LogWarning("[FinalBoss] BGMManager not found!");
         }
 
         // Reset attack timers for Phase 2
