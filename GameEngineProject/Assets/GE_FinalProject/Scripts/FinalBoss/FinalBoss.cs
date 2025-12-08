@@ -50,6 +50,10 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private GameObject spearPrefab;
     [SerializeField] private GameObject corruptedZonePrefab;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip chargeSound; // 돌진 소리
+    [SerializeField] [Range(0f, 1f)] private float sfxVolume = 0.7f;
+
     [Header("Visual Settings")]
     [SerializeField] private float blinkSpeed = 10f;
     [SerializeField] private GameObject auraEffect; // Boss aura sprite object
@@ -66,6 +70,7 @@ public class FinalBoss : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Transform player;
+    private AudioSource audioSource;
 
     private bool isDead = false;
     private bool isInPhase2 = false;
@@ -93,6 +98,12 @@ public class FinalBoss : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
+
+        // Add AudioSource for sound effects
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
+        audioSource.volume = sfxVolume;
 
         // Find aura effect if not assigned (look for child with "Aura" in name)
         if (auraEffect == null)
@@ -342,6 +353,12 @@ public class FinalBoss : MonoBehaviour
         // Calculate dash speed (final dash is faster)
         float currentDashSpeed = isFinalDash ? chargeSpeed * finalChargeSpeedMultiplier : chargeSpeed;
 
+        // Play charge sound
+        if (chargeSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(chargeSound, sfxVolume);
+        }
+
         // Trigger attack animation
         if (animator != null)
         {
@@ -568,6 +585,13 @@ public class FinalBoss : MonoBehaviour
     {
         isInPhase2 = true;
         Debug.Log("Final Boss entered Phase 2!");
+
+        // Change to Phase 2 BGM
+        BGMManager bgmManager = FindObjectOfType<BGMManager>();
+        if (bgmManager != null)
+        {
+            bgmManager.PlayBoss2Phase2BGM();
+        }
 
         // Reset attack timers for Phase 2
         nextDashAttackTime = Time.time + dashAttackInterval;

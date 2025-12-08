@@ -491,6 +491,13 @@ public class WizardBoss : MonoBehaviour
         isInPhase2 = true;
         Debug.Log("Wizard Boss entered Phase 2!");
 
+        // Change to Phase 2 BGM
+        BGMManager bgmManager = FindObjectOfType<BGMManager>();
+        if (bgmManager != null)
+        {
+            bgmManager.PlayBoss1Phase2BGM();
+        }
+
         // Initialize Phase 2 timers
         nextArcaneFanTime = Time.time + arcaneFanInterval;
         nextArcaneBurstUpgradedTime = Time.time + arcaneBurstUpgradedInterval;

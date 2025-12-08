@@ -16,15 +16,19 @@ public class BGMManager : MonoBehaviour
     [SerializeField] private AudioClip stage2BGM;
     [SerializeField] private AudioClip stage3BGM;
     [SerializeField] private AudioClip boss1BGM;
+    [SerializeField] private AudioClip boss1Phase2BGM; // Boss 1 Phase 2 BGM
     [SerializeField] private AudioClip boss2BGM;
+    [SerializeField] private AudioClip boss2Phase2BGM; // Boss 2 Phase 2 BGM
     [SerializeField] private AudioClip endBGM;
 
     [Header("Volume Settings")]
     [SerializeField] private float masterVolume = 0.5f;
+    [SerializeField] private float bossVolumeMultiplier = 1.5f; // 보스 BGM 볼륨 배율 (보스 BGM을 더 크게)
     [SerializeField] private float fadeSpeed = 1f; // Seconds to fade in/out
 
     private AudioSource audioSource;
     private static BGMManager instance;
+    private float currentTargetVolume; // 현재 목표 볼륨
 
     private void Awake()
     {
@@ -65,6 +69,10 @@ public class BGMManager : MonoBehaviour
 
         if (newBGM != null)
         {
+            // Determine target volume based on scene type
+            bool isBossScene = scene.name == "boss1" || scene.name == "boss2";
+            currentTargetVolume = isBossScene ? masterVolume * bossVolumeMultiplier : masterVolume;
+
             // If different BGM, change with fade
             if (audioSource.clip != newBGM)
             {
@@ -143,13 +151,13 @@ public class BGMManager : MonoBehaviour
     {
         audioSource.volume = 0f;
 
-        while (audioSource.volume < masterVolume)
+        while (audioSource.volume < currentTargetVolume)
         {
-            audioSource.volume += masterVolume * Time.deltaTime / fadeSpeed;
+            audioSource.volume += currentTargetVolume * Time.deltaTime / fadeSpeed;
             yield return null;
         }
 
-        audioSource.volume = masterVolume;
+        audioSource.volume = currentTargetVolume;
     }
 
     // Public methods for manual control
@@ -170,6 +178,34 @@ public class BGMManager : MonoBehaviour
         {
             audioSource.Play();
             StartCoroutine(FadeIn());
+        }
+    }
+
+    /// <summary>
+    /// Changes BGM to Boss 1 Phase 2 music
+    /// </summary>
+    public void PlayBoss1Phase2BGM()
+    {
+        if (boss1Phase2BGM != null && audioSource.clip != boss1Phase2BGM)
+        {
+            // Set boss volume for Phase 2
+            currentTargetVolume = masterVolume * bossVolumeMultiplier;
+            StartCoroutine(ChangeBGMWithFade(boss1Phase2BGM));
+            Debug.Log("[BGMManager] Switching to Boss 1 Phase 2 BGM");
+        }
+    }
+
+    /// <summary>
+    /// Changes BGM to Boss 2 Phase 2 music
+    /// </summary>
+    public void PlayBoss2Phase2BGM()
+    {
+        if (boss2Phase2BGM != null && audioSource.clip != boss2Phase2BGM)
+        {
+            // Set boss volume for Phase 2
+            currentTargetVolume = masterVolume * bossVolumeMultiplier;
+            StartCoroutine(ChangeBGMWithFade(boss2Phase2BGM));
+            Debug.Log("[BGMManager] Switching to Boss 2 Phase 2 BGM");
         }
     }
 }
