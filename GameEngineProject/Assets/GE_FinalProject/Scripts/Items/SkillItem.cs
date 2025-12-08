@@ -20,9 +20,14 @@ public class SkillItem : MonoBehaviour
     [SerializeField] protected float pulseMin = 0.8f;
     [SerializeField] protected float pulseMax = 1.2f;
 
+    [Header("Sound Effects")]
+    [SerializeField] protected AudioClip pickupSound; // 아이템 픽업 소리
+    [SerializeField] [Range(0f, 1f)] protected float volume = 0.8f;
+
     protected SpriteRenderer spriteRenderer;
     protected Vector3 startPosition;
     protected bool isPickedUp = false;
+    protected AudioSource audioSource;
 
     protected virtual void Start()
     {
@@ -33,6 +38,12 @@ public class SkillItem : MonoBehaviour
         {
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
+
+        // Add AudioSource for sound effects
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
+        audioSource.volume = volume;
     }
 
     protected virtual void Update()
@@ -77,6 +88,12 @@ public class SkillItem : MonoBehaviour
 
         Debug.Log($"Player picked up: {skillName}");
 
+        // Play pickup sound
+        if (pickupSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(pickupSound, volume);
+        }
+
         // Spawn pickup effect
         if (pickupEffectPrefab != null)
         {
@@ -92,8 +109,8 @@ public class SkillItem : MonoBehaviour
         // Grant skill to player (override in derived classes)
         GrantSkill(player);
 
-        // Destroy item
-        Destroy(gameObject);
+        // Destroy item (delayed to allow sound to play)
+        Destroy(gameObject, pickupSound != null ? 0.5f : 0f);
     }
 
     /// <summary>

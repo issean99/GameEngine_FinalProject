@@ -25,9 +25,14 @@ public class ArrowTrap : MonoBehaviour
     [Header("Boss Connection (Optional)")]
     [SerializeField] private GameObject linkedBoss; // Boss that controls this trap
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip shootSound; // 화살 발사 소리
+    [SerializeField] [Range(0f, 1f)] private float volume = 0.7f;
+
     private Transform player;
     private float nextFireTime;
     private bool isActive = true;
+    private AudioSource audioSource;
 
     public enum ArrowPattern
     {
@@ -50,6 +55,12 @@ public class ArrowTrap : MonoBehaviour
         {
             firePoint = transform;
         }
+
+        // Add AudioSource for sound effects
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
+        audioSource.volume = volume;
 
         isActive = startActive;
         nextFireTime = Time.time + fireInterval;
@@ -113,6 +124,12 @@ public class ArrowTrap : MonoBehaviour
     private void ShootArrow(Vector2 baseDirection, float angleOffset)
     {
         if (arrowPrefab == null) return;
+
+        // Play shoot sound
+        if (shootSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(shootSound, volume);
+        }
 
         // Apply angle offset
         float angle = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg + angleOffset;

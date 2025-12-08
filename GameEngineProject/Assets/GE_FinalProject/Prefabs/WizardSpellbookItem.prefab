@@ -150,3 +150,5 @@ MonoBehaviour:
   pulseSpeed: 3
   pulseMin: 0.8
   pulseMax: 1.2
+  pickupSound: {fileID: 8300000, guid: 4190c012643cd4042a9cf3abb346ae35, type: 3}
+  volume: 1

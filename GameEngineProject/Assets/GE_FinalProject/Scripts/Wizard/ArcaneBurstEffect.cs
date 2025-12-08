@@ -66,6 +66,13 @@ public class ArcaneBurstEffect : MonoBehaviour
 
     public void Initialize(float delay, float radius, int damageAmount, bool playerCast = false)
     {
+        // Prevent multiple initialization
+        if (isInitialized)
+        {
+            Debug.LogWarning("ArcaneBurst already initialized! Ignoring duplicate call.");
+            return;
+        }
+
         isInitialized = true;
         delayTime = delay;
         explosionRadius = radius;
@@ -111,10 +118,17 @@ public class ArcaneBurstEffect : MonoBehaviour
         if (hasExploded) return;
         hasExploded = true;
 
-        // Play explosion sound
+        // Play explosion sound on a separate GameObject that persists
         if (explosionSound != null && audioSource != null)
         {
-            audioSource.PlayOneShot(explosionSound, volume);
+            GameObject soundObject = new GameObject("ExplosionSound");
+            soundObject.transform.position = transform.position;
+            AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+            tempAudioSource.clip = explosionSound;
+            tempAudioSource.volume = volume;
+            tempAudioSource.spatialBlend = 0f;
+            tempAudioSource.Play();
+            Destroy(soundObject, 2.1f); // Destroy after sound completes (2.1s)
         }
 
         Debug.Log($"Arcane Burst exploded at {transform.position} with radius {explosionRadius}");
@@ -217,7 +231,7 @@ public class ArcaneBurstEffect : MonoBehaviour
             }
         }
 
-        // Destroy after explosion animation
+        // Destroy after explosion animation (1 second for animation + sound)
         Destroy(gameObject, 1f);
     }
 

@@ -144,7 +144,7 @@ MonoBehaviour:
   explosionEffect: {fileID: 5906269767101353409}
   warningPulseSpeed: 3
   explosionSound: {fileID: 8300000, guid: 0d6a48f534ce0584bbfcfff0d9927f25, type: 3}
-  volume: 0.808
+  volume: 1
 --- !u!1 &8489342607455642571
 GameObject:
   m_ObjectHideFlags: 0
