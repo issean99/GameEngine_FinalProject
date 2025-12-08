@@ -186,13 +186,25 @@ public class BGMManager : MonoBehaviour
     /// </summary>
     public void PlayBoss1Phase2BGM()
     {
-        if (boss1Phase2BGM != null && audioSource.clip != boss1Phase2BGM)
+        Debug.Log($"[BGMManager] PlayBoss1Phase2BGM called. boss1Phase2BGM assigned: {boss1Phase2BGM != null}");
+
+        if (boss1Phase2BGM == null)
         {
-            // Set boss volume for Phase 2
-            currentTargetVolume = masterVolume * bossVolumeMultiplier;
-            StartCoroutine(ChangeBGMWithFade(boss1Phase2BGM));
-            Debug.Log("[BGMManager] Switching to Boss 1 Phase 2 BGM");
+            Debug.LogWarning("[BGMManager] Boss 1 Phase 2 BGM is not assigned in Inspector!");
+            return;
         }
+
+        if (audioSource.clip == boss1Phase2BGM)
+        {
+            Debug.Log("[BGMManager] Boss 1 Phase 2 BGM is already playing");
+            return;
+        }
+
+        Debug.Log($"[BGMManager] Switching to Boss 1 Phase 2 BGM: {boss1Phase2BGM.name}");
+
+        // Set boss volume for Phase 2
+        currentTargetVolume = masterVolume * bossVolumeMultiplier;
+        StartCoroutine(ChangeBGMWithFade(boss1Phase2BGM));
     }
 
     /// <summary>
@@ -200,12 +212,24 @@ public class BGMManager : MonoBehaviour
     /// </summary>
     public void PlayBoss2Phase2BGM()
     {
-        if (boss2Phase2BGM != null && audioSource.clip != boss2Phase2BGM)
+        Debug.Log($"[BGMManager] PlayBoss2Phase2BGM called. boss2Phase2BGM assigned: {boss2Phase2BGM != null}");
+
+        if (boss2Phase2BGM == null)
         {
-            // Set boss volume for Phase 2
-            currentTargetVolume = masterVolume * bossVolumeMultiplier;
-            StartCoroutine(ChangeBGMWithFade(boss2Phase2BGM));
-            Debug.Log("[BGMManager] Switching to Boss 2 Phase 2 BGM");
+            Debug.LogWarning("[BGMManager] Boss 2 Phase 2 BGM is not assigned in Inspector!");
+            return;
         }
+
+        if (audioSource.clip == boss2Phase2BGM)
+        {
+            Debug.Log("[BGMManager] Boss 2 Phase 2 BGM is already playing");
+            return;
+        }
+
+        Debug.Log($"[BGMManager] Switching to Boss 2 Phase 2 BGM: {boss2Phase2BGM.name}");
+
+        // Set boss volume for Phase 2
+        currentTargetVolume = masterVolume * bossVolumeMultiplier;
+        StartCoroutine(ChangeBGMWithFade(boss2Phase2BGM));
     }
 }
