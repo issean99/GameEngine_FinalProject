@@ -574,6 +574,12 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("MoveSpeed", 0);
         }
 
+        // Trigger death camera effect (zoom in + vignette)
+        if (DeathCameraEffect.Instance != null)
+        {
+            DeathCameraEffect.Instance.TriggerDeathEffect();
+        }
+
         // Disable player controls
         enabled = false;
 

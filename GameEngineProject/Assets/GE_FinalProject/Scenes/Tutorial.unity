@@ -399,7 +399,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 463703737
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 4570333650435736826, guid: de1e2168d7a920541b9b43999fa73d1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7338,7 +7338,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -4182143
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -7532624389071617534, guid: c42e82e0187f07e409bf9cb005b1e1db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7451,7 +7451,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -4182143
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1364588798845404824, guid: c42e82e0187f07e409bf9cb005b1e1db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9568,6 +9568,7 @@ RectTransform:
   - {fileID: 1957899959}
   - {fileID: 848436967}
   - {fileID: 987992539}
+  - {fileID: 1916791886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10356,7 +10357,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 463703737
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -7854738478779454800, guid: 377b939190045d341ae0e615af5ea9ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10397,6 +10398,7 @@ GameObject:
   - component: {fileID: 908436040}
   - component: {fileID: 908436039}
   - component: {fileID: 908436038}
+  - component: {fileID: 908436041}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -10493,6 +10495,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 555770279}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &908436041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908436037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c762446c57848b4aac85c1c1cdc0d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollowSetup
+  playerTag: Player
 --- !u!1 &943186035
 GameObject:
   m_ObjectHideFlags: 0
@@ -10555,7 +10570,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -4182143
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -7532624389071617534, guid: c42e82e0187f07e409bf9cb005b1e1db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11095,7 +11110,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 463703737
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 303854554312539980, guid: 14898ed7e8bb45d448073f0e09a2dbc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11979,7 +11994,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 463703737
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 4565372846758268570, guid: cee4d66b3a027874c9f6a2942d61d064, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12219,6 +12234,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1887840227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1720461298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720461299}
+  - component: {fileID: 1720461300}
+  m_Layer: 0
+  m_Name: DeathCameraEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1720461299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720461298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 58.46825, y: -52.11882, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720461300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720461298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad99d7f5dbcd8a41a4b85c1819a0f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathCameraEffect
+  cinemachineCamera: {fileID: 908436039}
+  deathZoomSize: 3
+  zoomDuration: 1.5
+  blackOverlayImage: {fileID: 1916791888}
+  blackOverlayCanvas: {fileID: 726658913}
+  overlayFadeDuration: 1.5
+  deathEffectSortingLayer: DeathEffect
+  playerSortingLayer: Character
+  healthBarUI: {fileID: 987992538}
+  skillIconUI: {fileID: 848436965}
+  player: {fileID: 0}
 --- !u!1 &1819448282
 GameObject:
   m_ObjectHideFlags: 0
@@ -12652,7 +12722,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 463703737
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -6351682907161248583, guid: f49e5638d6101dd428260ce67673d47a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12913,6 +12983,81 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 4baa6e81a30f4ce43b771d5829e82e97, type: 3}
   attackSound: {fileID: 0}
   volume: 1
+--- !u!1 &1916791885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1916791886}
+  - component: {fileID: 1916791887}
+  - component: {fileID: 1916791888}
+  m_Layer: 5
+  m_Name: BlackOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1916791886
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916791885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 726658910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1916791887
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916791885}
+  m_CullTransparentMesh: 1
+--- !u!114 &1916791888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916791885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1956762160
 GameObject:
   m_ObjectHideFlags: 0
@@ -13612,7 +13757,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -4182143
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1364588798845404824, guid: c42e82e0187f07e409bf9cb005b1e1db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13741,3 +13886,4 @@ SceneRoots:
   - {fileID: 726658910}
   - {fileID: 766844413}
   - {fileID: 555770279}
+  - {fileID: 1720461299}
