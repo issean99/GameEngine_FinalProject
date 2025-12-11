@@ -147,6 +147,17 @@ public class StartScenePlayerManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Reset all static references (for complete game reset)
+    /// </summary>
+    public static void ResetAllStaticReferences()
+    {
+        persistentPlayer = null;
+        persistentCameraSystem = null;
+        instance = null;
+        Debug.Log("[StartScenePlayerManager] All static references cleared");
+    }
+
+    /// <summary>
     /// Tutorial 씬에서 Camera System GameObject를 찾아서 DontDestroyOnLoad로 등록
     /// </summary>
     private void RegisterCameraSystem()

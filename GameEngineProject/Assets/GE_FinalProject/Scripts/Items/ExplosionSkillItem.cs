@@ -19,6 +19,7 @@ public class ExplosionSkillItem : SkillItem
 
         Debug.Log("Player unlocked Arcane Explosion skill! Press Q to cast at mouse position.");
 
+        // Note: WizardSpellbookItem is used instead, which shows both skills
         // Optional: Show UI notification here
         // Example: UIManager.Instance.ShowSkillUnlockNotification("Arcane Explosion Unlocked!");
     }

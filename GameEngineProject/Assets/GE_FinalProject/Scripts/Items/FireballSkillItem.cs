@@ -19,6 +19,7 @@ public class FireballSkillItem : SkillItem
 
         Debug.Log("Player unlocked Fireball skill! Press Right Mouse Button to cast.");
 
+        // Note: WizardSpellbookItem is used instead, which shows both skills
         // Optional: Show UI notification here
         // Example: UIManager.Instance.ShowSkillUnlockNotification("Fireball Unlocked!");
     }

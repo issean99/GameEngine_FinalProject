@@ -18,9 +18,10 @@ public class SceneTransitionManager : MonoBehaviour
 
     [Header("Transition Settings")]
     [SerializeField] private Image transitionImage;
-    [SerializeField] private float fadeSpeed = 1f;          // 일반 페이드 속도
-    [SerializeField] private float flashSpeed = 0.3f;       // 플래시 속도 (빠름)
-    [SerializeField] private float slowFadeSpeed = 2f;      // 느린 페이드 속도
+    [SerializeField] private float fadeSpeed = 1.5f;        // 일반 페이드 속도 (더 길게)
+    [SerializeField] private float flashSpeed = 0.5f;       // 플래시 속도 (조금 더 길게)
+    [SerializeField] private float slowFadeSpeed = 2.5f;    // 느린 페이드 속도 (더 길게)
+    [SerializeField] private float holdDuration = 0.3f;     // 전환 중 검은 화면 유지 시간
     [SerializeField] private Color fadeColor = Color.black; // 페이드 색상 (검은색)
     [SerializeField] private Color flashColor = Color.white; // 플래시 색상 (흰색)
 
@@ -137,6 +138,13 @@ public class SceneTransitionManager : MonoBehaviour
     {
         isTransitioning = true;
 
+        // Ensure transition image exists (may have been destroyed by Back button)
+        if (transitionImage == null)
+        {
+            Debug.Log("[SceneTransitionManager] Recreating canvas after game reset");
+            CreateTransitionCanvas();
+        }
+
         // Determine transition parameters
         float speed;
         Color targetColor;
@@ -164,6 +172,9 @@ public class SceneTransitionManager : MonoBehaviour
         // Fade out (cover screen)
         yield return StartCoroutine(FadeOut(speed));
 
+        // Hold on black screen for more natural transition
+        yield return new WaitForSeconds(holdDuration);
+
         // Load scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
@@ -174,7 +185,7 @@ public class SceneTransitionManager : MonoBehaviour
         }
 
         // Small delay for scene initialization
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         // Fade in (reveal new scene)
         yield return StartCoroutine(FadeIn(speed));
@@ -215,6 +226,13 @@ public class SceneTransitionManager : MonoBehaviour
     private IEnumerator ZoomAndTransition(string sceneName, Transform target, float zoomDuration)
     {
         isTransitioning = true;
+
+        // Ensure transition image exists (may have been destroyed by Back button)
+        if (transitionImage == null)
+        {
+            Debug.Log("[SceneTransitionManager] Recreating canvas after game reset");
+            CreateTransitionCanvas();
+        }
 
         // Get main camera
         Camera mainCamera = Camera.main;
@@ -267,6 +285,9 @@ public class SceneTransitionManager : MonoBehaviour
         transitionImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
         yield return StartCoroutine(FadeOut(fadeSpeed));
 
+        // Hold on black screen for more natural transition
+        yield return new WaitForSeconds(holdDuration);
+
         // Load scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (!asyncLoad.isDone)
@@ -275,9 +296,64 @@ public class SceneTransitionManager : MonoBehaviour
         }
 
         // Small delay for scene initialization
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         // Fade in
+        yield return StartCoroutine(FadeIn(fadeSpeed));
+
+        isTransitioning = false;
+    }
+
+    /// <summary>
+    /// Reload current scene with fade transition (for respawn)
+    /// </summary>
+    public static void ReloadCurrentSceneWithFade()
+    {
+        if (instance != null && !instance.isTransitioning)
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            instance.StartCoroutine(instance.TransitionToScene(currentSceneName, TransitionType.Fade));
+        }
+    }
+
+    /// <summary>
+    /// Respawn without scene reload - just fade out and back in (for normal scenes)
+    /// </summary>
+    public static void RespawnWithFade(System.Action onRespawn)
+    {
+        if (instance != null && !instance.isTransitioning)
+        {
+            instance.StartCoroutine(instance.RespawnTransition(onRespawn));
+        }
+    }
+
+    private IEnumerator RespawnTransition(System.Action onRespawn)
+    {
+        isTransitioning = true;
+
+        // Ensure transition image exists (may have been destroyed by Back button)
+        if (transitionImage == null)
+        {
+            Debug.Log("[SceneTransitionManager] Recreating canvas after game reset");
+            CreateTransitionCanvas();
+        }
+
+        // Set fade color
+        transitionImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
+
+        // Fade out (cover screen)
+        yield return StartCoroutine(FadeOut(fadeSpeed));
+
+        // Hold on black screen
+        yield return new WaitForSeconds(holdDuration);
+
+        // Execute respawn logic (reset player, move to spawn point, etc.)
+        onRespawn?.Invoke();
+
+        // Small delay
+        yield return new WaitForSeconds(0.2f);
+
+        // Fade in (reveal scene)
         yield return StartCoroutine(FadeIn(fadeSpeed));
 
         isTransitioning = false;

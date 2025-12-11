@@ -6,6 +6,15 @@ using UnityEngine.UI;
 public class StartSceneManager : MonoBehaviour
 {
     private static bool playerPersisted = false; // 플레이어가 이미 유지되었는지 확인
+
+    /// <summary>
+    /// Reset static flag for complete game reset
+    /// </summary>
+    public static void ResetPlayerPersistedFlag()
+    {
+        playerPersisted = false;
+        Debug.Log("[StartSceneManager] playerPersisted flag reset");
+    }
     [Header("UI Buttons")]
     [SerializeField] private Button startButton;
     [SerializeField] private Button exitButton;
@@ -31,6 +40,20 @@ public class StartSceneManager : MonoBehaviour
             GameObject manager = new GameObject("StartScenePlayerManager");
             manager.AddComponent<StartScenePlayerManager>();
             Debug.Log("[StartSceneManager] StartScenePlayerManager created");
+        }
+
+        // If player reference is missing (destroyed by Back button), find it in the scene
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                Debug.Log($"[StartSceneManager] Player reference was null, found player in scene: {player.name}");
+            }
+            else
+            {
+                Debug.LogError("[StartSceneManager] No player found in Start scene!");
+            }
         }
 
         // 플레이어 초기 설정

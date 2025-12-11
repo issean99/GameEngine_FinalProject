@@ -25,7 +25,26 @@ public class WizardSpellbookItem : SkillItem
         Debug.Log("  2. Arcane Explosion (Q Key) - AoE explosion at mouse position");
         Debug.Log("========================================");
 
-        // Optional: Show UI notification here
-        // Example: UIManager.Instance.ShowSkillUnlockNotification("Wizard's Spellbook Obtained!\nFireball + Arcane Explosion");
+        // Show skill description panels for both skills
+        // First show Fireball, then when closed, show Arcane Explosion
+        StartCoroutine(ShowBothSkillPanels());
+    }
+
+    private System.Collections.IEnumerator ShowBothSkillPanels()
+    {
+        // Show Fireball panel first
+        SkillDescriptionPanel.ShowSkillByName("Fireball");
+
+        // Wait until the panel is closed
+        while (SkillDescriptionPanel.IsShowing())
+        {
+            yield return null;
+        }
+
+        // Small delay between panels
+        yield return new WaitForSeconds(0.2f);
+
+        // Show Arcane Explosion panel
+        SkillDescriptionPanel.ShowSkillByName("Arcane Explosion");
     }
 }

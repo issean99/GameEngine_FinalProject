@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Obstacle
   - PlayerAttack
+  - Portal
   layers:
   - Default
   - TransparentFX

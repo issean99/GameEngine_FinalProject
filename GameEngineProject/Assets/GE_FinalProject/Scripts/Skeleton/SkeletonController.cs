@@ -23,6 +23,10 @@ public class SkeletonController : MonoBehaviour
     [SerializeField] private float staggerDuration = 0.8f;
     [SerializeField] private float blinkSpeed = 10f;
 
+    [Header("Wall Detection")]
+    [SerializeField] private float wallCheckDistance = 0.5f; // Distance to check for walls
+    [SerializeField] private LayerMask wallLayer; // Layer for walls (set in Inspector)
+
     [Header("Group Settings")]
     [SerializeField] private SkeletonGroup group; // 그룹 스크립트 참조
 
@@ -186,6 +190,18 @@ public class SkeletonController : MonoBehaviour
     private void MoveTowardsPlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;
+
+        // Check if there's a wall in the direction of movement
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
+
+        if (hit.collider != null)
+        {
+            // Wall detected - stop moving
+            StopMoving();
+            Debug.Log($"[Skeleton] Wall detected ahead, stopping movement");
+            return;
+        }
+
         rb.linearVelocity = direction * moveSpeed;
 
         // Update animator

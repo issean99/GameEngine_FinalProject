@@ -15,6 +15,7 @@ public class WizardBoss : MonoBehaviour
     [SerializeField] private float moveSpeed = 1.5f;
     [SerializeField] private float detectionRange = 10f;
     [SerializeField] private float keepDistance = 5f; // Maintain distance from player
+    [SerializeField] private float attackRange = 12f; // Maximum range to start attacking
 
     [Header("Attack Settings - Phase 1")]
     [SerializeField] private float magicMissileInterval = 3f;
@@ -55,6 +56,7 @@ public class WizardBoss : MonoBehaviour
     private bool isPerformingAttack = false;
     private bool isStaggered = false;
     private float staggerTimer = 0f;
+    private bool playerInAttackRange = false; // Track if player is in attack range
 
     // Attack timers
     private float nextMagicMissileTime;
@@ -152,6 +154,9 @@ public class WizardBoss : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
+        // Update attack range status
+        playerInAttackRange = distanceToPlayer <= attackRange;
+
         if (distanceToPlayer <= detectionRange)
         {
             // Maintain distance from player (kiting behavior)
@@ -191,6 +196,12 @@ public class WizardBoss : MonoBehaviour
 
     private void HandleAttackPattern()
     {
+        // Only attack if player is in attack range
+        if (!playerInAttackRange)
+        {
+            return;
+        }
+
         if (isInPhase2)
         {
             // Phase 2 Attacks
@@ -571,6 +582,28 @@ public class WizardBoss : MonoBehaviour
         // Drop fireball skill item immediately on death
         DropFireballItem();
 
+        // Play death dialogue
+        BossDialogue bossDialogue = FindObjectOfType<BossDialogue>();
+        if (bossDialogue != null)
+        {
+            Dialogue[] deathDialogues = bossDialogue.GetBoss1DeathDialogues();
+            DialogueManager.StartDialogue(deathDialogues, pauseGame: false, disablePlayer: false);
+
+            // Wait for dialogue to complete
+            while (DialogueManager.IsDialogueActive())
+            {
+                yield return null;
+            }
+        }
+
+        // Change BGM back to Boss 1 Phase 1 BGM after boss death
+        BGMManager bgmManager = FindObjectOfType<BGMManager>();
+        if (bgmManager != null)
+        {
+            Debug.Log("[WizardBoss] Changing BGM back to Boss 1 Phase 1 BGM after death");
+            bgmManager.PlayBoss1BGM();
+        }
+
         // Wait for death animation to complete (adjust time if needed)
         yield return new WaitForSeconds(2f);
 
@@ -610,6 +643,10 @@ public class WizardBoss : MonoBehaviour
         // Detection range (yellow)
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        // Attack range (red)
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
 
         // Keep distance (cyan)
         Gizmos.color = Color.cyan;

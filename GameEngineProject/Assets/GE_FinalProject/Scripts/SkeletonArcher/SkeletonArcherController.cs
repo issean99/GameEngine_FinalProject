@@ -34,6 +34,10 @@ public class SkeletonArcherController : MonoBehaviour
     [Header("Stagger Settings")]
     [SerializeField] private float staggerDuration = 0.5f;
 
+    [Header("Wall Detection")]
+    [SerializeField] private float wallCheckDistance = 0.5f; // Distance to check for walls
+    [SerializeField] private LayerMask wallLayer; // Layer for walls (set in Inspector)
+
     [Header("Contact Damage Settings")]
     [SerializeField] private float contactDamageInterval = 1f; // Damage player every X seconds when touching
 
@@ -128,11 +132,22 @@ public class SkeletonArcherController : MonoBehaviour
             {
                 // Move away from player quickly
                 Vector2 direction = (transform.position - player.position).normalized;
-                rb.linearVelocity = direction * moveSpeed;
 
-                if (animator != null)
+                // Check for wall before moving
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
+                if (hit.collider != null)
                 {
-                    animator.SetFloat("MoveSpeed", moveSpeed);
+                    StopMoving();
+                    Debug.Log($"[SkeletonArcher] Wall detected while retreating, stopping");
+                }
+                else
+                {
+                    rb.linearVelocity = direction * moveSpeed;
+
+                    if (animator != null)
+                    {
+                        animator.SetFloat("MoveSpeed", moveSpeed);
+                    }
                 }
             }
             // Priority 2: If too far from optimal range, move closer
@@ -140,11 +155,22 @@ public class SkeletonArcherController : MonoBehaviour
             {
                 // Move towards player to get into optimal range
                 Vector2 direction = (player.position - transform.position).normalized;
-                rb.linearVelocity = direction * (moveSpeed * 0.8f); // Move slower when approaching
 
-                if (animator != null)
+                // Check for wall before moving
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
+                if (hit.collider != null)
                 {
-                    animator.SetFloat("MoveSpeed", moveSpeed * 0.8f);
+                    StopMoving();
+                    Debug.Log($"[SkeletonArcher] Wall detected while approaching, stopping");
+                }
+                else
+                {
+                    rb.linearVelocity = direction * (moveSpeed * 0.8f); // Move slower when approaching
+
+                    if (animator != null)
+                    {
+                        animator.SetFloat("MoveSpeed", moveSpeed * 0.8f);
+                    }
                 }
             }
             // Priority 3: If too close to optimal range, back up slowly
@@ -152,11 +178,22 @@ public class SkeletonArcherController : MonoBehaviour
             {
                 // Move away from player slowly
                 Vector2 direction = (transform.position - player.position).normalized;
-                rb.linearVelocity = direction * (moveSpeed * 0.6f); // Move slower when adjusting position
 
-                if (animator != null)
+                // Check for wall before moving
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
+                if (hit.collider != null)
                 {
-                    animator.SetFloat("MoveSpeed", moveSpeed * 0.6f);
+                    StopMoving();
+                    Debug.Log($"[SkeletonArcher] Wall detected while backing up, stopping");
+                }
+                else
+                {
+                    rb.linearVelocity = direction * (moveSpeed * 0.6f); // Move slower when adjusting position
+
+                    if (animator != null)
+                    {
+                        animator.SetFloat("MoveSpeed", moveSpeed * 0.6f);
+                    }
                 }
             }
             // Priority 4: In optimal range - stay still and shoot

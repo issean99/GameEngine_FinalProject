@@ -613,11 +613,11 @@ public class FinalBoss : MonoBehaviour
             spriteRenderer.color = new Color(1f, 0.6f, 0.6f, 1f); // Light red tint
         }
 
-        // Optional: Play phase transition animation/effect
-        if (animator != null)
-        {
-            animator.SetTrigger("PhaseTransition");
-        }
+        // Optional: Play phase transition animation/effect (disabled - animator parameter doesn't exist)
+        // if (animator != null)
+        // {
+        //     animator.SetTrigger("PhaseTransition");
+        // }
     }
 
     private void Die()
@@ -670,6 +670,28 @@ public class FinalBoss : MonoBehaviour
 
     private IEnumerator DisableAfterDeath()
     {
+        // Play death dialogue
+        BossDialogue bossDialogue = FindObjectOfType<BossDialogue>();
+        if (bossDialogue != null)
+        {
+            Dialogue[] deathDialogues = bossDialogue.GetBoss2DeathDialogues();
+            DialogueManager.StartDialogue(deathDialogues, pauseGame: false, disablePlayer: false);
+
+            // Wait for dialogue to complete
+            while (DialogueManager.IsDialogueActive())
+            {
+                yield return null;
+            }
+        }
+
+        // Change BGM back to Boss 2 Phase 1 BGM after boss death
+        BGMManager bgmManager = FindObjectOfType<BGMManager>();
+        if (bgmManager != null)
+        {
+            Debug.Log("[FinalBoss] Changing BGM back to Boss 2 Phase 1 BGM after death");
+            bgmManager.PlayBoss2BGM();
+        }
+
         // Wait for death animation to complete (adjust time if needed)
         yield return new WaitForSeconds(2f);
 

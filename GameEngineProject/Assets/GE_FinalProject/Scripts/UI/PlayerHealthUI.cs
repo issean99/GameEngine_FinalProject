@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 /// <summary>
@@ -18,8 +19,14 @@ public class PlayerHealthUI : MonoBehaviour
     [Header("Optional Text")]
     [SerializeField] private TextMeshProUGUI healthText; // 체력 텍스트 (80/100 같은 형식) - 옵션
 
+    [Header("Hide in Scenes")]
+    [SerializeField] private string[] hideScenesNames = { "Start" }; // 이 씬들에서는 HP UI 숨김
+
     private void Start()
     {
+        // Check if we should hide in current scene
+        CheckSceneAndToggleUI();
+
         if (autoFindPlayer)
         {
             FindPlayer();
@@ -29,6 +36,50 @@ public class PlayerHealthUI : MonoBehaviour
         if (playerController != null)
         {
             UpdateHealthUI(playerController.CurrentHealth, playerController.MaxHealth);
+        }
+
+        // Subscribe to scene changes
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from scene changes
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        CheckSceneAndToggleUI();
+    }
+
+    /// <summary>
+    /// Check current scene and hide/show UI accordingly
+    /// </summary>
+    private void CheckSceneAndToggleUI()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        bool shouldHide = false;
+
+        foreach (string sceneName in hideScenesNames)
+        {
+            if (currentSceneName == sceneName)
+            {
+                shouldHide = true;
+                break;
+            }
+        }
+
+        // Hide or show the entire GameObject
+        gameObject.SetActive(!shouldHide);
+
+        if (shouldHide)
+        {
+            Debug.Log($"[PlayerHealthUI] Hidden in {currentSceneName} scene");
+        }
+        else
+        {
+            Debug.Log($"[PlayerHealthUI] Shown in {currentSceneName} scene");
         }
     }
 

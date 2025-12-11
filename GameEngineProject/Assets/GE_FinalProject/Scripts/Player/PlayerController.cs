@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
     [SerializeField] private float invincibilityDuration = 0.5f;
+    [SerializeField] private float respawnInvincibilityDuration = 3f; // 리스폰 시 무적 시간 (3초)
 
     // Public properties for UI access
     public int MaxHealth => maxHealth;
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private float dashTimer = 0f;
     private Vector2 dashDirection;
+    private bool isDead = false; // Prevent multiple death triggers
     private string lastVisualState = "normal"; // Track visual state changes
 
     private Rigidbody2D rb;
@@ -556,7 +558,17 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        // Prevent multiple death triggers
+        if (isDead)
+        {
+            Debug.Log("[PlayerController] Already dead, ignoring Die() call");
+            return;
+        }
+
+        isDead = true;
         currentHealth = 0;
+
+        Debug.Log("[PlayerController] Player died!");
 
         // Stop all movement
         if (rb != null)
@@ -577,22 +589,87 @@ public class PlayerController : MonoBehaviour
         // Disable player controls
         enabled = false;
 
-        // Return to Start scene after delay with slow fade
-        Invoke(nameof(ReturnToStart), 2f);
+        // Show game over screen after delay
+        Invoke(nameof(ShowGameOverScreen), 1.5f);
     }
 
-    private void ReturnToStart()
+    private void ShowGameOverScreen()
     {
-        SceneTransitionManager.LoadSceneWithSlowFade("Start");
+        // Show game over UI
+        GameOverUI.ShowGameOverScreen();
     }
 
-    // Optional: Add this if you want to restart the level
-    // private void RestartLevel()
-    // {
-    //     UnityEngine.SceneManagement.SceneManager.LoadScene(
-    //         UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-    //     );
-    // }
+    /// <summary>
+    /// Restore player to full health (used for respawn)
+    /// </summary>
+    public void RestoreFullHealth()
+    {
+        currentHealth = maxHealth;
+        Debug.Log($"[PlayerController] Health restored to full: {currentHealth}/{maxHealth}");
+    }
+
+    /// <summary>
+    /// Reset player state for respawn
+    /// </summary>
+    public void ResetPlayerState()
+    {
+        // Reset death flag to allow death again
+        isDead = false;
+
+        // Restore health
+        currentHealth = maxHealth;
+
+        // Clear all status effects
+        isStunned = false;
+        stunTimer = 0f;
+        isDefending = false;
+        defenseTimer = 0f;
+        isDashing = false;
+        dashTimer = 0f;
+
+        // Grant long invincibility after respawn to prevent instant death
+        invincibilityTimer = respawnInvincibilityDuration;
+
+        // Stop movement
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+        moveInput = Vector2.zero;
+
+        // Reset visual effects
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
+
+        // Reset animator - force back to idle state
+        if (animator != null)
+        {
+            animator.ResetTrigger("Die");
+            animator.SetFloat("MoveSpeed", 0);
+
+            // Force animator to rebind and update to Idle state
+            animator.Rebind();
+            animator.Update(0f);
+
+            Debug.Log("[PlayerController] Animator reset to Idle state");
+        }
+
+        // Re-enable controller
+        enabled = true;
+
+        Debug.Log($"[PlayerController] Player state reset for respawn with {respawnInvincibilityDuration}s invincibility");
+    }
+
+    /// <summary>
+    /// Set player invincible for a duration (used for respawn protection)
+    /// </summary>
+    public void SetInvincible(float duration)
+    {
+        invincibilityTimer = duration;
+        Debug.Log($"[PlayerController] Player set invincible for {duration}s");
+    }
 
     // Public method to apply stun effect
     public void ApplyStun(float duration)
@@ -931,6 +1008,9 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
         dashTimer = dashDuration;
         dashDirection = moveInput.normalized;
+
+        // Trigger camera effect for dash
+        DashCameraEffect.TriggerDashEffect(dashDirection, dashDuration);
 
         // Trigger cooldown in UI
         if (SkillUIManager.Instance != null)

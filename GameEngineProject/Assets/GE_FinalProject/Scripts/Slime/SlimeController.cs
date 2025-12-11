@@ -22,6 +22,10 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private float staggerDuration = 1f;
     [SerializeField] private float blinkSpeed = 10f;
 
+    [Header("Wall Detection")]
+    [SerializeField] private float wallCheckDistance = 0.5f; // Distance to check for walls
+    [SerializeField] private LayerMask wallLayer; // Layer for walls (set in Inspector)
+
     [Header("Item Drop")]
     [SerializeField] private GameObject slimeDefenseItemPrefab; // Slime Defense skill item
     [SerializeField] private float dropChance = 0.3f; // 30% chance to drop
@@ -155,6 +159,18 @@ public class SlimeController : MonoBehaviour
     private void MoveTowardsPlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;
+
+        // Check if there's a wall in the direction of movement
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
+
+        if (hit.collider != null)
+        {
+            // Wall detected - stop moving
+            StopMoving();
+            Debug.Log($"[Slime] Wall detected ahead, stopping movement");
+            return;
+        }
+
         rb.linearVelocity = direction * moveSpeed;
 
         // Update animator

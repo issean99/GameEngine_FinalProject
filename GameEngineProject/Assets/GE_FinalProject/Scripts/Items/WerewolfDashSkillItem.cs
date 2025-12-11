@@ -10,5 +10,8 @@ public class WerewolfDashSkillItem : SkillItem
     {
         player.UnlockDashSkill();
         Debug.Log("Werewolf Soul absorbed! Learned Dash skill (Shift Key)");
+
+        // Show skill description panel
+        SkillDescriptionPanel.ShowSkillByName("Dash");
     }
 }
