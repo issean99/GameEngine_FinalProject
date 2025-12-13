@@ -598,9 +598,10 @@ public class FinalBoss : MonoBehaviour
             Debug.LogWarning("[FinalBoss] BGMManager not found!");
         }
 
-        // Reset attack timers for Phase 2
-        nextDashAttackTime = Time.time + dashAttackInterval;
-        nextLungeAttackTime = Time.time + lungeAttackInterval;
+        // Immediately trigger an attack when entering Phase 2
+        // Set timers to trigger immediately (past time)
+        nextDashAttackTime = Time.time - 1f; // Set to past time to trigger immediately
+        nextLungeAttackTime = Time.time + lungeAttackInterval; // Keep lunge on normal schedule
         lastCorruptedZoneTime = Time.time;
 
         // Increase movement speed in Phase 2

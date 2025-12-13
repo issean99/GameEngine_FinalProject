@@ -25,10 +25,14 @@ public class SkeletonController : MonoBehaviour
 
     [Header("Wall Detection")]
     [SerializeField] private float wallCheckDistance = 0.5f; // Distance to check for walls
-    [SerializeField] private LayerMask wallLayer; // Layer for walls (set in Inspector)
+    [SerializeField] private LayerMask wallLayer = -1; // Layer for walls (-1 = all layers by default)
 
     [Header("Group Settings")]
     [SerializeField] private SkeletonGroup group; // 그룹 스크립트 참조
+
+    [Header("Item Drop")]
+    [SerializeField] private GameObject healthItemPrefab; // Health item
+    [SerializeField] private float healthDropChance = 0.5f; // 50% chance to drop health
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -49,6 +53,24 @@ public class SkeletonController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
+
+        // Configure Rigidbody2D for proper collision
+        if (rb != null)
+        {
+            rb.gravityScale = 0; // No gravity for 2D top-down
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Prevent rotation
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // Better collision
+        }
+
+        // Ensure we have a collider for wall collision
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        if (collider == null)
+        {
+            collider = gameObject.AddComponent<CircleCollider2D>();
+            collider.radius = 0.3f;
+            Debug.Log("[Skeleton] Added CircleCollider2D for wall collision");
+        }
+        collider.isTrigger = false; // NOT a trigger - we want physical collision
 
         // Find player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -191,17 +213,7 @@ public class SkeletonController : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
 
-        // Check if there's a wall in the direction of movement
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
-
-        if (hit.collider != null)
-        {
-            // Wall detected - stop moving
-            StopMoving();
-            Debug.Log($"[Skeleton] Wall detected ahead, stopping movement");
-            return;
-        }
-
+        // Simply set velocity - Rigidbody2D will handle wall collisions automatically
         rb.linearVelocity = direction * moveSpeed;
 
         // Update animator
@@ -346,6 +358,9 @@ public class SkeletonController : MonoBehaviour
             spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
 
+        // Drop item
+        DropItem();
+
         // Trigger death animation
         if (animator != null)
         {
@@ -354,6 +369,18 @@ public class SkeletonController : MonoBehaviour
 
         // Destroy after animation
         Destroy(gameObject, 1f);
+    }
+
+    private void DropItem()
+    {
+        // Drop health item with chance
+        float healthRandomValue = Random.Range(0f, 1f);
+        if (healthRandomValue <= healthDropChance && healthItemPrefab != null)
+        {
+            Vector3 dropPosition = transform.position + Vector3.up * 0.5f;
+            GameObject droppedHealth = Instantiate(healthItemPrefab, dropPosition, Quaternion.identity);
+            Debug.Log($"Skeleton dropped Health item at {dropPosition}!");
+        }
     }
 
     public bool IsStaggeredOrDead()

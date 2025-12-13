@@ -24,7 +24,9 @@ public class WereWolfController : MonoBehaviour
 
     [Header("Item Drop")]
     [SerializeField] private GameObject werewolfDashItemPrefab; // Werewolf Dash skill item
-    [SerializeField] private float dropChance = 0.3f; // 30% chance to drop
+    [SerializeField] private float dropChance = 0.3f; // 30% chance to drop skill item
+    [SerializeField] private GameObject healthItemPrefab; // Health item
+    [SerializeField] private float healthDropChance = 0.5f; // 50% chance to drop health
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -43,6 +45,24 @@ public class WereWolfController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
+
+        // Configure Rigidbody2D for proper collision
+        if (rb != null)
+        {
+            rb.gravityScale = 0; // No gravity for 2D top-down
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Prevent rotation
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // Better collision
+        }
+
+        // Ensure we have a collider for wall collision
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        if (collider == null)
+        {
+            collider = gameObject.AddComponent<CircleCollider2D>();
+            collider.radius = 0.4f;
+            Debug.Log("[WereWolf] Added CircleCollider2D for wall collision");
+        }
+        collider.isTrigger = false; // NOT a trigger - we want physical collision
 
         // Find player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -298,23 +318,22 @@ public class WereWolfController : MonoBehaviour
 
     private void DropItem()
     {
-        // Check drop chance
-        float randomValue = Random.Range(0f, 1f);
-        if (randomValue > dropChance)
-        {
-            Debug.Log($"WereWolf did not drop item (chance: {randomValue:F2} > {dropChance:F2})");
-            return;
-        }
-
-        if (werewolfDashItemPrefab != null)
+        // Drop skill item with chance
+        float skillRandomValue = Random.Range(0f, 1f);
+        if (skillRandomValue <= dropChance && werewolfDashItemPrefab != null)
         {
             Vector3 dropPosition = transform.position + Vector3.up * 0.5f;
             GameObject droppedItem = Instantiate(werewolfDashItemPrefab, dropPosition, Quaternion.identity);
             Debug.Log($"WereWolf dropped Dash Skill item at {dropPosition}!");
         }
-        else
+
+        // Drop health item with chance
+        float healthRandomValue = Random.Range(0f, 1f);
+        if (healthRandomValue <= healthDropChance && healthItemPrefab != null)
         {
-            Debug.LogWarning("Werewolf Dash Item prefab is not assigned!");
+            Vector3 dropPosition = transform.position + Vector3.up * 0.5f + Vector3.right * 0.3f;
+            GameObject droppedHealth = Instantiate(healthItemPrefab, dropPosition, Quaternion.identity);
+            Debug.Log($"WereWolf dropped Health item at {dropPosition}!");
         }
     }
 

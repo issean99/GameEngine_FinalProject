@@ -77,9 +77,11 @@ public class PauseMenuManager : MonoBehaviour
         }
     }
 
-    // Restart 버튼에서 호출
-    public void Restart()
+    // Back to Menu 버튼에서 호출 - 게임 완전 초기화 후 시작 화면으로
+    public void BackToMenu()
     {
+        Debug.Log("[PauseMenuManager] Back to Menu clicked - completely resetting game");
+
         Time.timeScale = 1f; // 시간 복원
 
         // 일시정지 상태 해제
@@ -89,28 +91,98 @@ public class PauseMenuManager : MonoBehaviour
             pauseMenuCanvas.SetActive(false);
         }
 
-        // 씬 재시작
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("Restarting scene...");
+        // Destroy ALL persistent objects to completely reset game state
+        DestroyAllPersistentObjects();
+
+        // Load Start scene
+        SceneManager.LoadScene("Start");
     }
 
-    // Main Menu 버튼에서 호출
-    public void QuitToMainMenu()
+    /// <summary>
+    /// Destroy all DontDestroyOnLoad objects to reset game completely
+    /// </summary>
+    private void DestroyAllPersistentObjects()
     {
-        Time.timeScale = 1f; // 시간 복원
+        Debug.Log("[PauseMenuManager] Starting complete game reset - destroying ALL persistent objects...");
 
-        // 메인 메뉴 씬 이름을 자동으로 찾거나 "StartScene"을 로드
-        string mainMenuScene = "StartScene"; // 필요시 변경
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
 
-        if (Application.CanStreamedLevelBeLoaded(mainMenuScene))
+        // 1. Destroy ALL players (persistent and scene-based)
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
         {
-            SceneManager.LoadScene(mainMenuScene);
-            Debug.Log($"Loading {mainMenuScene}...");
+            Debug.Log($"[PauseMenuManager] Destroying player: {player.name}");
+            Destroy(player);
         }
-        else
+
+        // 2. Destroy ALL PlayerHealthUI (HP bars)
+        PlayerHealthUI[] healthUIs = FindObjectsOfType<PlayerHealthUI>();
+        foreach (PlayerHealthUI healthUI in healthUIs)
         {
-            Debug.LogWarning($"Scene '{mainMenuScene}' not found! Add it to Build Settings.");
+            Debug.Log($"[PauseMenuManager] Destroying PlayerHealthUI: {healthUI.gameObject.name}");
+            Destroy(healthUI.gameObject);
         }
+
+        // 3. Destroy StartScenePlayerManager
+        StartScenePlayerManager[] playerManagers = FindObjectsOfType<StartScenePlayerManager>();
+        foreach (StartScenePlayerManager manager in playerManagers)
+        {
+            Debug.Log($"[PauseMenuManager] Destroying StartScenePlayerManager: {manager.gameObject.name}");
+            Destroy(manager.gameObject);
+        }
+
+        // 4. Destroy ALL Camera Systems (persistent and scene-based)
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.name.Contains("Camera System") || obj.name.Contains("CameraSystem"))
+            {
+                Debug.Log($"[PauseMenuManager] Destroying camera system: {obj.name}");
+                Destroy(obj);
+            }
+        }
+
+        // 5. Destroy ALL UI Canvases that came from other scenes
+        Canvas[] allCanvases = FindObjectsOfType<Canvas>();
+        foreach (Canvas canvas in allCanvases)
+        {
+            // Don't destroy canvases from Start scene
+            if (canvas.gameObject.scene.name != "Start" && canvas.gameObject.scene.name != null)
+            {
+                Debug.Log($"[PauseMenuManager] Destroying canvas from other scene: {canvas.gameObject.name}");
+                Destroy(canvas.gameObject);
+            }
+        }
+
+        // 6. Find and destroy all DontDestroyOnLoad objects
+        foreach (GameObject obj in allObjects)
+        {
+            // DontDestroyOnLoad objects have no scene (scene.name is null)
+            if (obj.scene.name == null && obj.transform.parent == null)
+            {
+                // Keep only essential UI/audio managers
+                bool isEssential = obj.GetComponent<BGMManager>() != null ||
+                                  obj.GetComponent<SceneTransitionManager>() != null ||
+                                  obj == gameObject; // Don't destroy PauseMenuManager itself yet
+
+                if (!isEssential)
+                {
+                    Debug.Log($"[PauseMenuManager] Destroying DontDestroyOnLoad object: {obj.name}");
+                    Destroy(obj);
+                }
+                else
+                {
+                    Debug.Log($"[PauseMenuManager] Keeping essential manager: {obj.name}");
+                }
+            }
+        }
+
+        // 7. Reset static references
+        Debug.Log("[PauseMenuManager] Clearing all static references");
+        StartScenePlayerManager.ResetAllStaticReferences();
+        StartSceneManager.ResetPlayerPersistedFlag();
+        PlayerController.ResetRespawnStatics(); // Reset respawn count statics
+
+        Debug.Log("[PauseMenuManager] ✓ Complete game reset finished");
     }
 
     // Quit Game 버튼에서 호출

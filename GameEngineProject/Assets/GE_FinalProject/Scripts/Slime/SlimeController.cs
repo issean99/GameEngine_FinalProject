@@ -24,11 +24,13 @@ public class SlimeController : MonoBehaviour
 
     [Header("Wall Detection")]
     [SerializeField] private float wallCheckDistance = 0.5f; // Distance to check for walls
-    [SerializeField] private LayerMask wallLayer; // Layer for walls (set in Inspector)
+    [SerializeField] private LayerMask wallLayer = -1; // Layer for walls (-1 = all layers by default)
 
     [Header("Item Drop")]
     [SerializeField] private GameObject slimeDefenseItemPrefab; // Slime Defense skill item
-    [SerializeField] private float dropChance = 0.3f; // 30% chance to drop
+    [SerializeField] private float dropChance = 0.3f; // 30% chance to drop skill item
+    [SerializeField] private GameObject healthItemPrefab; // Health item
+    [SerializeField] private float healthDropChance = 0.5f; // 50% chance to drop health
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -47,6 +49,24 @@ public class SlimeController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
+
+        // Configure Rigidbody2D for proper collision
+        if (rb != null)
+        {
+            rb.gravityScale = 0; // No gravity for 2D top-down
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Prevent rotation
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // Better collision
+        }
+
+        // Ensure we have a collider for wall collision
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        if (collider == null)
+        {
+            collider = gameObject.AddComponent<CircleCollider2D>();
+            collider.radius = 0.3f;
+            Debug.Log("[Slime] Added CircleCollider2D for wall collision");
+        }
+        collider.isTrigger = false; // NOT a trigger - we want physical collision
 
         // Find player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -160,17 +180,7 @@ public class SlimeController : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
 
-        // Check if there's a wall in the direction of movement
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
-
-        if (hit.collider != null)
-        {
-            // Wall detected - stop moving
-            StopMoving();
-            Debug.Log($"[Slime] Wall detected ahead, stopping movement");
-            return;
-        }
-
+        // Simply set velocity - Rigidbody2D will handle wall collisions automatically
         rb.linearVelocity = direction * moveSpeed;
 
         // Update animator
@@ -307,23 +317,22 @@ public class SlimeController : MonoBehaviour
 
     private void DropItem()
     {
-        // Check drop chance
-        float randomValue = Random.Range(0f, 1f);
-        if (randomValue > dropChance)
-        {
-            Debug.Log($"Slime did not drop item (chance: {randomValue:F2} > {dropChance:F2})");
-            return;
-        }
-
-        if (slimeDefenseItemPrefab != null)
+        // Drop skill item with chance
+        float skillRandomValue = Random.Range(0f, 1f);
+        if (skillRandomValue <= dropChance && slimeDefenseItemPrefab != null)
         {
             Vector3 dropPosition = transform.position + Vector3.up * 0.5f;
             GameObject droppedItem = Instantiate(slimeDefenseItemPrefab, dropPosition, Quaternion.identity);
             Debug.Log($"Slime dropped Defense Skill item at {dropPosition}!");
         }
-        else
+
+        // Drop health item with chance
+        float healthRandomValue = Random.Range(0f, 1f);
+        if (healthRandomValue <= healthDropChance && healthItemPrefab != null)
         {
-            Debug.LogWarning("Slime Defense Item prefab is not assigned!");
+            Vector3 dropPosition = transform.position + Vector3.up * 0.5f + Vector3.right * 0.3f;
+            GameObject droppedHealth = Instantiate(healthItemPrefab, dropPosition, Quaternion.identity);
+            Debug.Log($"Slime dropped Health item at {dropPosition}!");
         }
     }
 

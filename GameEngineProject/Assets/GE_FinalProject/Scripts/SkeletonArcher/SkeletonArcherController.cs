@@ -36,10 +36,14 @@ public class SkeletonArcherController : MonoBehaviour
 
     [Header("Wall Detection")]
     [SerializeField] private float wallCheckDistance = 0.5f; // Distance to check for walls
-    [SerializeField] private LayerMask wallLayer; // Layer for walls (set in Inspector)
+    [SerializeField] private LayerMask wallLayer = -1; // Layer for walls (-1 = all layers by default)
 
     [Header("Contact Damage Settings")]
     [SerializeField] private float contactDamageInterval = 1f; // Damage player every X seconds when touching
+
+    [Header("Item Drop")]
+    [SerializeField] private GameObject healthItemPrefab; // Health item
+    [SerializeField] private float healthDropChance = 0.5f; // 50% chance to drop health
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -62,6 +66,24 @@ public class SkeletonArcherController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
+
+        // Configure Rigidbody2D for proper collision
+        if (rb != null)
+        {
+            rb.gravityScale = 0; // No gravity for 2D top-down
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Prevent rotation
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // Better collision
+        }
+
+        // Ensure we have a collider for wall collision
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        if (collider == null)
+        {
+            collider = gameObject.AddComponent<CircleCollider2D>();
+            collider.radius = 0.3f;
+            Debug.Log("[SkeletonArcher] Added CircleCollider2D for wall collision");
+        }
+        collider.isTrigger = false; // NOT a trigger - we want physical collision
 
         // Find player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -130,70 +152,37 @@ public class SkeletonArcherController : MonoBehaviour
             // Priority 1: If player is too close, retreat immediately
             if (distanceToPlayer < retreatDistance)
             {
-                // Move away from player quickly
+                // Move away from player quickly - Rigidbody2D handles wall collisions
                 Vector2 direction = (transform.position - player.position).normalized;
+                rb.linearVelocity = direction * moveSpeed;
 
-                // Check for wall before moving
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
-                if (hit.collider != null)
+                if (animator != null)
                 {
-                    StopMoving();
-                    Debug.Log($"[SkeletonArcher] Wall detected while retreating, stopping");
-                }
-                else
-                {
-                    rb.linearVelocity = direction * moveSpeed;
-
-                    if (animator != null)
-                    {
-                        animator.SetFloat("MoveSpeed", moveSpeed);
-                    }
+                    animator.SetFloat("MoveSpeed", moveSpeed);
                 }
             }
             // Priority 2: If too far from optimal range, move closer
             else if (distanceToPlayer > optimalRangeMax)
             {
-                // Move towards player to get into optimal range
+                // Move towards player to get into optimal range - Rigidbody2D handles wall collisions
                 Vector2 direction = (player.position - transform.position).normalized;
+                rb.linearVelocity = direction * (moveSpeed * 0.8f); // Move slower when approaching
 
-                // Check for wall before moving
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
-                if (hit.collider != null)
+                if (animator != null)
                 {
-                    StopMoving();
-                    Debug.Log($"[SkeletonArcher] Wall detected while approaching, stopping");
-                }
-                else
-                {
-                    rb.linearVelocity = direction * (moveSpeed * 0.8f); // Move slower when approaching
-
-                    if (animator != null)
-                    {
-                        animator.SetFloat("MoveSpeed", moveSpeed * 0.8f);
-                    }
+                    animator.SetFloat("MoveSpeed", moveSpeed * 0.8f);
                 }
             }
             // Priority 3: If too close to optimal range, back up slowly
             else if (distanceToPlayer < optimalRangeMin)
             {
-                // Move away from player slowly
+                // Move away from player slowly - Rigidbody2D handles wall collisions
                 Vector2 direction = (transform.position - player.position).normalized;
+                rb.linearVelocity = direction * (moveSpeed * 0.6f); // Move slower when adjusting position
 
-                // Check for wall before moving
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, wallLayer);
-                if (hit.collider != null)
+                if (animator != null)
                 {
-                    StopMoving();
-                    Debug.Log($"[SkeletonArcher] Wall detected while backing up, stopping");
-                }
-                else
-                {
-                    rb.linearVelocity = direction * (moveSpeed * 0.6f); // Move slower when adjusting position
-
-                    if (animator != null)
-                    {
-                        animator.SetFloat("MoveSpeed", moveSpeed * 0.6f);
-                    }
+                    animator.SetFloat("MoveSpeed", moveSpeed * 0.6f);
                 }
             }
             // Priority 4: In optimal range - stay still and shoot
@@ -390,6 +379,9 @@ public class SkeletonArcherController : MonoBehaviour
             spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
 
+        // Drop item
+        DropItem();
+
         // Trigger death animation
         if (animator != null)
         {
@@ -398,6 +390,18 @@ public class SkeletonArcherController : MonoBehaviour
 
         // Start coroutine to disable script after death animation
         StartCoroutine(DisableAfterDeath());
+    }
+
+    private void DropItem()
+    {
+        // Drop health item with chance
+        float healthRandomValue = Random.Range(0f, 1f);
+        if (healthRandomValue <= healthDropChance && healthItemPrefab != null)
+        {
+            Vector3 dropPosition = transform.position + Vector3.up * 0.5f;
+            GameObject droppedHealth = Instantiate(healthItemPrefab, dropPosition, Quaternion.identity);
+            Debug.Log($"Skeleton Archer dropped Health item at {dropPosition}!");
+        }
     }
 
     private IEnumerator DisableAfterDeath()

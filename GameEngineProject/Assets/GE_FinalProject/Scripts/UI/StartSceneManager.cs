@@ -15,9 +15,10 @@ public class StartSceneManager : MonoBehaviour
         playerPersisted = false;
         Debug.Log("[StartSceneManager] playerPersisted flag reset");
     }
-    [Header("UI Buttons")]
+    [Header("UI Elements")]
     [SerializeField] private Button startButton;
     [SerializeField] private Button exitButton;
+    [SerializeField] private GameObject titleText; // 타이틀 텍스트 오브젝트
 
     [Header("Player Settings")]
     [SerializeField] private GameObject player; // 플레이어 오브젝트
@@ -122,6 +123,13 @@ public class StartSceneManager : MonoBehaviour
         if (exitButton != null)
         {
             exitButton.gameObject.SetActive(false);
+        }
+
+        // Hide title text as well
+        if (titleText != null)
+        {
+            titleText.SetActive(false);
+            Debug.Log("Title text hidden!");
         }
 
         Debug.Log("Start and Exit buttons hidden!");

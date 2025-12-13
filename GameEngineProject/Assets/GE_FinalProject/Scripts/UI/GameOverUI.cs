@@ -14,6 +14,7 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private Button respawnButton; // 리스폰 버튼
     [SerializeField] private Button backButton; // 시작 화면으로 돌아가기 버튼
     [SerializeField] private TextMeshProUGUI gameOverText; // "Game Over" 텍스트
+    [SerializeField] private TextMeshProUGUI respawnCountText; // 남은 리스폰 횟수 텍스트
 
     [Header("Settings")]
     [SerializeField] private string startSceneName = "Start"; // 시작 씬 이름
@@ -81,6 +82,9 @@ public class GameOverUI : MonoBehaviour
             Debug.LogError("[GameOverUI] Game Over panel is null!");
         }
 
+        // Update respawn count and button state
+        UpdateRespawnUI();
+
         // Pause game
         if (pauseGameOnDeath)
         {
@@ -101,6 +105,51 @@ public class GameOverUI : MonoBehaviour
         }
 
         Debug.Log("[GameOverUI] Game Over screen shown");
+    }
+
+    /// <summary>
+    /// Update respawn count text and button state
+    /// </summary>
+    private void UpdateRespawnUI()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                int remainingRespawns = playerController.RemainingRespawns;
+
+                // Update respawn count text
+                if (respawnCountText != null)
+                {
+                    respawnCountText.text = $"RemainRespawn : {remainingRespawns}";
+                    Debug.Log($"[GameOverUI] Respawn count updated: {remainingRespawns}");
+                }
+
+                // Show/hide respawn button based on remaining count
+                if (respawnButton != null)
+                {
+                    if (remainingRespawns > 0)
+                    {
+                        respawnButton.gameObject.SetActive(true);
+                        respawnButton.interactable = true;
+                        Debug.Log("[GameOverUI] Respawn button shown and enabled");
+                    }
+                    else
+                    {
+                        respawnButton.gameObject.SetActive(false);
+                        Debug.Log("[GameOverUI] Respawn button hidden - no respawns remaining");
+
+                        // Update text to show no respawns left
+                        if (respawnCountText != null)
+                        {
+                            respawnCountText.text = "RemainRespawn : 0";
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -339,6 +388,7 @@ public class GameOverUI : MonoBehaviour
         Debug.Log("[GameOverUI] Clearing all static references");
         StartScenePlayerManager.ResetAllStaticReferences();
         StartSceneManager.ResetPlayerPersistedFlag();
+        PlayerController.ResetRespawnStatics(); // Reset respawn count statics
 
         Debug.Log("[GameOverUI] ✓ Complete game reset finished - all game data destroyed");
         Debug.Log("[GameOverUI] Game will start from scratch in Start scene with original objects only");

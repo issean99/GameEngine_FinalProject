@@ -123,6 +123,34 @@ public class SkillUIManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Remove a specific skill from UI (used when respawning in same scene)
+    /// </summary>
+    public void RemoveSkill(SkillType skillType)
+    {
+        if (!activeSkills.ContainsKey(skillType))
+        {
+            Debug.LogWarning($"Skill {skillType} does not exist in UI!");
+            return;
+        }
+
+        // Get and destroy the skill slot
+        SkillSlotUI slotToRemove = activeSkills[skillType];
+        if (slotToRemove != null)
+        {
+            skillSlots.Remove(slotToRemove);
+            Destroy(slotToRemove.gameObject);
+        }
+
+        // Remove from tracking
+        activeSkills.Remove(skillType);
+
+        // Reposition remaining slots
+        RepositionSlots();
+
+        Debug.Log($"Skill removed from UI: {skillType} - Remaining skills: {skillSlots.Count}");
+    }
+
+    /// <summary>
     /// Trigger cooldown for a specific skill
     /// </summary>
     public void TriggerCooldown(SkillType skillType, float cooldownDuration)

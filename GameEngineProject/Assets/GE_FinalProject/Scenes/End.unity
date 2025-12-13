@@ -960,8 +960,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4288519581
+  m_fontColor: {r: 0.61635214, g: 0.61635214, b: 0.61635214, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -986,7 +986,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1095,7 +1095,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 50
   m_Sprite: {fileID: -882683387363052725, guid: 73622741738ff2442b7c6400fd40c980, type: 3}
-  m_Color: {r: 0.45911938, g: 0.45911938, b: 0.45911938, a: 1}
+  m_Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1289,14 +1289,14 @@ MonoBehaviour:
   beforeColorChangeDialogues:
   - "[Narration]\n\n\"The fragments of his brother\u2019s soul\u2026\nbegan to seep
     into the warrior\u2019s fingertips.\""
-  - "[Protagonist]\n\n\"...This feeling\u2026 what is it? My brother\u2019s power\u2026
+  - "[knight]\n\n\"...This feeling\u2026 what is it? My brother\u2019s power\u2026
     flowing into me\u2026?\"\n\n"
-  - "[Protagonist]\n\n\"No\u2026 I have to resist\u2026 If I accept this power\u2026!\""
-  - "[Protagonist]\n\n\"Aaaaah\u2014!\""
+  - "[knight]\n\n\"No\u2026 I have to resist\u2026 If I accept this power\u2026!\""
+  - "[knight]\n\n\"Aaaaah\u2014!\""
   afterColorChangeDialogues:
   - "[Narration]\n\n\"The castle had not lost its master\u2026\nIt had merely chosen
     a new one.\""
-  - "[New Boss (Protagonist)]\n\n\"...Those who dare seek my blade\u2026\nwill slumber
+  - "[New Boss ([knight)]\n\n\"...Those who dare seek my blade\u2026\nwill slumber
     in this castle\u2026 forever\u2026\""
   corruptedColor: {r: 0.5, g: 0, b: 0.8, a: 1}
   playerName: "\uD50C\uB808\uC774\uC5B4"

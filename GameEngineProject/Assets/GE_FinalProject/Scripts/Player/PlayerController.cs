@@ -50,9 +50,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float invincibilityDuration = 0.5f;
     [SerializeField] private float respawnInvincibilityDuration = 3f; // 리스폰 시 무적 시간 (3초)
 
+    [Header("Respawn Settings")]
+    [SerializeField] private int maxRespawnCount = 2; // 최대 리스폰 횟수
+    private int remainingRespawns; // 남은 리스폰 횟수
+
+    // Static variable to preserve respawn count during same-scene reload
+    private static int preservedRespawnCount = -1; // -1 means not set
+    private static string lastSceneName = "";
+
+    // 현재 씬에서 획득한 스킬 추적 (리스폰 시 초기화용)
+    private bool fireballUnlockedInCurrentScene = false;
+    private bool explosionUnlockedInCurrentScene = false;
+    private bool defenseUnlockedInCurrentScene = false;
+    private bool dashUnlockedInCurrentScene = false;
+
     // Public properties for UI access
     public int MaxHealth => maxHealth;
     public int CurrentHealth => currentHealth;
+    public int RemainingRespawns => remainingRespawns; // 남은 리스폰 횟수 공개
     [SerializeField] private float blinkSpeed = 10f;
 
     [Header("Stun Settings")]
@@ -177,6 +192,89 @@ public class PlayerController : MonoBehaviour
         {
             dashEffect.SetActive(false);
         }
+    }
+
+    private void OnEnable()
+    {
+        // 씬이 로드될 때마다 호출됨
+        // SceneManager 이벤트 구독
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // 이벤트 구독 해제
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    /// <summary>
+    /// 씬이 로드될 때 호출 (씬 전환 시)
+    /// </summary>
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        // 새로운 씬으로 진입할 때 현재 씬 스킬 플래그 초기화
+        // 이렇게 하면 이전 씬에서 얻은 스킬은 플래그가 false가 되어 보호됨
+        ResetCurrentSceneSkillFlags();
+
+        // 리스폰 횟수 처리
+        // 같은 씬 리로드인지 확인 (리스폰 시 씬 리로드)
+        if (scene.name == lastSceneName && preservedRespawnCount >= 0)
+        {
+            // 같은 씬을 리로드한 경우 (리스폰) - 저장된 리스폰 횟수 복구
+            remainingRespawns = preservedRespawnCount;
+            preservedRespawnCount = -1; // Reset after use
+            Debug.Log($"[PlayerController] Same scene reloaded (respawn) - Restored respawn count: {remainingRespawns}");
+        }
+        else
+        {
+            // 새로운 씬으로 진입한 경우
+            // preservedRespawnCount가 설정되어 있으면 이전 씬에서 사용한 리스폰 횟수 유지
+            if (preservedRespawnCount >= 0)
+            {
+                // 이전 씬에서 리스폰을 사용했던 경우 - 남은 횟수 유지
+                remainingRespawns = preservedRespawnCount;
+                preservedRespawnCount = -1;
+                Debug.Log($"[PlayerController] New scene loaded: {scene.name} - Keeping remaining respawns: {remainingRespawns}");
+            }
+            else
+            {
+                // 게임 시작 시 (Start 씬에서 첫 진입) - 리스폰 횟수 초기화
+                if (lastSceneName == "" || scene.name == "Start")
+                {
+                    remainingRespawns = maxRespawnCount;
+                    Debug.Log($"[PlayerController] Game start - Respawns initialized to {remainingRespawns}");
+                }
+                // 그 외의 경우 현재 remainingRespawns 유지 (씬 전환 시 유지)
+                else
+                {
+                    Debug.Log($"[PlayerController] Scene changed to {scene.name} - Keeping respawns: {remainingRespawns}");
+                }
+            }
+            lastSceneName = scene.name;
+        }
+    }
+
+    /// <summary>
+    /// 씬 전환 시 현재 씬 스킬 추적 플래그 초기화
+    /// 이전 씬에서 얻은 스킬들은 이제 플래그가 false가 되어 리스폰 시 보호됨
+    /// </summary>
+    private void ResetCurrentSceneSkillFlags()
+    {
+        fireballUnlockedInCurrentScene = false;
+        explosionUnlockedInCurrentScene = false;
+        defenseUnlockedInCurrentScene = false;
+        dashUnlockedInCurrentScene = false;
+        Debug.Log("[PlayerController] Current scene skill flags reset - previous scene skills now protected");
+    }
+
+    /// <summary>
+    /// Reset static respawn variables (called when returning to Start scene for full game reset)
+    /// </summary>
+    public static void ResetRespawnStatics()
+    {
+        preservedRespawnCount = -1;
+        lastSceneName = "";
+        Debug.Log("[PlayerController] Static respawn variables reset");
     }
 
     private void Update()
@@ -600,6 +698,19 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// Heal the player by a specific amount
+    /// </summary>
+    public void Heal(int amount)
+    {
+        if (isDead) return;
+
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        Debug.Log($"[PlayerController] Healed {amount} HP. Current HP: {currentHealth}/{maxHealth}");
+
+        // UI는 PlayerHealthUI의 Update()에서 자동으로 업데이트됩니다
+    }
+
+    /// <summary>
     /// Restore player to full health (used for respawn)
     /// </summary>
     public void RestoreFullHealth()
@@ -613,6 +724,14 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void ResetPlayerState()
     {
+        // 리스폰 횟수 감소
+        remainingRespawns--;
+        Debug.Log($"[PlayerController] Respawn used - Remaining respawns: {remainingRespawns}");
+
+        // 씬 리로드 시 리스폰 횟수 보존 (Static 변수에 저장)
+        preservedRespawnCount = remainingRespawns;
+        Debug.Log($"[PlayerController] Preserved respawn count for scene reload: {preservedRespawnCount}");
+
         // Reset death flag to allow death again
         isDead = false;
 
@@ -656,10 +775,89 @@ public class PlayerController : MonoBehaviour
             Debug.Log("[PlayerController] Animator reset to Idle state");
         }
 
+        // 현재 씬에서 획득한 스킬 제거 (이전 씬에서 얻은 스킬은 유지)
+        RemoveCurrentSceneSkills();
+
         // Re-enable controller
         enabled = true;
 
         Debug.Log($"[PlayerController] Player state reset for respawn with {respawnInvincibilityDuration}s invincibility");
+    }
+
+    /// <summary>
+    /// 현재 씬에서 획득한 스킬만 제거 (리스폰 시 호출)
+    /// </summary>
+    private void RemoveCurrentSceneSkills()
+    {
+        // 파이어볼 스킬이 현재 씬에서 획득한 것이면 제거
+        if (fireballUnlockedInCurrentScene)
+        {
+            hasFireballSkill = false;
+            fireballUnlockedInCurrentScene = false;
+
+            // UI에서도 제거
+            if (SkillUIManager.Instance != null)
+            {
+                SkillUIManager.Instance.RemoveSkill(SkillUIManager.SkillType.Fireball);
+            }
+            Debug.Log("[PlayerController] Fireball skill removed (unlocked in current scene)");
+        }
+
+        // 폭발 스킬이 현재 씬에서 획득한 것이면 제거
+        if (explosionUnlockedInCurrentScene)
+        {
+            hasExplosionSkill = false;
+            explosionUnlockedInCurrentScene = false;
+
+            // UI에서도 제거
+            if (SkillUIManager.Instance != null)
+            {
+                SkillUIManager.Instance.RemoveSkill(SkillUIManager.SkillType.Explosion);
+            }
+            Debug.Log("[PlayerController] Explosion skill removed (unlocked in current scene)");
+        }
+
+        // 방어 스킬이 현재 씬에서 획득한 것이면 제거
+        if (defenseUnlockedInCurrentScene)
+        {
+            hasDefenseSkill = false;
+            defenseUnlockedInCurrentScene = false;
+
+            // 방어 이펙트 숨김
+            if (defenseEffect != null)
+            {
+                defenseEffect.SetActive(false);
+            }
+
+            // UI에서도 제거
+            if (SkillUIManager.Instance != null)
+            {
+                SkillUIManager.Instance.RemoveSkill(SkillUIManager.SkillType.Defense);
+            }
+            Debug.Log("[PlayerController] Defense skill removed (unlocked in current scene)");
+        }
+
+        // 대쉬 스킬이 현재 씬에서 획득한 것이면 제거
+        if (dashUnlockedInCurrentScene)
+        {
+            hasDashSkill = false;
+            dashUnlockedInCurrentScene = false;
+
+            // 대쉬 이펙트 숨김
+            if (dashEffect != null)
+            {
+                dashEffect.SetActive(false);
+            }
+
+            // UI에서도 제거
+            if (SkillUIManager.Instance != null)
+            {
+                SkillUIManager.Instance.RemoveSkill(SkillUIManager.SkillType.Dash);
+            }
+            Debug.Log("[PlayerController] Dash skill removed (unlocked in current scene)");
+        }
+
+        Debug.Log("[PlayerController] Current scene skills removed, previous scene skills retained");
     }
 
     /// <summary>
@@ -876,6 +1074,7 @@ public class PlayerController : MonoBehaviour
     public void UnlockFireballSkill()
     {
         hasFireballSkill = true;
+        fireballUnlockedInCurrentScene = true; // 현재 씬에서 획득했음을 표시
         Debug.Log("Fireball skill unlocked! Press E Key to cast.");
 
         // Add to skill UI
@@ -889,6 +1088,7 @@ public class PlayerController : MonoBehaviour
     public void UnlockExplosionSkill()
     {
         hasExplosionSkill = true;
+        explosionUnlockedInCurrentScene = true; // 현재 씬에서 획득했음을 표시
         Debug.Log("Arcane Explosion skill unlocked! Press Q to cast at mouse position.");
 
         // Add to skill UI
@@ -967,6 +1167,7 @@ public class PlayerController : MonoBehaviour
     public void UnlockDefenseSkill()
     {
         hasDefenseSkill = true;
+        defenseUnlockedInCurrentScene = true; // 현재 씬에서 획득했음을 표시
         Debug.Log("Slime Defense skill unlocked! Press Space Bar to defend (max 2s, cooldown 5s).");
 
         // Add to skill UI
@@ -1056,6 +1257,7 @@ public class PlayerController : MonoBehaviour
     public void UnlockDashSkill()
     {
         hasDashSkill = true;
+        dashUnlockedInCurrentScene = true; // 현재 씬에서 획득했음을 표시
         Debug.Log("Werewolf Dash skill unlocked! Press Right Mouse Button while moving to dash (cooldown 2s).");
 
         // Add to skill UI
