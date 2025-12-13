@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float sprintSpeed = 8f;
 
     [Header("Attack Settings")]
     [SerializeField] private float attackCooldown = 0.5f;
@@ -90,7 +89,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveInput;
     private float invincibilityTimer = 0f;
-    private bool isSprinting;
     private float lastAttackTime;
     private float lastFireballTime;
     private float lastExplosionTime;
@@ -423,16 +421,6 @@ public class PlayerController : MonoBehaviour
 
         moveInput = new Vector2(horizontal, vertical).normalized;
 
-        // Check sprint input (Left Shift) - only when dash skill not unlocked
-        if (!hasDashSkill)
-        {
-            isSprinting = keyboard.leftShiftKey.isPressed;
-        }
-        else
-        {
-            isSprinting = false; // Disable sprint when dash is available
-        }
-
         // Check attack input (Left Mouse Button)
         if (mouse.leftButton.wasPressedThisFrame)
         {
@@ -472,11 +460,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        // Calculate current speed
-        float currentSpeed = isSprinting ? sprintSpeed : moveSpeed;
-
         // Calculate velocity
-        Vector2 velocity = moveInput * currentSpeed;
+        Vector2 velocity = moveInput * moveSpeed;
 
         // Apply movement using Rigidbody2D
         if (rb != null)
@@ -505,9 +490,6 @@ public class PlayerController : MonoBehaviour
 
         // Update MoveSpeed parameter (this matches your animator parameter)
         animator.SetFloat("MoveSpeed", speed);
-
-        // Optional: Update IsSprinting if you add this parameter later
-        // animator.SetBool("IsSprinting", isSprinting);
     }
 
     private void HandleSpriteFlip()

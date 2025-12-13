@@ -329,6 +329,12 @@ public class SkeletonController : MonoBehaviour
         isDead = true;
         currentHealth = 0;
 
+        // Notify EnemyManager
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.OnEnemyDefeated(gameObject);
+        }
+
         // Play death sound
         EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
         if (soundFX != null)

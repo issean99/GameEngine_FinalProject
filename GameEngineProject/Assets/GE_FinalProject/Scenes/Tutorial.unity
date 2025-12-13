@@ -10395,7 +10395,7 @@ GameObject:
   - component: {fileID: 726658912}
   - component: {fileID: 726658911}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Skil_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10620,9 +10620,12 @@ MonoBehaviour:
   useSpawnPosition: 1
   requirePlayerInRange: 0
   interactionRange: 2
+  requireAllEnemiesDefeated: 1
   promptUI: {fileID: 0}
+  lockedPromptUI: {fileID: 0}
   portalSprite: {fileID: 766844412}
   highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  lockedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &773331726
 GameObject:
   m_ObjectHideFlags: 0
@@ -10637,7 +10640,7 @@ GameObject:
   - component: {fileID: 773331728}
   - component: {fileID: 773331727}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: Description_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10824,6 +10827,51 @@ Transform:
   - {fileID: 69162514}
   - {fileID: 1949305042}
   - {fileID: 1207851269}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &821081516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 821081518}
+  - component: {fileID: 821081517}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &821081517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821081516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119abc34e32433448aeabf60ca9b9a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  trackEnemiesAutomatically: 1
+--- !u!4 &821081518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821081516}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.73983, y: -2.03523, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &833135580
@@ -15828,7 +15876,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 9132845024441250480, guid: d1d4acf3b27ba0f43beab90998d9a2d7, type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -17576,3 +17624,4 @@ SceneRoots:
   - {fileID: 2111563361}
   - {fileID: 439765854}
   - {fileID: 1658108652}
+  - {fileID: 821081518}
