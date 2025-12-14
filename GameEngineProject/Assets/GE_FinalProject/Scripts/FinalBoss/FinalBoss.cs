@@ -12,6 +12,10 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private int currentHealth;
     [SerializeField] private float phaseThreshold = 50; // Health threshold for Phase 2
 
+    // Public properties for UI access
+    public int MaxHealth => maxHealth;
+    public int CurrentHealth => currentHealth;
+
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 3f; // Normal movement speed
     [SerializeField] private float detectionRange = 8f; // Range to detect player
@@ -671,7 +675,7 @@ public class FinalBoss : MonoBehaviour
 
     private IEnumerator DisableAfterDeath()
     {
-        // Play death dialogue
+        // Play death dialogue (auto-find BossDialogue and use Boss2 dialogues)
         BossDialogue bossDialogue = FindObjectOfType<BossDialogue>();
         if (bossDialogue != null)
         {
@@ -683,6 +687,10 @@ public class FinalBoss : MonoBehaviour
             {
                 yield return null;
             }
+        }
+        else
+        {
+            Debug.LogWarning("[FinalBoss] BossDialogue not found! Skipping death dialogue.");
         }
 
         // Change BGM back to Boss 2 Phase 1 BGM after boss death

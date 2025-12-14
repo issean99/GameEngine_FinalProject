@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
     // Public properties
     public int TotalEnemyCount => totalEnemyCount;
     public int DefeatedEnemyCount => defeatedEnemyCount;
-    public int RemainingEnemyCount => totalEnemyCount - defeatedEnemyCount;
+    public int RemainingEnemyCount => GetActualRemainingEnemyCount();
     public bool AllEnemiesDefeated => RemainingEnemyCount <= 0 && totalEnemyCount > 0;
 
     private void Awake()
@@ -39,6 +39,167 @@ public class EnemyManager : MonoBehaviour
         {
             FindAndRegisterAllEnemies();
         }
+    }
+
+    private void Update()
+    {
+        // Check for debug key press (K key) to show enemy status
+        if (UnityEngine.InputSystem.Keyboard.current != null &&
+            UnityEngine.InputSystem.Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            ShowEnemyStatus();
+        }
+    }
+
+    /// <summary>
+    /// 실제로 살아있는 적의 수를 계산 (보스의 경우 HP가 0이면 죽은 것으로 간주)
+    /// Calculate actual remaining enemy count (bosses with HP <= 0 are considered dead)
+    /// </summary>
+    private int GetActualRemainingEnemyCount()
+    {
+        int aliveCount = 0;
+
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy == null)
+            {
+                // GameObject가 파괴됨 - 죽은 것으로 간주
+                continue;
+            }
+
+            bool isAlive = true;
+
+            // Check boss types - they don't immediately destroy, so check health
+            WizardBoss wizardBoss = enemy.GetComponent<WizardBoss>();
+            if (wizardBoss != null)
+            {
+                isAlive = wizardBoss.CurrentHealth > 0;
+                if (isAlive) aliveCount++;
+                continue;
+            }
+
+            FinalBoss finalBoss = enemy.GetComponent<FinalBoss>();
+            if (finalBoss != null)
+            {
+                isAlive = finalBoss.CurrentHealth > 0;
+                if (isAlive) aliveCount++;
+                continue;
+            }
+
+            // For regular enemies, check if they're dead (not staggered)
+            SkeletonController skeleton = enemy.GetComponent<SkeletonController>();
+            if (skeleton != null)
+            {
+                isAlive = !skeleton.IsDead();
+                if (isAlive) aliveCount++;
+                continue;
+            }
+
+            SlimeController slime = enemy.GetComponent<SlimeController>();
+            if (slime != null)
+            {
+                isAlive = !slime.IsDead();
+                if (isAlive) aliveCount++;
+                continue;
+            }
+
+            WereWolfController werewolf = enemy.GetComponent<WereWolfController>();
+            if (werewolf != null)
+            {
+                isAlive = !werewolf.IsDead();
+                if (isAlive) aliveCount++;
+                continue;
+            }
+
+            SkeletonArcherController skeletonArcher = enemy.GetComponent<SkeletonArcherController>();
+            if (skeletonArcher != null)
+            {
+                isAlive = !skeletonArcher.IsDead();
+                if (isAlive) aliveCount++;
+                continue;
+            }
+        }
+
+        return aliveCount;
+    }
+
+    /// <summary>
+    /// 현재 적의 상태를 콘솔에 표시
+    /// Display current enemy status in console
+    /// </summary>
+    public void ShowEnemyStatus()
+    {
+        Debug.Log("═══════════════════════════════════════");
+        Debug.Log($"[EnemyManager] Enemy Status Report:");
+        Debug.Log($"  Total Enemies: {totalEnemyCount}");
+        Debug.Log($"  Defeated: {defeatedEnemyCount}");
+        Debug.Log($"  Remaining: {RemainingEnemyCount}");
+        Debug.Log($"  All Defeated: {AllEnemiesDefeated}");
+
+        if (RemainingEnemyCount > 0)
+        {
+            Debug.Log($"  Registered Enemies:");
+            int index = 1;
+            foreach (GameObject enemy in enemies)
+            {
+                if (enemy != null)
+                {
+                    // Check if enemy is alive
+                    bool isAlive = true;
+
+                    // Check various enemy types
+                    SkeletonController skeleton = enemy.GetComponent<SkeletonController>();
+                    if (skeleton != null)
+                    {
+                        isAlive = !skeleton.IsDead();
+                        Debug.Log($"    {index}. {enemy.name} (Skeleton) - {(isAlive ? "ALIVE" : "DEAD")}");
+                    }
+
+                    SlimeController slime = enemy.GetComponent<SlimeController>();
+                    if (slime != null)
+                    {
+                        isAlive = !slime.IsDead();
+                        Debug.Log($"    {index}. {enemy.name} (Slime) - {(isAlive ? "ALIVE" : "DEAD")}");
+                    }
+
+                    WereWolfController werewolf = enemy.GetComponent<WereWolfController>();
+                    if (werewolf != null)
+                    {
+                        isAlive = !werewolf.IsDead();
+                        Debug.Log($"    {index}. {enemy.name} (WereWolf) - {(isAlive ? "ALIVE" : "DEAD")}");
+                    }
+
+                    SkeletonArcherController skeletonArcher = enemy.GetComponent<SkeletonArcherController>();
+                    if (skeletonArcher != null)
+                    {
+                        isAlive = !skeletonArcher.IsDead();
+                        Debug.Log($"    {index}. {enemy.name} (Skeleton Archer) - {(isAlive ? "ALIVE" : "DEAD")}");
+                    }
+
+                    WizardBoss wizardBoss = enemy.GetComponent<WizardBoss>();
+                    if (wizardBoss != null)
+                    {
+                        isAlive = wizardBoss.CurrentHealth > 0;
+                        Debug.Log($"    {index}. {enemy.name} (Wizard Boss) - HP: {wizardBoss.CurrentHealth}/{wizardBoss.MaxHealth} - {(isAlive ? "ALIVE" : "DEAD")}");
+                    }
+
+                    FinalBoss finalBoss = enemy.GetComponent<FinalBoss>();
+                    if (finalBoss != null)
+                    {
+                        isAlive = finalBoss.CurrentHealth > 0;
+                        Debug.Log($"    {index}. {enemy.name} (Final Boss) - HP: {finalBoss.CurrentHealth}/{finalBoss.MaxHealth} - {(isAlive ? "ALIVE" : "DEAD")}");
+                    }
+
+                    index++;
+                }
+                else
+                {
+                    Debug.Log($"    {index}. [NULL - Enemy was destroyed but not unregistered]");
+                    index++;
+                }
+            }
+        }
+        Debug.Log("═══════════════════════════════════════");
     }
 
     /// <summary>

@@ -378,6 +378,11 @@ public class WereWolfController : MonoBehaviour
         return isStaggered || isDead;
     }
 
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
     // Visualize ranges in editor
     private void OnDrawGizmosSelected()
     {

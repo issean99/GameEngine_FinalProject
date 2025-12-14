@@ -131,13 +131,21 @@ public class PauseMenuManager : MonoBehaviour
             Destroy(manager.gameObject);
         }
 
-        // 4. Destroy ALL Camera Systems (persistent and scene-based)
+        // 4. Destroy ONLY persistent Camera Systems (not scene-based cameras)
         foreach (GameObject obj in allObjects)
         {
             if (obj.name.Contains("Camera System") || obj.name.Contains("CameraSystem"))
             {
-                Debug.Log($"[PauseMenuManager] Destroying camera system: {obj.name}");
-                Destroy(obj);
+                // Only destroy if it's a DontDestroyOnLoad object (no scene)
+                if (obj.scene.name == null)
+                {
+                    Debug.Log($"[PauseMenuManager] Destroying persistent camera system: {obj.name}");
+                    Destroy(obj);
+                }
+                else
+                {
+                    Debug.Log($"[PauseMenuManager] Keeping scene-based camera: {obj.name} (scene: {obj.scene.name})");
+                }
             }
         }
 
