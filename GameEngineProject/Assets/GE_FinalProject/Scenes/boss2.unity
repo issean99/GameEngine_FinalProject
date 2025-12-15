@@ -5602,13 +5602,13 @@ MonoBehaviour:
   dashChargeTime: 0.8
   dashDuration: 0.4
   dashCooldown: 0.5
-  dashDamage: 20
+  dashDamage: 30
   dashHitboxRadius: 0.8
   lungeChargeTime: 1.5
   lungeRetreatDistance: 3
   lungeRetreatSpeed: 6
   spearDamage: 40
-  spearSpeed: 8
+  spearSpeed: 9
   spearSpread: 29.9
   spearPrefab: {fileID: 7543578166389783211, guid: ce9afb66b88ab784bbfb91993c93b942, type: 3}
   corruptedZonePrefab: {fileID: 1744294095325845734, guid: 3a200acac0e6dc3449ea6040435b06af, type: 3}
