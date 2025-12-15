@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArcaneBurstEffect
   delayTime: 1
   explosionRadius: 1.5
-  damage: 20
+  damage: 40
   isPlayerCast: 0
   warningMarker: {fileID: 4221190208073029414}
   explosionEffect: {fileID: 5906269767101353409}

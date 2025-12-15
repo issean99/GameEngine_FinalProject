@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool hasExplosionSkill = false; // 폭발 스킬 보유 여부
     [SerializeField] private float explosionDelay = 1f; // 폭발까지 지연 시간 (경고)
     [SerializeField] private float explosionRadius = 3f; // 폭발 반경
-    [SerializeField] private int explosionDamage = 40; // 폭발 데미지
+    [SerializeField] private int explosionDamage = 30; // 폭발 데미지 (플레이어용 - 낮춤)
 
     [Header("Defense Skill Settings")]
     [SerializeField] private bool hasDefenseSkill = false; // 방어 스킬 보유 여부
@@ -946,11 +946,11 @@ public class PlayerController : MonoBehaviour
                 Vector3 spawnPos = transform.position + (Vector3)direction * 0.5f;
                 GameObject fireballObj = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
 
-                // Initialize fireball
+                // Initialize fireball with reduced damage (10 instead of 20)
                 FireballProjectile fireball = fireballObj.GetComponent<FireballProjectile>();
                 if (fireball != null)
                 {
-                    fireball.Initialize(direction);
+                    fireball.Initialize(direction, projectileSpeed: -1, projectileDamage: 10);
                 }
 
                 Debug.Log($"Fireball {i + 1}/{fireballCount} fired!");

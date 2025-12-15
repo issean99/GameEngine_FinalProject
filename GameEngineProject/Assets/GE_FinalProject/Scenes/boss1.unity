@@ -14690,7 +14690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884cb9f143b858d4c930f25df70107d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WizardBoss
-  maxHealth: 200
+  maxHealth: 180
   currentHealth: 0
   phaseThreshold: 100
   moveSpeed: 1.5
@@ -14704,16 +14704,15 @@ MonoBehaviour:
   arcaneFanInterval: 6
   arcaneBurstUpgradedInterval: 4
   phase2VolleyCount: 3
-  phase2MissilesPerVolley: 5
-  phase2SpreadAngle: 40
-  phase2VolleyDelay: 0.4
+  phase2MissilesPerVolley: 3
+  phase2SpreadAngle: 30
+  phase2VolleyDelay: 0.3
   magicMissilePrefab: {fileID: 4569329825227615549, guid: bb8c414e29bfa1e4d8fde7212f72169e, type: 3}
   arcaneBurstPrefab: {fileID: 6513856962258348606, guid: fe72cc5db2c8f674b8f28912745c91db, type: 3}
   blinkSpeed: 10
   auraEffect: {fileID: 109774712}
   staggerDuration: 0.5
   wizardSpellbookItemPrefab: {fileID: 3177619109769666948, guid: abf9bb385f6a3c74ea1487479ada9231, type: 3}
-  bossDialogue: {fileID: 0}
 --- !u!95 &1195930999
 Animator:
   serializedVersion: 7

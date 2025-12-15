@@ -7,7 +7,7 @@ using UnityEngine;
 public class SkeletonArcherController : MonoBehaviour
 {
     [Header("Archer Stats")]
-    [SerializeField] private int maxHealth = 50;
+    [SerializeField] private int maxHealth = 40;
     [SerializeField] private int currentHealth;
     [SerializeField] private int contactDamage = 5; // Damage when player touches archer
 
@@ -20,7 +20,7 @@ public class SkeletonArcherController : MonoBehaviour
 
     [Header("Attack Settings")]
     [SerializeField] private float shootInterval = 2.5f;
-    [SerializeField] private int arrowDamage = 10;
+    [SerializeField] private int arrowDamage = 20;
     [SerializeField] private float arrowSpeed = 8f;
     [SerializeField] private float stunDuration = 0.3f;
 

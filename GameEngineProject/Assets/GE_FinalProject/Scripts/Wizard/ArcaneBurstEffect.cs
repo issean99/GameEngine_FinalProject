@@ -7,7 +7,7 @@ public class ArcaneBurstEffect : MonoBehaviour
     [Header("Explosion Settings")]
     [SerializeField] private float delayTime = 1f;
     [SerializeField] private float explosionRadius = 3f;
-    [SerializeField] private int damage = 20;
+    [SerializeField] private int damage = 40;
     [SerializeField] private bool isPlayerCast = false; // true = damages enemies, false = damages player
 
     private bool hasExploded = false;
@@ -22,7 +22,7 @@ public class ArcaneBurstEffect : MonoBehaviour
     [SerializeField] private AudioClip explosionSound;
     [SerializeField] [Range(0f, 1f)] private float volume = 0.7f;
 
-    private HashSet<Collider2D> damagedTargets = new HashSet<Collider2D>();
+    private HashSet<GameObject> damagedTargets = new HashSet<GameObject>();
     private AudioSource audioSource;
 
     private void Awake()
@@ -152,7 +152,7 @@ public class ArcaneBurstEffect : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            if (damagedTargets.Contains(hit)) continue;
+            if (damagedTargets.Contains(hit.gameObject)) continue;
 
             if (isPlayerCast)
             {
@@ -164,7 +164,7 @@ public class ArcaneBurstEffect : MonoBehaviour
                     if (slime != null)
                     {
                         slime.TakeDamage(damage);
-                        damagedTargets.Add(hit);
+                        damagedTargets.Add(hit.gameObject);
                         Debug.Log($"Arcane Burst hit Slime for {damage} damage!");
                         continue;
                     }
@@ -173,7 +173,7 @@ public class ArcaneBurstEffect : MonoBehaviour
                     if (skeleton != null)
                     {
                         skeleton.TakeDamage(damage);
-                        damagedTargets.Add(hit);
+                        damagedTargets.Add(hit.gameObject);
                         Debug.Log($"Arcane Burst hit Skeleton for {damage} damage!");
                         continue;
                     }
@@ -182,7 +182,7 @@ public class ArcaneBurstEffect : MonoBehaviour
                     if (archer != null)
                     {
                         archer.TakeDamage(damage);
-                        damagedTargets.Add(hit);
+                        damagedTargets.Add(hit.gameObject);
                         Debug.Log($"Arcane Burst hit Archer for {damage} damage!");
                         continue;
                     }
@@ -191,7 +191,7 @@ public class ArcaneBurstEffect : MonoBehaviour
                     if (werewolf != null)
                     {
                         werewolf.TakeDamage(damage);
-                        damagedTargets.Add(hit);
+                        damagedTargets.Add(hit.gameObject);
                         Debug.Log($"Arcane Burst hit WereWolf for {damage} damage!");
                         continue;
                     }
@@ -200,7 +200,7 @@ public class ArcaneBurstEffect : MonoBehaviour
                     if (wizardBoss != null)
                     {
                         wizardBoss.TakeDamage(damage);
-                        damagedTargets.Add(hit);
+                        damagedTargets.Add(hit.gameObject);
                         Debug.Log($"Arcane Burst hit Wizard Boss for {damage} damage!");
                         continue;
                     }
@@ -209,7 +209,7 @@ public class ArcaneBurstEffect : MonoBehaviour
                     if (finalBoss != null)
                     {
                         finalBoss.TakeDamage(damage);
-                        damagedTargets.Add(hit);
+                        damagedTargets.Add(hit.gameObject);
                         Debug.Log($"Arcane Burst hit Final Boss for {damage} damage!");
                         continue;
                     }
@@ -224,7 +224,7 @@ public class ArcaneBurstEffect : MonoBehaviour
                     if (player != null)
                     {
                         player.TakeDamage(damage);
-                        damagedTargets.Add(hit);
+                        damagedTargets.Add(hit.gameObject);
                         Debug.Log($"Arcane Burst hit player for {damage} damage!");
                     }
                 }

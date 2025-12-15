@@ -7,9 +7,9 @@ using UnityEngine;
 public class WizardBoss : MonoBehaviour
 {
     [Header("Boss Stats")]
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int maxHealth = 180;
     [SerializeField] private int currentHealth;
-    [SerializeField] private float phaseThreshold = 50; // Health threshold for Phase 2
+    [SerializeField] private float phaseThreshold = 100; // Health threshold for Phase 2
 
     // Public properties for UI access
     public int MaxHealth => maxHealth;

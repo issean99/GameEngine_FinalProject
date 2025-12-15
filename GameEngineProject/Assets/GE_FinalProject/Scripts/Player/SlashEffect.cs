@@ -6,13 +6,13 @@ public class SlashEffect : MonoBehaviour
     [Header("Slash Settings")]
     [SerializeField] private float slashDuration = 0.3f; // 애니메이션 지속 시간
     [SerializeField] private float offsetDistance = 1f; // 플레이어로부터의 거리
-    [SerializeField] private int damage = 20; // 공격 데미지
+    [SerializeField] private int damage = 30; // 공격 데미지
     [SerializeField] private float attackRadius = 1.5f; // 공격 범위 반경
     [SerializeField] private LayerMask enemyLayer; // Enemy 레이어
 
     private float spawnTime;
     private SpriteRenderer spriteRenderer;
-    private HashSet<Collider2D> hitEnemies = new HashSet<Collider2D>(); // 이미 맞은 적 추적
+    private HashSet<GameObject> hitEnemies = new HashSet<GameObject>(); // 이미 맞은 적 추적 (GameObject 단위)
     private bool hasDealtDamage = false; // 데미지를 한 번만 주기 위한 플래그
 
     private void Start()
@@ -34,11 +34,7 @@ public class SlashEffect : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // 지속적으로 범위 내 적 감지 (이미 맞은 적 제외)
-        if (!hasDealtDamage)
-        {
-            DetectAndAttackEnemies();
-        }
+        // Update에서는 더 이상 데미지를 주지 않음 (Start에서 한 번만 처리)
     }
 
     // 외부에서 위치와 방향을 설정하는 함수
@@ -84,14 +80,14 @@ public class SlashEffect : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            // 이미 맞은 적은 제외
-            if (hitEnemies.Contains(hit))
+            // 이미 맞은 적은 제외 (GameObject 단위로 체크)
+            if (hitEnemies.Contains(hit.gameObject))
                 continue;
 
             // Enemy 태그 확인
             if (hit.CompareTag("Enemy"))
             {
-                hitEnemies.Add(hit);
+                hitEnemies.Add(hit.gameObject); // GameObject를 추가
 
                 // 슬라임에게 데미지
                 SlimeController slime = hit.GetComponent<SlimeController>();

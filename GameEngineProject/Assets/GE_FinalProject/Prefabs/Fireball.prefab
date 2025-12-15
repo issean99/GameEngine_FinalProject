@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3753d3d21af3a9b4eb8fcd42088a8777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireballProjectile
-  damage: 30
+  damage: 10
   speed: 12
   lifetime: 5
   hitEffectPrefab: {fileID: 0}

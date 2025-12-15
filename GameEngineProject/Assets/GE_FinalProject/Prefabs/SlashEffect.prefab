@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlashEffect
   slashDuration: 0.3
   offsetDistance: 2
-  damage: 20
+  damage: 30
   attackRadius: 1.5
   enemyLayer:
     serializedVersion: 2

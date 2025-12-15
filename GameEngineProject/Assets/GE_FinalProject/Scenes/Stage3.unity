@@ -653,7 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -3656,7 +3656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -3883,9 +3883,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -4281,7 +4281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -4508,9 +4508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -4735,7 +4735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -4964,7 +4964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -5604,7 +5604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -7973,9 +7973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -8553,9 +8553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -8778,9 +8778,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -9003,9 +9003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -11013,7 +11013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -11719,9 +11719,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -12489,9 +12489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -14296,9 +14296,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -15761,7 +15761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -16310,7 +16310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -21429,7 +21429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -22861,9 +22861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eff434c35efd5c4885a4954d399efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WereWolfController
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  moveSpeed: 3.5
+  moveSpeed: 4
   detectionRange: 7
   attackRange: 2
   attackCooldown: 2
@@ -23473,7 +23473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -23702,7 +23702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5

@@ -5583,9 +5583,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a08acaf08119f984183763ca3f7deadb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinalBoss
-  maxHealth: 600
+  maxHealth: 300
   currentHealth: 0
-  phaseThreshold: 400
+  phaseThreshold: 150
   moveSpeed: 4
   detectionRange: 9
   minDistance: 3
@@ -5607,7 +5607,7 @@ MonoBehaviour:
   lungeChargeTime: 1.5
   lungeRetreatDistance: 3
   lungeRetreatSpeed: 6
-  spearDamage: 30
+  spearDamage: 40
   spearSpeed: 8
   spearSpread: 29.9
   spearPrefab: {fileID: 7543578166389783211, guid: ce9afb66b88ab784bbfb91993c93b942, type: 3}
@@ -5620,7 +5620,6 @@ MonoBehaviour:
   corruptedZoneInterval: 0.1
   corruptedZoneDuration: 3
   corruptedZoneDamage: 2
-  bossDialogue: {fileID: 0}
 --- !u!58 &548140232
 CircleCollider2D:
   m_ObjectHideFlags: 0

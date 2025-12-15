@@ -8,7 +8,7 @@ public class SkeletonController : MonoBehaviour
     [Header("Enemy Stats")]
     [SerializeField] private int maxHealth = 60;
     [SerializeField] private int currentHealth;
-    [SerializeField] private int attackDamage = 15;
+    [SerializeField] private int attackDamage = 10;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 2.5f;

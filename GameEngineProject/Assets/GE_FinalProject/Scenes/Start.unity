@@ -158126,7 +158126,7 @@ MonoBehaviour:
   hasExplosionSkill: 0
   explosionDelay: 1
   explosionRadius: 2
-  explosionDamage: 40
+  explosionDamage: 30
   hasDefenseSkill: 0
   defenseDuration: 1
   defenseCooldown: 2
@@ -158137,7 +158137,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 2
   dashEffect: {fileID: 1449863809}
-  maxHealth: 50
+  maxHealth: 80
   currentHealth: 0
   invincibilityDuration: 1
   respawnInvincibilityDuration: 3

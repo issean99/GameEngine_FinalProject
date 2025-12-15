@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -994,7 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -2617,7 +2617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -3031,7 +3031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -3444,7 +3444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -3783,7 +3783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad254a3af8b653a478b417fac404ab0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
   moveSpeed: 2
   detectionRange: 5
@@ -4371,7 +4371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad254a3af8b653a478b417fac404ab0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
   moveSpeed: 2
   detectionRange: 5
@@ -4609,7 +4609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad254a3af8b653a478b417fac404ab0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
   moveSpeed: 2
   detectionRange: 5
@@ -5193,7 +5193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -5624,7 +5624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad254a3af8b653a478b417fac404ab0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
   moveSpeed: 2
   detectionRange: 5
@@ -6073,7 +6073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -6715,7 +6715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -6944,7 +6944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -7173,7 +7173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -7790,7 +7790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad254a3af8b653a478b417fac404ab0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
   moveSpeed: 2
   detectionRange: 5
@@ -8683,7 +8683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -9050,7 +9050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -25012,7 +25012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -30359,7 +30359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -30725,7 +30725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -31064,7 +31064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad254a3af8b653a478b417fac404ab0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
   moveSpeed: 2
   detectionRange: 5
@@ -31556,7 +31556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5
@@ -32040,7 +32040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonController
   maxHealth: 60
   currentHealth: 0
-  attackDamage: 15
+  attackDamage: 10
   moveSpeed: 2.5
   detectionRange: 6
   attackRange: 1.5

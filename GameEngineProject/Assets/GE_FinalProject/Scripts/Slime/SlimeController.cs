@@ -6,7 +6,7 @@ using UnityEngine;
 public class SlimeController : MonoBehaviour
 {
     [Header("Enemy Stats")]
-    [SerializeField] private int maxHealth = 50;
+    [SerializeField] private int maxHealth = 30;
     [SerializeField] private int currentHealth;
 
     [Header("Movement Settings")]
