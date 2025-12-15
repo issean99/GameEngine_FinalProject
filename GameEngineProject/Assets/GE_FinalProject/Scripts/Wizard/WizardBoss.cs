@@ -7,9 +7,9 @@ using UnityEngine;
 public class WizardBoss : MonoBehaviour
 {
     [Header("Boss Stats")]
-    [SerializeField] private int maxHealth = 180;
+    [SerializeField] private int maxHealth = 240;
     [SerializeField] private int currentHealth;
-    [SerializeField] private float phaseThreshold = 100; // Health threshold for Phase 2
+    [SerializeField] private float phaseThreshold = 120; // Health threshold for Phase 2
 
     // Public properties for UI access
     public int MaxHealth => maxHealth;
@@ -306,7 +306,7 @@ public class WizardBoss : MonoBehaviour
             ArcaneBurstEffect burstEffect = marker.GetComponent<ArcaneBurstEffect>();
             if (burstEffect != null)
             {
-                burstEffect.Initialize(1f, 3f, 20); // 1 second delay, 3 units radius, 20 damage
+                burstEffect.Initialize(1f, 3f, 30); // 1 second delay, 3 units radius, 30 damage
             }
         }
 
@@ -374,7 +374,7 @@ public class WizardBoss : MonoBehaviour
             ArcaneBurstEffect burstEffect = marker.GetComponent<ArcaneBurstEffect>();
             if (burstEffect != null)
             {
-                burstEffect.Initialize(1f, 2.5f, 25); // 1 second delay, 2.5 units radius, 25 damage
+                burstEffect.Initialize(1f, 2.5f, 40); // 1 second delay, 2.5 units radius, 40 damage
             }
 
             yield return new WaitForSeconds(0.5f);
@@ -395,7 +395,7 @@ public class WizardBoss : MonoBehaviour
 
         if (projScript != null)
         {
-            projScript.Initialize(direction, speed, 15); // 15 damage
+            projScript.Initialize(direction, speed, 20); // 20 damage
         }
     }
 
@@ -418,7 +418,7 @@ public class WizardBoss : MonoBehaviour
 
         if (projScript != null)
         {
-            projScript.Initialize(direction, speed, 15); // 15 damage
+            projScript.Initialize(direction, speed, 20); // 20 damage
         }
     }
 
