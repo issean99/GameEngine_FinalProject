@@ -35,12 +35,19 @@ public class StartSceneManager : MonoBehaviour
 
     private void Start()
     {
+        // Ensure playerPersisted flag is reset when returning to Start scene
+        Debug.Log($"[StartSceneManager] Start() called. playerPersisted flag: {playerPersisted}");
+
         // StartScenePlayerManager가 있는지 확인, 없으면 생성
         if (FindObjectOfType<StartScenePlayerManager>() == null)
         {
             GameObject manager = new GameObject("StartScenePlayerManager");
             manager.AddComponent<StartScenePlayerManager>();
             Debug.Log("[StartSceneManager] StartScenePlayerManager created");
+        }
+        else
+        {
+            Debug.Log("[StartSceneManager] StartScenePlayerManager already exists");
         }
 
         // If player reference is missing (destroyed by Back button), find it in the scene
@@ -70,9 +77,10 @@ public class StartSceneManager : MonoBehaviour
             player.SetActive(false);
         }
 
-        // Add listeners to buttons
+        // Add listeners to buttons (remove existing listeners first to prevent duplicates)
         if (startButton != null)
         {
+            startButton.onClick.RemoveAllListeners();
             startButton.onClick.AddListener(OnStartButtonClicked);
         }
         else
@@ -82,6 +90,7 @@ public class StartSceneManager : MonoBehaviour
 
         if (exitButton != null)
         {
+            exitButton.onClick.RemoveAllListeners();
             exitButton.onClick.AddListener(OnExitButtonClicked);
         }
         else

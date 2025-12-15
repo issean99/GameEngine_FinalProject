@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -91,10 +92,23 @@ public class PauseMenuManager : MonoBehaviour
             pauseMenuCanvas.SetActive(false);
         }
 
+        // Start coroutine to properly sequence the reset
+        StartCoroutine(BackToMenuSequence());
+    }
+
+    private IEnumerator BackToMenuSequence()
+    {
+        // Wait one frame to ensure UI is properly hidden
+        yield return null;
+
         // Destroy ALL persistent objects to completely reset game state
         DestroyAllPersistentObjects();
 
-        // Load Start scene
+        // Wait multiple frames to ensure all destruction is complete
+        yield return null;
+        yield return null;
+
+        // Directly load Start scene (no fade, as fade might cause issues with destroyed objects)
         SceneManager.LoadScene("Start");
     }
 

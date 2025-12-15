@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -285,10 +286,23 @@ public class GameOverUI : MonoBehaviour
         // Resume time before loading scene
         Time.timeScale = 1f;
 
+        // Start coroutine to properly sequence the reset
+        StartCoroutine(BackToMenuSequence());
+    }
+
+    private IEnumerator BackToMenuSequence()
+    {
+        // Wait one frame to ensure UI state is stable
+        yield return null;
+
         // Destroy ALL persistent objects to completely reset game state
         DestroyAllPersistentObjects();
 
-        // Load start scene
+        // Wait multiple frames to ensure all destruction is complete
+        yield return null;
+        yield return null;
+
+        // Directly load Start scene (no fade, as fade might cause issues with destroyed objects)
         SceneManager.LoadScene(startSceneName);
     }
 
@@ -325,13 +339,21 @@ public class GameOverUI : MonoBehaviour
             Destroy(manager.gameObject);
         }
 
-        // 4. Destroy ALL Camera Systems (persistent and scene-based)
+        // 4. Destroy ONLY persistent Camera Systems (not scene-based cameras)
         foreach (GameObject obj in allObjects)
         {
             if (obj.name.Contains("Camera System") || obj.name.Contains("CameraSystem"))
             {
-                Debug.Log($"[GameOverUI] Destroying camera system: {obj.name}");
-                Destroy(obj);
+                // Only destroy if it's a DontDestroyOnLoad object (no scene)
+                if (obj.scene.name == null)
+                {
+                    Debug.Log($"[GameOverUI] Destroying persistent camera system: {obj.name}");
+                    Destroy(obj);
+                }
+                else
+                {
+                    Debug.Log($"[GameOverUI] Keeping scene-based camera: {obj.name} (scene: {obj.scene.name})");
+                }
             }
         }
 
@@ -371,19 +393,7 @@ public class GameOverUI : MonoBehaviour
             }
         }
 
-        // 7. Destroy SceneTransitionManager's TransitionCanvas (child objects)
-        // This will be recreated automatically when needed
-        GameObject[] allDontDestroyObjects = Resources.FindObjectsOfTypeAll<GameObject>();
-        foreach (GameObject obj in allDontDestroyObjects)
-        {
-            if (obj.scene.name == null && obj.name == "TransitionCanvas")
-            {
-                Debug.Log($"[GameOverUI] Destroying TransitionCanvas (will be recreated): {obj.name}");
-                Destroy(obj);
-            }
-        }
-
-        // 8. Reset static references in StartScenePlayerManager
+        // 7. Reset static references in StartScenePlayerManager
         // This ensures the next game start is completely fresh
         Debug.Log("[GameOverUI] Clearing all static references");
         StartScenePlayerManager.ResetAllStaticReferences();
