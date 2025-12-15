@@ -22,31 +22,33 @@ public class ScenePortal : MonoBehaviour
     [Header("Portal Settings")]
     [SerializeField] private bool requirePlayerInRange = true; // Require player to be near portal
     [SerializeField] private float interactionRange = 2f; // Distance player needs to be from portal
+    [SerializeField] private bool requireAllEnemiesDefeated = true; // 모든 적을 처치해야 포탈 사용 가능
 
     [Header("UI Feedback (Optional)")]
     [SerializeField] private GameObject promptUI; // UI prompt to show when player is in range (e.g., "Press T to Enter")
+    [SerializeField] private GameObject lockedPromptUI; // UI prompt when portal is locked (e.g., "Defeat all enemies first!")
     [SerializeField] private SpriteRenderer portalSprite; // Portal sprite renderer for visual feedback
-    [SerializeField] private Color highlightColor = Color.cyan; // Color when player is in range
+    [SerializeField] private Color unlockedColor = Color.green; // Color when portal is unlocked (all enemies defeated)
+    [SerializeField] private Color lockedColor = Color.red; // Color when portal is locked (enemies remaining)
 
     private bool playerInRange = false;
     private GameObject player;
-    private Color originalColor;
+    private bool wasUnlocked = false; // Track previous unlock state
     private Keyboard keyboard;
 
     private void Awake()
     {
         keyboard = Keyboard.current;
 
-        // Store original color
-        if (portalSprite != null)
-        {
-            originalColor = portalSprite.color;
-        }
-
-        // Hide prompt initially
+        // Hide prompts initially
         if (promptUI != null)
         {
             promptUI.SetActive(false);
+        }
+
+        if (lockedPromptUI != null)
+        {
+            lockedPromptUI.SetActive(false);
         }
     }
 
@@ -60,6 +62,9 @@ public class ScenePortal : MonoBehaviour
         {
             Debug.LogError($"[ScenePortal] No scene specified! Set either nextSceneName or nextSceneBuildIndex on {gameObject.name}");
         }
+
+        // Set initial portal color based on lock state
+        UpdatePortalColor();
     }
 
     private void Update()
@@ -68,6 +73,14 @@ public class ScenePortal : MonoBehaviour
         {
             keyboard = Keyboard.current;
             if (keyboard == null) return;
+        }
+
+        // Check if unlock state changed (enemy defeated)
+        bool currentlyUnlocked = IsPortalUnlocked();
+        if (currentlyUnlocked != wasUnlocked)
+        {
+            wasUnlocked = currentlyUnlocked;
+            UpdatePortalColor();
         }
 
         // Check if player is in range
@@ -92,6 +105,13 @@ public class ScenePortal : MonoBehaviour
         // Check for T key press
         if (keyboard.tKey.wasPressedThisFrame)
         {
+            // Check if all enemies are defeated (if required)
+            if (requireAllEnemiesDefeated && !IsPortalUnlocked())
+            {
+                Debug.Log("[ScenePortal] Portal is locked! Defeat all enemies first.");
+                return;
+            }
+
             if (!requirePlayerInRange || playerInRange)
             {
                 TransitionToNextScene();
@@ -103,23 +123,75 @@ public class ScenePortal : MonoBehaviour
         }
     }
 
-    private void UpdateVisualFeedback(bool inRange)
+    /// <summary>
+    /// 포탈이 잠금 해제되었는지 확인
+    /// Check if portal is unlocked (all enemies defeated)
+    /// </summary>
+    private bool IsPortalUnlocked()
     {
-        // Show/hide prompt UI
-        if (promptUI != null)
+        if (!requireAllEnemiesDefeated)
         {
-            promptUI.SetActive(inRange);
+            return true; // 적 처치 요구사항 없음
         }
 
-        // Change portal color
-        if (portalSprite != null)
+        if (EnemyManager.Instance == null)
         {
-            portalSprite.color = inRange ? highlightColor : originalColor;
+            Debug.LogWarning("[ScenePortal] EnemyManager not found! Portal will be unlocked by default.");
+            return true;
+        }
+
+        return EnemyManager.Instance.AllEnemiesDefeated;
+    }
+
+    /// <summary>
+    /// 포탈 색상 업데이트 (적 처치 상태에 따라)
+    /// Update portal color based on enemy defeat status
+    /// </summary>
+    private void UpdatePortalColor()
+    {
+        if (portalSprite == null) return;
+
+        bool portalUnlocked = IsPortalUnlocked();
+
+        if (portalUnlocked)
+        {
+            // All enemies defeated - green
+            portalSprite.color = unlockedColor;
+            Debug.Log("[ScenePortal] Portal unlocked! Color changed to green.");
+        }
+        else
+        {
+            // Enemies remaining - red
+            portalSprite.color = lockedColor;
+        }
+    }
+
+    private void UpdateVisualFeedback(bool inRange)
+    {
+        bool portalUnlocked = IsPortalUnlocked();
+
+        // Show/hide prompt UI based on locked state
+        if (promptUI != null)
+        {
+            promptUI.SetActive(inRange && portalUnlocked);
+        }
+
+        if (lockedPromptUI != null)
+        {
+            lockedPromptUI.SetActive(inRange && !portalUnlocked);
         }
 
         if (inRange)
         {
-            Debug.Log($"[ScenePortal] Player entered portal range. Press T to enter.");
+            if (portalUnlocked)
+            {
+                Debug.Log($"[ScenePortal] Player entered portal range. Press T to enter.");
+            }
+            else
+            {
+                int remaining = EnemyManager.Instance != null ? EnemyManager.Instance.RemainingEnemyCount : 0;
+                Debug.Log($"[ScenePortal] Portal is locked! Defeat {remaining} remaining enemies.");
+            }
         }
     }
 

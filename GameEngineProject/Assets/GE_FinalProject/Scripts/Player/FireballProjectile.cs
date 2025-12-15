@@ -8,7 +8,7 @@ using UnityEngine;
 public class FireballProjectile : MonoBehaviour
 {
     [Header("Projectile Properties")]
-    [SerializeField] private int damage = 30;
+    [SerializeField] private int damage = 20;
     [SerializeField] private float speed = 12f;
     [SerializeField] private float lifetime = 5f;
 

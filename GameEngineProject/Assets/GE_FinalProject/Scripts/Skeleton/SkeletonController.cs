@@ -8,7 +8,7 @@ public class SkeletonController : MonoBehaviour
     [Header("Enemy Stats")]
     [SerializeField] private int maxHealth = 60;
     [SerializeField] private int currentHealth;
-    [SerializeField] private int attackDamage = 15;
+    [SerializeField] private int attackDamage = 10;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 2.5f;
@@ -329,6 +329,12 @@ public class SkeletonController : MonoBehaviour
         isDead = true;
         currentHealth = 0;
 
+        // Notify EnemyManager
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.OnEnemyDefeated(gameObject);
+        }
+
         // Play death sound
         EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
         if (soundFX != null)
@@ -386,6 +392,11 @@ public class SkeletonController : MonoBehaviour
     public bool IsStaggeredOrDead()
     {
         return isStaggered || isDead;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 
     // Visualize ranges in editor

@@ -7,9 +7,13 @@ using UnityEngine;
 public class WizardBoss : MonoBehaviour
 {
     [Header("Boss Stats")]
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int maxHealth = 180;
     [SerializeField] private int currentHealth;
-    [SerializeField] private float phaseThreshold = 50; // Health threshold for Phase 2
+    [SerializeField] private float phaseThreshold = 100; // Health threshold for Phase 2
+
+    // Public properties for UI access
+    public int MaxHealth => maxHealth;
+    public int CurrentHealth => currentHealth;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 1.5f;
@@ -582,7 +586,7 @@ public class WizardBoss : MonoBehaviour
         // Drop fireball skill item immediately on death
         DropFireballItem();
 
-        // Play death dialogue
+        // Play death dialogue (auto-find BossDialogue and use Boss1 dialogues)
         BossDialogue bossDialogue = FindObjectOfType<BossDialogue>();
         if (bossDialogue != null)
         {
@@ -594,6 +598,10 @@ public class WizardBoss : MonoBehaviour
             {
                 yield return null;
             }
+        }
+        else
+        {
+            Debug.LogWarning("[WizardBoss] BossDialogue not found! Skipping death dialogue.");
         }
 
         // Change BGM back to Boss 1 Phase 1 BGM after boss death

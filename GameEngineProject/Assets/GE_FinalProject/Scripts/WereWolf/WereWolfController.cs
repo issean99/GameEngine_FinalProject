@@ -125,16 +125,35 @@ public class WereWolfController : MonoBehaviour
             // Face the player
             FacePlayer();
 
+            // Check if currently attacking
+            bool isCurrentlyAttacking = IsAttacking();
+
             if (distanceToPlayer <= attackRange)
             {
                 // In attack range - stop and attack
-                StopMoving();
-                TryAttack();
+                if (!isCurrentlyAttacking)
+                {
+                    StopMoving();
+                    TryAttack();
+                }
+                else
+                {
+                    // Keep stopped while attacking
+                    StopMoving();
+                }
             }
             else
             {
-                // Move towards player
-                MoveTowardsPlayer();
+                // Move towards player (only if not attacking)
+                if (!isCurrentlyAttacking)
+                {
+                    MoveTowardsPlayer();
+                }
+                else
+                {
+                    // Keep stopped while attacking (even if player moved away)
+                    StopMoving();
+                }
             }
         }
         else
@@ -203,11 +222,21 @@ public class WereWolfController : MonoBehaviour
         }
     }
 
+    private bool IsAttacking()
+    {
+        if (animator == null) return false;
+
+        // Check if currently in Attack state
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        return stateInfo.IsName("WereWolfAttack");
+    }
+
     private void TryAttack()
     {
         if (Time.time - lastAttackTime < attackCooldown) return;
 
         lastAttackTime = Time.time;
+        StopMoving(); // 공격 시작 시 즉시 멈춤
 
         // Play attack sound
         EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
@@ -280,6 +309,12 @@ public class WereWolfController : MonoBehaviour
         isDead = true;
         currentHealth = 0;
 
+        // Notify EnemyManager
+        if (EnemyManager.Instance != null)
+        {
+            EnemyManager.Instance.OnEnemyDefeated(gameObject);
+        }
+
         // Play death sound
         EnemySoundEffects soundFX = GetComponent<EnemySoundEffects>();
         if (soundFX != null)
@@ -341,6 +376,11 @@ public class WereWolfController : MonoBehaviour
     public bool IsStaggeredOrDead()
     {
         return isStaggered || isDead;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 
     // Visualize ranges in editor
