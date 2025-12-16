@@ -4,7 +4,7 @@ using UnityEngine;
 public class FinalBossAttackHitbox : MonoBehaviour
 {
     [Header("Hitbox Settings")]
-    [SerializeField] private int damage = 20;
+    [SerializeField] private int damage = 30;
     [SerializeField] private float knockbackForce = 10f;
 
     private FinalBoss boss;

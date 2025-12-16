@@ -14690,9 +14690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884cb9f143b858d4c930f25df70107d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WizardBoss
-  maxHealth: 180
+  maxHealth: 240
   currentHealth: 0
-  phaseThreshold: 100
+  phaseThreshold: 120
   moveSpeed: 1.5
   detectionRange: 8
   keepDistance: 5

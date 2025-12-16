@@ -8,9 +8,9 @@ using UnityEngine;
 public class FinalBoss : MonoBehaviour
 {
     [Header("Boss Stats")]
-    [SerializeField] private int maxHealth = 300;
+    [SerializeField] private int maxHealth = 400;
     [SerializeField] private int currentHealth;
-    [SerializeField] private float phaseThreshold = 150; // Health threshold for Phase 2
+    [SerializeField] private float phaseThreshold = 200; // Health threshold for Phase 2
 
     // Public properties for UI access
     public int MaxHealth => maxHealth;
@@ -46,8 +46,8 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private float lungeChargeTime = 1.2f; // Wind-up time for lunge
     [SerializeField] private float lungeRetreatDistance = 3f; // Distance to retreat before lunge
     [SerializeField] private float lungeRetreatSpeed = 6f;
-    [SerializeField] private int spearDamage = 15;
-    [SerializeField] private float spearSpeed = 12f;
+    [SerializeField] private int spearDamage = 60;
+    [SerializeField] private float spearSpeed = 15f;
     [SerializeField] private float spearSpread = 15f; // Angle spread for multiple spears
 
     [Header("Prefabs")]
